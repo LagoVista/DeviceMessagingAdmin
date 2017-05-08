@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>LagoVista.IoT.DeviceMessaging.Rest</id>
+    <version>0.8.158-alpha1657</version>
+    <authors>Software Logistics, LLC</authors>
+    <owners>Software Logistics, LLC</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/LagoVista/DeviceAdmin</projectUrl>
+    <iconUrl>http://bytemaster.blob.core.windows.net/icons/LagoVistaIcon.png</iconUrl>
+    <description>Provides ASP.NET Core REST services to manage Device Message Definitions in the LagoVista IoT and Devices Framework</description>
+    <releaseNotes>Initial and Unstable Release</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>HomeAutomation IoT</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="10.0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\release\netstandard1.6\*.dll" target="lib\netstandard1.6" />
+  </files>
+</package>

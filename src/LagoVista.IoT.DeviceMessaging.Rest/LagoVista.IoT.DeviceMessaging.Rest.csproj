@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="LagoVista.Core" Version="0.8.158-alpha1657" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.158-alpha1657" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.158-alpha1657" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LagoVista.IoT.DeviceMessaging.Admin\LagoVista.IoT.DeviceMessaging.Admin.csproj" />
+  </ItemGroup>
+</Project>

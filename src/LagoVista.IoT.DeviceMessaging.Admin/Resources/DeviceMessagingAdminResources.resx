@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Common_Description" xml:space="preserve">
+    <value>Descrption</value>
+  </data>
+  <data name="Common_Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Common_IsPublic" xml:space="preserve">
+    <value>Is Public</value>
+  </data>
+  <data name="Common_Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="Common_Key_Help" xml:space="preserve">
+    <value>The key is used to identify this item in scripts and must be unique with respect to it's parent. One a key has been assigned, it can not be changed.</value>
+  </data>
+  <data name="Common_Key_Validation" xml:space="preserve">
+    <value>The key must use only letters and numbers, and must be lowercase and must be between 3 and 20 characters.</value>
+  </data>
+  <data name="Common_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Common_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="DeviceMessageDefinition_Description" xml:space="preserve">
+    <value>Content and Format of a Message your Device will Send or Receive</value>
+  </data>
+  <data name="DeviceMessageDefinition_Fields" xml:space="preserve">
+    <value>Fields</value>
+  </data>
+  <data name="DeviceMessageDefinition_Help" xml:space="preserve">
+    <value>Content and Format of a Message your Device will Send or Receive</value>
+  </data>
+  <data name="DeviceMessageDefinition_Key_Help" xml:space="preserve">
+    <value>The key is used to identify this item in scripts and must be unique with respect to it's parent. One a key has been assigned, it can not be changed.  The Key can different from the Message Id in that the message id can be anything that the device requires.  They can also be the same.</value>
+  </data>
+  <data name="DeviceMessageDefinition_MessageId" xml:space="preserve">
+    <value>Message Id</value>
+  </data>
+  <data name="DeviceMessageDefinition_MessageId_Help" xml:space="preserve">
+    <value>The Message Id is a free form field that you can add add an Id that you can use to relate this message type to a message type in your system. They key must be unique across your organization. You can add anything you want in the Message Id field.</value>
+  </data>
+  <data name="DeviceMessageDefinition_Script" xml:space="preserve">
+    <value>Translation Script</value>
+  </data>
+  <data name="DeviceMessageDefinition_Title" xml:space="preserve">
+    <value>Message Definition</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_Boolean" xml:space="preserve">
+    <value>Boolean (8 bit, zero = false, non-zero = true)</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_Char" xml:space="preserve">
+    <value>Char</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_DoublePrecisionFloatingPoint" xml:space="preserve">
+    <value>Double Precision Floating Point</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_Int16" xml:space="preserve">
+    <value>Signed 16 Bit Integer</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_Int32" xml:space="preserve">
+    <value>Signed 32 Bit Integer</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_Int64" xml:space="preserve">
+    <value>Signed 64 Bit Integer</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_Int8" xml:space="preserve">
+    <value>Signed 8 Bit Integer (byte)</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_SinglePrecisionFloatingPoint" xml:space="preserve">
+    <value>Single Precision Floating Point</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_String" xml:space="preserve">
+    <value>String</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_UInt16" xml:space="preserve">
+    <value>Unsigned 16 Bit Integer</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_UInt32" xml:space="preserve">
+    <value>Unsigned 32 Bit Integer </value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_UInt64" xml:space="preserve">
+    <value>Unsigned 64 Bit Integer</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_UInt8" xml:space="preserve">
+    <value>Unsigned 8 Bit Integer (char)</value>
+  </data>
+  <data name="DeviceMessageField_Delimited_Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="DeviceMessageField_Delimited_Index_Help" xml:space="preserve">
+    <value>Provide the column within the delimited text that include the value that should be extracted</value>
+  </data>
+  <data name="DeviceMessageField_Description" xml:space="preserve">
+    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is populated from the Input Translator and mapped to a Input on a Device Workflow</value>
+  </data>
+  <data name="DeviceMessageField_FieldType_Help" xml:space="preserve">
+    <value>You need to define the type of data that is arriving in the field.</value>
+  </data>
+  <data name="DeviceMessageField_GroupName" xml:space="preserve">
+    <value>Regular Expression Group Name</value>
+  </data>
+  <data name="DeviceMessageField_GroupName_Help" xml:space="preserve">
+    <value>If you are using a Regular Expression to parse your message that regular expression must contain group names to assocaite the content of the message with values you which to extract.  You need to enter those group names here.</value>
+  </data>
+  <data name="DeviceMessageField_Help" xml:space="preserve">
+    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is populated from the Input Translator and mapped to a Input on a Device Workflow</value>
+  </data>
+  <data name="DeviceMessageField_JSONPath" xml:space="preserve">
+    <value>JSON Path</value>
+  </data>
+  <data name="DeviceMessageField_JsonPath_Help" xml:space="preserve">
+    <value>You can extract values from your JSON document by using a dot notation to denote heirachry.  This will extract the subnode Name Person_Name in the json {'Person':{'Name':'Rascal'}}</value>
+  </data>
+  <data name="DeviceMessageField_MessageFieldType" xml:space="preserve">
+    <value>Message Field Type</value>
+  </data>
+  <data name="DeviceMessageField_MessageFieldType_Help" xml:space="preserve">
+    <value>The Message Filed Type is the data type that is assocaited with value within the message.  This data type is used to extract the contents into the storage field type.</value>
+  </data>
+  <data name="DeviceMessageField_MessageFieldType_Select" xml:space="preserve">
+    <value>-select message field type-</value>
+  </data>
+  <data name="DeviceMessageField_StartIndex" xml:space="preserve">
+    <value>Start Index</value>
+  </data>
+  <data name="DeviceMessageField_StorageFieldType" xml:space="preserve">
+    <value>Storage Field Type</value>
+  </data>
+  <data name="DeviceMessageField_StorageFieldType_Help" xml:space="preserve">
+    <value>The Storage Field Type is the data type that is associated with the value after the value has been parsed.  This type system is common to the development environment.</value>
+  </data>
+  <data name="DeviceMessageField_StorageFieldType_Select" xml:space="preserve">
+    <value>-select storage field type-</value>
+  </data>
+  <data name="DeviceMessageField_StringParser_Boolean" xml:space="preserve">
+    <value>Boolean - zero, false, False is false anything else true</value>
+  </data>
+  <data name="DeviceMessageField_StringParser_FloatingPointNumber" xml:space="preserve">
+    <value>Floating Point Number - 0.0</value>
+  </data>
+  <data name="DeviceMessageField_StringParser_String" xml:space="preserve">
+    <value>String</value>
+  </data>
+  <data name="DeviceMessageField_StringParser_WholeNumber" xml:space="preserve">
+    <value>Whole Number 0</value>
+  </data>
+  <data name="DeviceMessageField_Title" xml:space="preserve">
+    <value>Message Field</value>
+  </data>
+  <data name="DeviceMessageField_XPath" xml:space="preserve">
+    <value>XPath</value>
+  </data>
+  <data name="DeviceMessage_BinaryParsingStrategy_Select" xml:space="preserve">
+    <value>-select binary parsing strategy-</value>
+  </data>
+  <data name="DeviceMessage_BinaryParsing_Strategy" xml:space="preserve">
+    <value>Binary Message Parsing Strategy</value>
+  </data>
+  <data name="DeviceMessage_BinaryParsing_Strategy_Absolute" xml:space="preserve">
+    <value>Absolute</value>
+  </data>
+  <data name="DeviceMessage_BinaryParsing_Strategy_Help" xml:space="preserve">
+    <value>You can automatically parse the contents of a binary message by either an absolute mechanism or a relative mechanism.  If you choose the Aboslute Parsing Strategy the fields in your message will always come in the same exact position and you can specify the start location and data type to retreive the field.  If you choose the Relative mechanism you specify a Field Definition for each logical value in the message, you need to specify their exact data type and order in which the values arrive.</value>
+  </data>
+  <data name="DeviceMessage_BinaryParsing_Strategy_Relative" xml:space="preserve">
+    <value>Relative</value>
+  </data>
+  <data name="DeviceMessage_BinaryParsing_Strategy_Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="DeviceMessage_ContentType" xml:space="preserve">
+    <value>Content Type</value>
+  </data>
+  <data name="DeviceMessage_ContentType_Binary" xml:space="preserve">
+    <value>Binary</value>
+  </data>
+  <data name="DeviceMessage_ContentType_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="DeviceMessage_ContentType_Delimited" xml:space="preserve">
+    <value>Delimited</value>
+  </data>
+  <data name="DeviceMessage_ContentType_Help" xml:space="preserve">
+    <value>Select the format of how this message will arrive from the device</value>
+  </data>
+  <data name="DeviceMessage_ContentType_Json" xml:space="preserve">
+    <value>JSON</value>
+  </data>
+  <data name="DeviceMessage_ContentType_Select" xml:space="preserve">
+    <value>-select content format-</value>
+  </data>
+  <data name="DeviceMessage_ContentType_String" xml:space="preserve">
+    <value>String</value>
+  </data>
+  <data name="DeviceMessage_ContentType_Xml" xml:space="preserve">
+    <value>XML</value>
+  </data>
+  <data name="DeviceMessage_Delimiter" xml:space="preserve">
+    <value>Delimiter</value>
+  </data>
+  <data name="DeviceMessage_Endian" xml:space="preserve">
+    <value>String Size Encoding</value>
+  </data>
+  <data name="DeviceMessage_Endian_Help" xml:space="preserve">
+    <value>Different system store numbers in one of two ways, Big-endian and Little-endian.  Big-endian means that the most significant bytes of your count are stored first in the array of bytes that make up your number, Little-endian means that the Least Significant bytes come first in the byte array.  You can check with the manufacuture or the specifications of your device if you are unsure.  If your number is represented with only one byte this does not apply.</value>
+  </data>
+  <data name="DeviceMessage_Endian_Select" xml:space="preserve">
+    <value>-select endian type-</value>
+  </data>
+  <data name="DeviceMessage_FramingBytes" xml:space="preserve">
+    <value>Framing Bytes</value>
+  </data>
+  <data name="DeviceMessage_FramingBytes_Help" xml:space="preserve">
+    <value>A Framing Bytes are used to ensure the message that is being parsed is in the correct format, for example if you know your message header will always be 8 characters you might look for STX or 0x02 at position 9</value>
+  </data>
+  <data name="DeviceMessage_QuotedText" xml:space="preserve">
+    <value>Is Text Quoted</value>
+  </data>
+  <data name="DeviceMessage_QuotedText_Help" xml:space="preserve">
+    <value>Select this option if the text in your message is seperated by a quote (") or a tick (').  With this option selected standard encoding is used to determine the start, end and content of strings.  If this option is not selected the text will only be extracted by the delimter you specify</value>
+  </data>
+  <data name="DeviceMessage_RegEx" xml:space="preserve">
+    <value>Regular Expression</value>
+  </data>
+  <data name="DeviceMessage_RegEx_Help" xml:space="preserve">
+    <value>You can provide a Regular Expression to Extract the values from your incoming message.  You provide the regular expression here including any group names to associate with the data values.  You can then enter the group names in the message field definitions.</value>
+  </data>
+  <data name="DeviceMessage_StringParsingStrategy_Select" xml:space="preserve">
+    <value>-select string parsing strategy-</value>
+  </data>
+  <data name="DeviceMessgaeField_Endian_BigEndian" xml:space="preserve">
+    <value>Big Endian</value>
+  </data>
+  <data name="DeviceMessgaeField_Endian_LittleEndian" xml:space="preserve">
+    <value>Litten Endian</value>
+  </data>
+  <data name="DeviceMessgaeField_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="DeviceMessgaeField_StringParsing_Strategy" xml:space="preserve">
+    <value>String Parsing Strategy</value>
+  </data>
+  <data name="DeviceMessgaeField_StringParsing_Strategy_Help" xml:space="preserve">
+    <value>Sometimes strings are passed in as part of your binary message, if they are they can either be terminated by a null (0x00) or the string size is sent just before the actual string itself.  If your String is Null Terminated, select Null Terminated, if not select String Size Provided and enter the number of characters that will be sent to specify the string size.</value>
+  </data>
+  <data name="DeviceMessgaeField_StringParsing_Strategy_LengthProvided" xml:space="preserve">
+    <value>Length Provided</value>
+  </data>
+  <data name="DeviceMessgaeField_StringParsing_Strategy_NullTerminated" xml:space="preserve">
+    <value>Null Terminated</value>
+  </data>
+  <data name="DeviceMessgaeField_StringSize_CharacterCount" xml:space="preserve">
+    <value>String Size Character Count</value>
+  </data>
+  <data name="DeviceMessgaeField_StringSize_CharacterCount_Help" xml:space="preserve">
+    <value>Provide the number of bytes that are used to specify the length of the string.</value>
+  </data>
+  <data name="MessageFramingByte_AfterPayload" xml:space="preserve">
+    <value>Index is After Payload</value>
+  </data>
+  <data name="MessageFramingByte_AfterPayload_Help" xml:space="preserve">
+    <value>Offset the byte you are looking for to be searched immediately following the payload of your message.  For example if your payload is terminated with an ETX (0x03) at the end of the payload, and Index After Paylod is checked, it will look for the ETX character immediately following the last character of your payload.</value>
+  </data>
+  <data name="MessageFramingByte_Byte" xml:space="preserve">
+    <value>Byte</value>
+  </data>
+  <data name="MessageFramingByte_Byte_Help" xml:space="preserve">
+    <value>Specify the hex presentation of the character you expect to be at a specific location in your message.  The text should always be four characters similar to the format as shown with 0x43 </value>
+  </data>
+  <data name="MessageFramingByte_Description" xml:space="preserve">
+    <value>A Framing Byte is used to ensure the message that is being parsed is in the correct format, for example if you know your message header will always be 8 characters you might look for STX or 0x02 at position 9</value>
+  </data>
+  <data name="MessageFramingByte_Help" xml:space="preserve">
+    <value>A Framing Byte is used to ensure the message that is being parsed is in the correct format, for example if you know your message header will always be 8 characters you might look for STX or 0x02 at position 9</value>
+  </data>
+  <data name="MessageFramingByte_Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="MessageFramingByte_Index_Help" xml:space="preserve">
+    <value>Specify the location in the message where you expect this byte to be located</value>
+  </data>
+  <data name="MessageFramingByte_Title" xml:space="preserve">
+    <value>Framing Byte</value>
+  </data>
+</root>
