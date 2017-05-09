@@ -225,11 +225,20 @@
   <data name="DeviceMessageField_Help" xml:space="preserve">
     <value>A Message Field is part of a definition of a message that contains exactly one element.  It is populated from the Input Translator and mapped to a Input on a Device Workflow</value>
   </data>
+  <data name="DeviceMessageField_IsRequired" xml:space="preserve">
+    <value>Is Required</value>
+  </data>
   <data name="DeviceMessageField_JSONPath" xml:space="preserve">
     <value>JSON Path</value>
   </data>
   <data name="DeviceMessageField_JsonPath_Help" xml:space="preserve">
     <value>You can extract values from your JSON document by using a dot notation to denote heirachry.  This will extract the subnode Name Person_Name in the json {'Person':{'Name':'Rascal'}}</value>
+  </data>
+  <data name="DeviceMessageField_MaxValue" xml:space="preserve">
+    <value>Maximum Value</value>
+  </data>
+  <data name="DeviceMessageField_MaxValue_Help" xml:space="preserve">
+    <value>Provide the inclusive maximum expected value that is valid for this field or leave empty if not applicable</value>
   </data>
   <data name="DeviceMessageField_MessageFieldType" xml:space="preserve">
     <value>Message Field Type</value>
@@ -239,6 +248,24 @@
   </data>
   <data name="DeviceMessageField_MessageFieldType_Select" xml:space="preserve">
     <value>-select message field type-</value>
+  </data>
+  <data name="DeviceMessageField_MinValue" xml:space="preserve">
+    <value>Minimum Value</value>
+  </data>
+  <data name="DeviceMessageField_MinValue_Help" xml:space="preserve">
+    <value>Provide the inclusive minimum expected value that is valid for this field or leave empty if not applicable</value>
+  </data>
+  <data name="DeviceMessageField_RegExValidation" xml:space="preserve">
+    <value>RegEx Validation</value>
+  </data>
+  <data name="DeviceMessageField_RegExValidation_Help" xml:space="preserve">
+    <value>You can provide an regular expression to be applied to the field to validate it's contents.</value>
+  </data>
+  <data name="DeviceMessageField_RegExValueSelector" xml:space="preserve">
+    <value>RegEx Value Selector</value>
+  </data>
+  <data name="DeviceMessageField_RegExValueSelector_Help" xml:space="preserve">
+    <value>If the value that is presented in the message string needs to be extracted from the full field, you can provide a Regular Expression to select the value.</value>
   </data>
   <data name="DeviceMessageField_StartIndex" xml:space="preserve">
     <value>Start Index</value>

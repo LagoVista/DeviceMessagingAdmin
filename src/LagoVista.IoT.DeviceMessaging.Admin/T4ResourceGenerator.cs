@@ -239,12 +239,21 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_Help
 
 		public static string DeviceMessageField_Help { get { return GetResourceString("DeviceMessageField_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_IsRequired
+
+		public static string DeviceMessageField_IsRequired { get { return GetResourceString("DeviceMessageField_IsRequired"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_JSONPath
 
 		public static string DeviceMessageField_JSONPath { get { return GetResourceString("DeviceMessageField_JSONPath"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_JsonPath_Help
 
 		public static string DeviceMessageField_JsonPath_Help { get { return GetResourceString("DeviceMessageField_JsonPath_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_MaxValue
+
+		public static string DeviceMessageField_MaxValue { get { return GetResourceString("DeviceMessageField_MaxValue"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_MaxValue_Help
+
+		public static string DeviceMessageField_MaxValue_Help { get { return GetResourceString("DeviceMessageField_MaxValue_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_MessageFieldType
 
 		public static string DeviceMessageField_MessageFieldType { get { return GetResourceString("DeviceMessageField_MessageFieldType"); } }
@@ -254,6 +263,24 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_MessageFieldType_Select
 
 		public static string DeviceMessageField_MessageFieldType_Select { get { return GetResourceString("DeviceMessageField_MessageFieldType_Select"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_MinValue
+
+		public static string DeviceMessageField_MinValue { get { return GetResourceString("DeviceMessageField_MinValue"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_MinValue_Help
+
+		public static string DeviceMessageField_MinValue_Help { get { return GetResourceString("DeviceMessageField_MinValue_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_RegExValidation
+
+		public static string DeviceMessageField_RegExValidation { get { return GetResourceString("DeviceMessageField_RegExValidation"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_RegExValidation_Help
+
+		public static string DeviceMessageField_RegExValidation_Help { get { return GetResourceString("DeviceMessageField_RegExValidation_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_RegExValueSelector
+
+		public static string DeviceMessageField_RegExValueSelector { get { return GetResourceString("DeviceMessageField_RegExValueSelector"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_RegExValueSelector_Help
+
+		public static string DeviceMessageField_RegExValueSelector_Help { get { return GetResourceString("DeviceMessageField_RegExValueSelector_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StartIndex
 
 		public static string DeviceMessageField_StartIndex { get { return GetResourceString("DeviceMessageField_StartIndex"); } }
@@ -403,11 +430,20 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_GroupName = "DeviceMessageField_GroupName";
 			public const string DeviceMessageField_GroupName_Help = "DeviceMessageField_GroupName_Help";
 			public const string DeviceMessageField_Help = "DeviceMessageField_Help";
+			public const string DeviceMessageField_IsRequired = "DeviceMessageField_IsRequired";
 			public const string DeviceMessageField_JSONPath = "DeviceMessageField_JSONPath";
 			public const string DeviceMessageField_JsonPath_Help = "DeviceMessageField_JsonPath_Help";
+			public const string DeviceMessageField_MaxValue = "DeviceMessageField_MaxValue";
+			public const string DeviceMessageField_MaxValue_Help = "DeviceMessageField_MaxValue_Help";
 			public const string DeviceMessageField_MessageFieldType = "DeviceMessageField_MessageFieldType";
 			public const string DeviceMessageField_MessageFieldType_Help = "DeviceMessageField_MessageFieldType_Help";
 			public const string DeviceMessageField_MessageFieldType_Select = "DeviceMessageField_MessageFieldType_Select";
+			public const string DeviceMessageField_MinValue = "DeviceMessageField_MinValue";
+			public const string DeviceMessageField_MinValue_Help = "DeviceMessageField_MinValue_Help";
+			public const string DeviceMessageField_RegExValidation = "DeviceMessageField_RegExValidation";
+			public const string DeviceMessageField_RegExValidation_Help = "DeviceMessageField_RegExValidation_Help";
+			public const string DeviceMessageField_RegExValueSelector = "DeviceMessageField_RegExValueSelector";
+			public const string DeviceMessageField_RegExValueSelector_Help = "DeviceMessageField_RegExValueSelector_Help";
 			public const string DeviceMessageField_StartIndex = "DeviceMessageField_StartIndex";
 			public const string DeviceMessageField_StorageFieldType = "DeviceMessageField_StorageFieldType";
 			public const string DeviceMessageField_StorageFieldType_Help = "DeviceMessageField_StorageFieldType_Help";

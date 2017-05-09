@@ -107,6 +107,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_GroupName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_GroupName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegExGroupName { get; set; }
 
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string RegExValidation{ get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValueSelector, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValueSelector_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string RegExValueSelector { get; set; }
+
+
 
         [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
@@ -124,9 +131,19 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public int FieldIndex { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int XPath { get; set; }
+        public string XPath { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JSONPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JsonPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int JsonPath { get; set; }
+        public string JsonPath { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_IsRequired, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public bool IsRequired { get; set; }
+
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MinValue, FieldType: FieldTypes.Decimal, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MinValue_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public double? MinValue { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue, FieldType: FieldTypes.Decimal,  HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue_Help,  ResourceType: typeof(DeviceMessagingAdminResources))]
+        public double? MaxValue { get; set; }
     }
 }
