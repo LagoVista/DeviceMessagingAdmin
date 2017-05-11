@@ -74,7 +74,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public DeviceMessageDefinition()
         {
-            Fields = new List<DeviceMessageField>();
+            Fields = new List<DeviceMessageDefinitionField>();
             FramingBytes = new List<MessageFramingBytes>();
         }
 
@@ -86,45 +86,44 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public EntityHeader OwnerOrganization { get; set; }
         public EntityHeader OwnerUser { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
         public bool QuotedText { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Delimiter { get; set; }
 
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId, FieldType:FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId, FieldType:FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId_Help, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired:true)]
         public string MessageId { get; set; }
-
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public EntityHeader<MessageContentTypes> ContentType { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsingStrategy_Select, EnumType: typeof(BinaryParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsingStrategy_Select, EnumType: typeof(BinaryParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<BinaryParsingStrategy> BinaryParsingStrategy { get; set; }
 
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_StringParsingStrategy_Select, EnumType: typeof(StringParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_StringParsingStrategy_Select, EnumType: typeof(StringParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<StringParsingStrategy> StringParsingStrategy { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<EndianTypes> Endian { get; set; }
 
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegEx { get; set; }
 
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Key, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: DeviceMessagingAdminResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public String Key { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Fields, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
-        public List<DeviceMessageField> Fields { get; set; }
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Fields, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public List<DeviceMessageDefinitionField> Fields { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Script, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Script, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Script { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<MessageFramingBytes> FramingBytes {get; set;}
 
         public DeviceMessageDefinitionSummary CreateSummary()

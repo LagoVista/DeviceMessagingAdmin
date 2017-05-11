@@ -53,6 +53,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
         {
             await AuthorizeAsync(deviceMessageConfiguration, AuthorizeActions.Update, org, user);
             ValidationCheck(deviceMessageConfiguration, Actions.Update);
+            await _deviceMessageDefinitionRepo.UpdateDeviceMessageDefinitionAsync(deviceMessageConfiguration);
             return InvokeResult.Success;
         }
 

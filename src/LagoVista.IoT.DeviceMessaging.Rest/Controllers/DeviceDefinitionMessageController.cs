@@ -124,9 +124,9 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/api/devicemessagefield/factory")]
-        public DetailResponse<DeviceMessageField> CreateDeviceMessageField()
+        public DetailResponse<DeviceMessageDefinitionField> CreateDeviceMessageField()
         {
-            var response = DetailResponse<DeviceMessageField>.Create();
+            var response = DetailResponse<DeviceMessageDefinitionField>.Create();
             return response;
         }
     }
