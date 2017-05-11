@@ -107,7 +107,7 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         ///  Device Message Config - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("devicemessageconfig/factory")]
+        [HttpGet("/api/devicemessageconfig/factory")]
         public DetailResponse<DeviceMessageDefinition> CreateDeviceMessageConfigurartion()
         {
             var response = DetailResponse<DeviceMessageDefinition>.Create();
@@ -115,6 +115,18 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
 
+            return response;
+        }
+
+
+        /// <summary>
+        ///  Device Message Config - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/devicemessagefield/factory")]
+        public DetailResponse<DeviceMessageField> CreateDeviceMessageField()
+        {
+            var response = DetailResponse<DeviceMessageField>.Create();
             return response;
         }
     }
