@@ -255,6 +255,21 @@
   <data name="DeviceMessageField_MinValue_Help" xml:space="preserve">
     <value>Provide the inclusive minimum expected value that is valid for this field or leave empty if not applicable</value>
   </data>
+  <data name="DeviceMessageField_PathLocator" xml:space="preserve">
+    <value>Path Locator</value>
+  </data>
+  <data name="DeviceMessageField_PathLocator_Help" xml:space="preserve">
+    <value>If the Device ID or Message Type Id Arrives in the path it can be extract using the syntax /api/{messageid}/*.  This will extract msg001 from /api/msg001/52345.  The value messageid is specified in the Key Name and can be used to extract either a Message Type Id or a Device Id.</value>
+  </data>
+  <data name="DeviceMessageField_PropertyRequiredForContentType" xml:space="preserve">
+    <value>Message Field Property: [PROPERTYNAME] is required for content type [CONTENTTYPE].</value>
+  </data>
+  <data name="DeviceMessageField_QueryStringField" xml:space="preserve">
+    <value>Query String Field</value>
+  </data>
+  <data name="DeviceMessageField_QueryStringField_Help" xml:space="preserve">
+    <value>You can extract a field from the query string by providing the name of the field. For example, the query string field "deviceid" will extract "abc123" from /path/device/run?deviceid=abc123</value>
+  </data>
   <data name="DeviceMessageField_RegExValidation" xml:space="preserve">
     <value>RegEx Validation</value>
   </data>

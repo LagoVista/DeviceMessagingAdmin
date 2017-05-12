@@ -8,5 +8,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
     {
         public const string PROPERTYNAME = "[PROPERTYNAME]";
         public const string MESSAGECONTENTTYPE = "[CONTENTTYPE]";
+        public const string MESSAGESTORAGETYPE = "[STORAGETYPE]";
     }
 }

@@ -39,10 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LagoVista.Core, Version=0.8.0.0, Culture=neutral, PublicKeyToken=2698135e9954a85d, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LagoVista.Core.0.8.162-alpha1218\lib\netstandard1.2\LagoVista.Core.dll</HintPath>
+      <HintPath>..\..\packages\LagoVista.Core.0.8.162-alpha1612\lib\netstandard1.2\LagoVista.Core.dll</HintPath>
     </Reference>
     <Reference Include="LagoVista.IoT.DeviceAdmin, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\LagoVista.IoT.DeviceAdmin.0.8.162-alpha1218\lib\netstandard1.2\LagoVista.IoT.DeviceAdmin.dll</HintPath>
+      <HintPath>..\..\packages\LagoVista.IoT.DeviceAdmin.0.8.162-alpha1612\lib\netstandard1.2\LagoVista.IoT.DeviceAdmin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MSTest.TestFramework.1.1.17\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -57,12 +57,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ValidationTests\DelimiterMessageTest.cs" />
+    <Compile Include="ValidationTests\BinaryMessageFieldTests.cs" />
+    <Compile Include="ValidationTests\DelimitedMessageFieldTests.cs" />
     <Compile Include="ValidationTests\FieldTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationTests\BinaryMessageTests.cs" />
+    <Compile Include="ValidationTests\JsonMessageFieldTests.cs" />
+    <Compile Include="ValidationTests\MessageFieldTestBase.cs" />
+    <Compile Include="ValidationTests\MessageFieldTests.cs" />
     <Compile Include="ValidationTests\MessageTests.cs" />
     <Compile Include="ValidationTests\MessageTestsBase.cs" />
+    <Compile Include="ValidationTests\XmlMessageFieldTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\LagoVista.IoT.DeviceMessaging.Admin\LagoVista.IoT.DeviceMessaging.Admin.csproj">

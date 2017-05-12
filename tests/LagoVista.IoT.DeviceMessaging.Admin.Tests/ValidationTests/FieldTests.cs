@@ -3,10 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.Core.Validation;
 
-namespace LagoVista.IoT.DeviceMessaging.Admin.Tests
+namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
 {
     [TestClass]
-    public class FieldTests
+    public class FieldTests : MessageTestsBase
     {
         [TestMethod]
         public void ShouldNotValidateIfContentTypeIsNull()
@@ -31,8 +31,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests
                 RegExGroupName = "somefield"
             });
 
-            var result = new ValidationResult();
-            message.Validate(result);
+            var result = Validator.Validate(message);
             Assert.IsFalse(result.Successful);
         }
     }

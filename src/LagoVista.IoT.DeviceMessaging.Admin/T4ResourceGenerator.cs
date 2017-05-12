@@ -283,6 +283,21 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_MinValue_Help
 
 		public static string DeviceMessageField_MinValue_Help { get { return GetResourceString("DeviceMessageField_MinValue_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_PathLocator
+
+		public static string DeviceMessageField_PathLocator { get { return GetResourceString("DeviceMessageField_PathLocator"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_PathLocator_Help
+
+		public static string DeviceMessageField_PathLocator_Help( string messageid) { return GetResourceString("DeviceMessageField_PathLocator_Help", "{messageid}", messageid); }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_PropertyRequiredForContentType
+
+		public static string DeviceMessageField_PropertyRequiredForContentType { get { return GetResourceString("DeviceMessageField_PropertyRequiredForContentType"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_QueryStringField
+
+		public static string DeviceMessageField_QueryStringField { get { return GetResourceString("DeviceMessageField_QueryStringField"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_QueryStringField_Help
+
+		public static string DeviceMessageField_QueryStringField_Help { get { return GetResourceString("DeviceMessageField_QueryStringField_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_RegExValidation
 
 		public static string DeviceMessageField_RegExValidation { get { return GetResourceString("DeviceMessageField_RegExValidation"); } }
@@ -477,6 +492,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_MessageFieldType_Select = "DeviceMessageField_MessageFieldType_Select";
 			public const string DeviceMessageField_MinValue = "DeviceMessageField_MinValue";
 			public const string DeviceMessageField_MinValue_Help = "DeviceMessageField_MinValue_Help";
+			public const string DeviceMessageField_PathLocator = "DeviceMessageField_PathLocator";
+			public const string DeviceMessageField_PathLocator_Help = "DeviceMessageField_PathLocator_Help";
+			public const string DeviceMessageField_PropertyRequiredForContentType = "DeviceMessageField_PropertyRequiredForContentType";
+			public const string DeviceMessageField_QueryStringField = "DeviceMessageField_QueryStringField";
+			public const string DeviceMessageField_QueryStringField_Help = "DeviceMessageField_QueryStringField_Help";
 			public const string DeviceMessageField_RegExValidation = "DeviceMessageField_RegExValidation";
 			public const string DeviceMessageField_RegExValidation_Help = "DeviceMessageField_RegExValidation_Help";
 			public const string DeviceMessageField_RegExValueSelector = "DeviceMessageField_RegExValueSelector";
