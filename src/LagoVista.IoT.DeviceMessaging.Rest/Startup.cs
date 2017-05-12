@@ -7,6 +7,10 @@ namespace LagoVista.IoT.DeviceMessaging.Rest
 {
     public class Startup
     {
+        /// <summary>
+        /// configure Services Related to Device Messaging 
+        /// </summary>
+        /// <param name="services"></param>
         public static void ConfigureServices(IServiceCollection services)
         {
         }

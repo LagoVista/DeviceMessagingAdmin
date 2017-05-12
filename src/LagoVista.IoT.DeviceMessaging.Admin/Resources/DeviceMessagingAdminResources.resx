@@ -267,6 +267,27 @@
   <data name="DeviceMessageField_RegExValueSelector_Help" xml:space="preserve">
     <value>If the value that is presented in the message string needs to be extracted from the full field, you can provide a Regular Expression to select the value.</value>
   </data>
+  <data name="DeviceMessageField_SearchLocation" xml:space="preserve">
+    <value>Search Location</value>
+  </data>
+  <data name="DeviceMessageField_SearchLocation_Body" xml:space="preserve">
+    <value>Message Body</value>
+  </data>
+  <data name="DeviceMessageField_SearchLocation_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="DeviceMessageField_SearchLocation_Help" xml:space="preserve">
+    <value>Provide the location in the message to search for the field.</value>
+  </data>
+  <data name="DeviceMessageField_SearchLocation_Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="DeviceMessageField_SearchLocation_QueryString" xml:space="preserve">
+    <value>Query String</value>
+  </data>
+  <data name="DeviceMessageField_SearchLocation_Select" xml:space="preserve">
+    <value>-select search location-</value>
+  </data>
   <data name="DeviceMessageField_StartIndex" xml:space="preserve">
     <value>Start Index</value>
   </data>
@@ -346,7 +367,7 @@
     <value>Delimiter</value>
   </data>
   <data name="DeviceMessage_Endian" xml:space="preserve">
-    <value>String Size Encoding</value>
+    <value>Endianness</value>
   </data>
   <data name="DeviceMessage_Endian_Help" xml:space="preserve">
     <value>Different system store numbers in one of two ways, Big-endian and Little-endian.  Big-endian means that the most significant bytes of your count are stored first in the array of bytes that make up your number, Little-endian means that the Least Significant bytes come first in the byte array.  You can check with the manufacuture or the specifications of your device if you are unsure.  If your number is represented with only one byte this does not apply.</value>
@@ -359,6 +380,14 @@
   </data>
   <data name="DeviceMessage_FramingBytes_Help" xml:space="preserve">
     <value>A Framing Bytes are used to ensure the message that is being parsed is in the correct format, for example if you know your message header will always be 8 characters you might look for STX or 0x02 at position 9</value>
+  </data>
+  <data name="DeviceMessage_PropertyRequiredForContentType" xml:space="preserve">
+    <value>[PROPERTYNAME] is required for content type [CONTENTTYPE].</value>
+    <comment>The tokens [PROPERTYNAME] and [CONTENTTYPE] will be replaced by the property that has the error and the content type such as binary, string, etc...</comment>
+  </data>
+  <data name="DeviceMessage_PropertyTypeHasValueButNotSupported" xml:space="preserve">
+    <value>[PROPERTYNAME] has a property but is not supported on the content type [CONTENTTYPE].</value>
+    <comment>The tokens [PROPERTYNAME] and [CONTENTTYPE] will be replaced by the property that has the error and the content type such as binary, string, etc...</comment>
   </data>
   <data name="DeviceMessage_QuotedText" xml:space="preserve">
     <value>Is Text Quoted</value>

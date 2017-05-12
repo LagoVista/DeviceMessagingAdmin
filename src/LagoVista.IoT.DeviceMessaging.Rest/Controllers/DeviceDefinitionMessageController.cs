@@ -15,10 +15,14 @@ using LagoVista.IoT.DeviceMessaging.Admin.Managers;
 
 namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
 {
-    [Authorize]
+    [Authorize]  
     public class DeviceMessageDefinitionController : LagoVistaBaseController
     {
+        
         IDeviceMessageDefinitionManager _deviceConfigManager;
+        /// <summary>
+        /// Creates an instance of a DeciceMessageDefinitionController
+        /// </summary>
         public DeviceMessageDefinitionController(IDeviceMessageDefinitionManager deviceConfigManager, UserManager<AppUser> userManager, ILogger logger) : base(userManager, logger)
         {
             _deviceConfigManager = deviceConfigManager;

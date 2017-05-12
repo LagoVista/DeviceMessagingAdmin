@@ -140,6 +140,20 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_FramingBytes_Help
 
 		public static string DeviceMessage_FramingBytes_Help { get { return GetResourceString("DeviceMessage_FramingBytes_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_PropertyRequiredForContentType
+
+
+		///<summary>
+		///The tokens [PROPERTYNAME] and [CONTENTTYPE] will be replaced by the property that has the error and the content type such as binary, string, etc...
+		///</summary>
+		public static string DeviceMessage_PropertyRequiredForContentType { get { return GetResourceString("DeviceMessage_PropertyRequiredForContentType"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_PropertyTypeHasValueButNotSupported
+
+
+		///<summary>
+		///The tokens [PROPERTYNAME] and [CONTENTTYPE] will be replaced by the property that has the error and the content type such as binary, string, etc...
+		///</summary>
+		public static string DeviceMessage_PropertyTypeHasValueButNotSupported { get { return GetResourceString("DeviceMessage_PropertyTypeHasValueButNotSupported"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_QuotedText
 
 		public static string DeviceMessage_QuotedText { get { return GetResourceString("DeviceMessage_QuotedText"); } }
@@ -281,6 +295,27 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_RegExValueSelector_Help
 
 		public static string DeviceMessageField_RegExValueSelector_Help { get { return GetResourceString("DeviceMessageField_RegExValueSelector_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation
+
+		public static string DeviceMessageField_SearchLocation { get { return GetResourceString("DeviceMessageField_SearchLocation"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_Body
+
+		public static string DeviceMessageField_SearchLocation_Body { get { return GetResourceString("DeviceMessageField_SearchLocation_Body"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_Headers
+
+		public static string DeviceMessageField_SearchLocation_Headers { get { return GetResourceString("DeviceMessageField_SearchLocation_Headers"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_Help
+
+		public static string DeviceMessageField_SearchLocation_Help { get { return GetResourceString("DeviceMessageField_SearchLocation_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_Path
+
+		public static string DeviceMessageField_SearchLocation_Path { get { return GetResourceString("DeviceMessageField_SearchLocation_Path"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_QueryString
+
+		public static string DeviceMessageField_SearchLocation_QueryString { get { return GetResourceString("DeviceMessageField_SearchLocation_QueryString"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_Select
+
+		public static string DeviceMessageField_SearchLocation_Select { get { return GetResourceString("DeviceMessageField_SearchLocation_Select"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StartIndex
 
 		public static string DeviceMessageField_StartIndex { get { return GetResourceString("DeviceMessageField_StartIndex"); } }
@@ -397,6 +432,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessage_Endian_Select = "DeviceMessage_Endian_Select";
 			public const string DeviceMessage_FramingBytes = "DeviceMessage_FramingBytes";
 			public const string DeviceMessage_FramingBytes_Help = "DeviceMessage_FramingBytes_Help";
+			public const string DeviceMessage_PropertyRequiredForContentType = "DeviceMessage_PropertyRequiredForContentType";
+			public const string DeviceMessage_PropertyTypeHasValueButNotSupported = "DeviceMessage_PropertyTypeHasValueButNotSupported";
 			public const string DeviceMessage_QuotedText = "DeviceMessage_QuotedText";
 			public const string DeviceMessage_QuotedText_Help = "DeviceMessage_QuotedText_Help";
 			public const string DeviceMessage_RegEx = "DeviceMessage_RegEx";
@@ -444,6 +481,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_RegExValidation_Help = "DeviceMessageField_RegExValidation_Help";
 			public const string DeviceMessageField_RegExValueSelector = "DeviceMessageField_RegExValueSelector";
 			public const string DeviceMessageField_RegExValueSelector_Help = "DeviceMessageField_RegExValueSelector_Help";
+			public const string DeviceMessageField_SearchLocation = "DeviceMessageField_SearchLocation";
+			public const string DeviceMessageField_SearchLocation_Body = "DeviceMessageField_SearchLocation_Body";
+			public const string DeviceMessageField_SearchLocation_Headers = "DeviceMessageField_SearchLocation_Headers";
+			public const string DeviceMessageField_SearchLocation_Help = "DeviceMessageField_SearchLocation_Help";
+			public const string DeviceMessageField_SearchLocation_Path = "DeviceMessageField_SearchLocation_Path";
+			public const string DeviceMessageField_SearchLocation_QueryString = "DeviceMessageField_SearchLocation_QueryString";
+			public const string DeviceMessageField_SearchLocation_Select = "DeviceMessageField_SearchLocation_Select";
 			public const string DeviceMessageField_StartIndex = "DeviceMessageField_StartIndex";
 			public const string DeviceMessageField_StorageFieldType = "DeviceMessageField_StorageFieldType";
 			public const string DeviceMessageField_StorageFieldType_Help = "DeviceMessageField_StorageFieldType_Help";
