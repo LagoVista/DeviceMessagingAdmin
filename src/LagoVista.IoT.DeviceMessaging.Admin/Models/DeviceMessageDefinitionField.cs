@@ -144,7 +144,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select, IsRequired: true)]
         public EntityHeader<ParameterTypes> StorageType { get; set; }
 
-
+        /* Can be used after extracting value */
         [AllowableStorageContentType(ParameterTypes.String)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegExValidation { get; set; }
@@ -172,10 +172,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [AllowableMessageContentType(MessageContentTypes.String)]
         [AllowableMessageContentType(MessageContentTypes.Binary)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StartIndex, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int StartIndex { get; set; }
+        public int? StartIndex { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Index, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Index_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int FieldIndex { get; set; }
+        public int? FieldIndex { get; set; }
 
         [AllowableMessageContentType(MessageContentTypes.XML)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
