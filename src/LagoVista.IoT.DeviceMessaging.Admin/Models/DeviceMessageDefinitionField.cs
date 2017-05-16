@@ -23,10 +23,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [EnumLabel(DeviceMessageDefinitionField.ParserBinaryType_Char, DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryParser_Char, typeof(DeviceMessagingAdminResources))]
         Char,
 
-        [EnumLabel(DeviceMessageDefinitionField.ParserBinaryType_UInt8, DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryParser_UInt8, typeof(DeviceMessagingAdminResources))]
-        UInt8,
-        [EnumLabel(DeviceMessageDefinitionField.ParserBinaryType_Int8, DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryParser_Int8, typeof(DeviceMessagingAdminResources))]
-        Int8,
+        [EnumLabel(DeviceMessageDefinitionField.ParserBinaryType_Byte, DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryParser_Byte, typeof(DeviceMessagingAdminResources))]
+        Byte,
 
 
         [EnumLabel(DeviceMessageDefinitionField.ParserBinaryType_UInt16, DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryParser_UInt16, typeof(DeviceMessagingAdminResources))]
@@ -74,6 +72,16 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         Body
     }
 
+    public enum FieldType
+    {
+        [EnumLabel(DeviceMessageDefinitionField.FieldType_MessageId, DeviceMessagingAdminResources.Names.DeviceMessageField_FieldType_MessageId, typeof(DeviceMessagingAdminResources))]
+        MessageId,
+        [EnumLabel(DeviceMessageDefinitionField.FieldType_DeviceId, DeviceMessagingAdminResources.Names.DeviceMessageField_FieldType_DeviceId, typeof(DeviceMessagingAdminResources))]
+        DeviceId,
+        [EnumLabel(DeviceMessageDefinitionField.FieldType_Content, DeviceMessagingAdminResources.Names.DeviceMessageField_FieldType_Content, typeof(DeviceMessagingAdminResources))]
+        Content,
+    }
+
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageField_Title, DeviceMessagingAdminResources.Names.DeviceMessageField_Help, DeviceMessagingAdminResources.Names.DeviceMessageField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
     public class DeviceMessageDefinitionField : IKeyedEntity, INamedEntity, IValidateable
     {
@@ -85,9 +93,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ParserBinaryType_String = "string";
         public const string ParserBinaryType_Boolean = "boolean";
         public const string ParserBinaryType_Char = "char";
-
-        public const string ParserBinaryType_UInt8 = "uint8";
-        public const string ParserBinaryType_Int8 = "int8";
+        public const string ParserBinaryType_Byte = "byte";
 
         public const string ParserBinaryType_UInt16 = "uint16";
         public const string ParserBinaryType_Int16 = "int16";
@@ -112,6 +118,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string SearchLocation_Path = "path";
         public const string SearchLocation_Body = "body";
 
+        public const string FieldType_Content = "content";
+        public const string FieldType_MessageId = "messageid";
+        public const string FieldType_DeviceId = "deviceid";
+
 
         public String Id { get; set; }
 
@@ -131,6 +141,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType, EnumType: (typeof(ParseBinaryValueType)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Select)]
         public EntityHeader<ParseBinaryValueType> ParsedBinaryFieldType { get; set; }
 
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
+        [AllowableMessageContentType(MessageContentTypes.Delimited, isRequired: false)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public bool QuotedText { get; set; }
+
+
         [AllowableMessageContentType(MessageContentTypes.Custom)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
         [AllowableMessageContentType(MessageContentTypes.JSON)]
@@ -138,6 +155,23 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [AllowableMessageContentType(MessageContentTypes.XML)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType, EnumType: (typeof(ParseStringValueType)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Select)]
         public EntityHeader<ParseStringValueType> ParsedStringFieldType { get; set; }
+
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        public EntityHeader<MessageContentTypes> ContentType { get; set; }
+
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
+        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsingStrategy_Select, EnumType: typeof(BinaryParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
+        public EntityHeader<BinaryParsingStrategy> BinaryParsingStrategy { get; set; }
+
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
+        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_StringParsingStrategy_Select, EnumType: typeof(StringParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
+        public EntityHeader<StringParsingStrategy> StringParsingStrategy { get; set; }
 
 
         /* Required for all fields */
@@ -169,10 +203,34 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Delimited_Index, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Delimited_Index_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? DelimitedIndex { get; set; }
 
+        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? StringLengthByteCount { get; set; }
+
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
+        [AllowableMessageContentType(MessageContentTypes.Delimited)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string Delimiter { get; set; }
+
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
+        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
+        public EntityHeader<EndianTypes> Endian { get; set; }
+
         [AllowableMessageContentType(MessageContentTypes.String)]
-        [AllowableMessageContentType(MessageContentTypes.Binary)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StartIndex, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StartIndex, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? StartIndex { get; set; }
+
+        [AllowableMessageContentType(MessageContentTypes.String)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Length, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? Length { get; set; }
+
+        [AllowableMessageContentType(MessageContentTypes.Binary)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? BinaryOffset { get; set; }
+
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Index, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Index_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? FieldIndex { get; set; }

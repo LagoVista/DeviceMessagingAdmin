@@ -165,8 +165,17 @@
   <data name="DeviceMessageDefinition_Title" xml:space="preserve">
     <value>Message Definition</value>
   </data>
+  <data name="DeviceMessageField_BinaryOffset" xml:space="preserve">
+    <value>Offset</value>
+  </data>
+  <data name="DeviceMessageField_BinaryOffset_Help" xml:space="preserve">
+    <value>Enter the start location in the byte array that contains the value you wish to extract.</value>
+  </data>
   <data name="DeviceMessageField_BinaryParser_Boolean" xml:space="preserve">
     <value>Boolean (8 bit, zero = false, non-zero = true)</value>
+  </data>
+  <data name="DeviceMessageField_BinaryParser_Byte" xml:space="preserve">
+    <value>Byte</value>
   </data>
   <data name="DeviceMessageField_BinaryParser_Char" xml:space="preserve">
     <value>Char</value>
@@ -183,9 +192,6 @@
   <data name="DeviceMessageField_BinaryParser_Int64" xml:space="preserve">
     <value>Signed 64 Bit Integer</value>
   </data>
-  <data name="DeviceMessageField_BinaryParser_Int8" xml:space="preserve">
-    <value>Signed 8 Bit Integer (byte)</value>
-  </data>
   <data name="DeviceMessageField_BinaryParser_SinglePrecisionFloatingPoint" xml:space="preserve">
     <value>Single Precision Floating Point</value>
   </data>
@@ -201,9 +207,6 @@
   <data name="DeviceMessageField_BinaryParser_UInt64" xml:space="preserve">
     <value>Unsigned 64 Bit Integer</value>
   </data>
-  <data name="DeviceMessageField_BinaryParser_UInt8" xml:space="preserve">
-    <value>Unsigned 8 Bit Integer (char)</value>
-  </data>
   <data name="DeviceMessageField_Delimited_Index" xml:space="preserve">
     <value>Index</value>
   </data>
@@ -213,8 +216,17 @@
   <data name="DeviceMessageField_Description" xml:space="preserve">
     <value>A Message Field is part of a definition of a message that contains exactly one element.  It is populated from the Input Translator and mapped to a Input on a Device Workflow</value>
   </data>
+  <data name="DeviceMessageField_FieldType_Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="DeviceMessageField_FieldType_DeviceId" xml:space="preserve">
+    <value>Device Id</value>
+  </data>
   <data name="DeviceMessageField_FieldType_Help" xml:space="preserve">
     <value>You need to define the type of data that is arriving in the field.</value>
+  </data>
+  <data name="DeviceMessageField_FieldType_MessageId" xml:space="preserve">
+    <value>Message Id</value>
   </data>
   <data name="DeviceMessageField_GroupName" xml:space="preserve">
     <value>Regular Expression Group Name</value>
@@ -233,6 +245,9 @@
   </data>
   <data name="DeviceMessageField_JsonPath_Help" xml:space="preserve">
     <value>You can extract values from your JSON document by using a dot notation to denote heirachry.  This will extract the subnode Name Person_Name in the json {'Person':{'Name':'Rascal'}}</value>
+  </data>
+  <data name="DeviceMessageField_Length" xml:space="preserve">
+    <value>Length</value>
   </data>
   <data name="DeviceMessageField_MaxValue" xml:space="preserve">
     <value>Maximum Value</value>
@@ -326,6 +341,15 @@
   </data>
   <data name="DeviceMessageField_StringParser_WholeNumber" xml:space="preserve">
     <value>Whole Number 0</value>
+  </data>
+  <data name="DeviceMessageField_String_LeadingLength" xml:space="preserve">
+    <value>Bytes in String Length</value>
+  </data>
+  <data name="DeviceMessageField_String_LeadingLength_Help" xml:space="preserve">
+    <value>If you are parsing a Binary String and the string length is returned prior to the bytes in the string, specify the number of bytes that make up that length.  You will also need to specify the Endiness if this isn't inherited from the message.</value>
+  </data>
+  <data name="DeviceMessageField_SubString_Help" xml:space="preserve">
+    <value>If the value you are looking for is always in the same location within your string you can extract it by providing the Start Index and an Length. Note that the start index is 1 Indexed, that is to say if you want the first character the start index will be 1, You should never enter 0 in this field.</value>
   </data>
   <data name="DeviceMessageField_Title" xml:space="preserve">
     <value>Message Field</value>

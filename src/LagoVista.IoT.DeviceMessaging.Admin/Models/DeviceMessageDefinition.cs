@@ -44,6 +44,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         StringLength
     }
 
+
     public enum EndianTypes
     {
         [EnumLabel(DeviceMessageDefinition.Endian_BigEndian, DeviceMessagingAdminResources.Names.DeviceMessgaeField_Endian_BigEndian, typeof(DeviceMessagingAdminResources))]
@@ -112,10 +113,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsingStrategy_Select, EnumType: typeof(BinaryParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<BinaryParsingStrategy> BinaryParsingStrategy { get; set; }
 
-
         [AllowableMessageContentType(MessageContentTypes.Binary, true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_StringParsingStrategy_Select, EnumType: typeof(StringParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<StringParsingStrategy> StringParsingStrategy { get; set; }
+
+        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? StringLengthByteCount { get; set; }
 
         [AllowableMessageContentType(MessageContentTypes.Binary, true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources))]

@@ -5,14 +5,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard1.6\LagoVista.IoT.DeviceMessaging.Rest.xml</DocumentationFile>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.6\LagoVista.IoT.DeviceMessaging.Rest.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="0.8.165-alpha1505" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.165-alpha1505" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.165-alpha1505" />
+    <PackageReference Include="LagoVista.Core" Version="0.8.166-alpha1846" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.166-alpha1846" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.166-alpha1846" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.0" />

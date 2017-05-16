@@ -36,4 +36,20 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public bool IsRequired { get; private set; }
         public string CustomMessage { get; private set; }
     }
+
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
+    public class AllowableFieldTypeAttribute : System.Attribute
+    {
+        public AllowableFieldTypeAttribute(FieldType fieldType, bool isRequired = true, string customMessage = "")
+        {
+            FieldType = fieldType;
+            IsRequired = isRequired;
+            CustomMessage = customMessage;
+        }
+
+        public FieldType FieldType { get; private set; }
+        public bool IsRequired { get; private set; }
+        public string CustomMessage { get; private set; }
+    }
 }
