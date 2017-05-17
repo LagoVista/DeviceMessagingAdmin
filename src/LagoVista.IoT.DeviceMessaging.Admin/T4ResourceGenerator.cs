@@ -262,6 +262,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_GroupName_Help
 
 		public static string DeviceMessageField_GroupName_Help { get { return GetResourceString("DeviceMessageField_GroupName_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_HeaderName
+
+		public static string DeviceMessageField_HeaderName { get { return GetResourceString("DeviceMessageField_HeaderName"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_HeaderName_Help
+
+		public static string DeviceMessageField_HeaderName_Help { get { return GetResourceString("DeviceMessageField_HeaderName_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_Help
 
 		public static string DeviceMessageField_Help { get { return GetResourceString("DeviceMessageField_Help"); } }
@@ -509,6 +515,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_FieldType_MessageId = "DeviceMessageField_FieldType_MessageId";
 			public const string DeviceMessageField_GroupName = "DeviceMessageField_GroupName";
 			public const string DeviceMessageField_GroupName_Help = "DeviceMessageField_GroupName_Help";
+			public const string DeviceMessageField_HeaderName = "DeviceMessageField_HeaderName";
+			public const string DeviceMessageField_HeaderName_Help = "DeviceMessageField_HeaderName_Help";
 			public const string DeviceMessageField_Help = "DeviceMessageField_Help";
 			public const string DeviceMessageField_IsRequired = "DeviceMessageField_IsRequired";
 			public const string DeviceMessageField_JSONPath = "DeviceMessageField_JSONPath";

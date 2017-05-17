@@ -249,6 +249,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string PathLocator { get; set; }
 
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string HeaderName { get; set; }
+
+
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string QueryStringField { get; set; }

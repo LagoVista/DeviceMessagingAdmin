@@ -234,6 +234,12 @@
   <data name="DeviceMessageField_GroupName_Help" xml:space="preserve">
     <value>If you are using a Regular Expression to parse your message that regular expression must contain group names to assocaite the content of the message with values you which to extract.  You need to enter those group names here.</value>
   </data>
+  <data name="DeviceMessageField_HeaderName" xml:space="preserve">
+    <value>Header Name</value>
+  </data>
+  <data name="DeviceMessageField_HeaderName_Help" xml:space="preserve">
+    <value>Enter the name of the Header to extract the field.</value>
+  </data>
   <data name="DeviceMessageField_Help" xml:space="preserve">
     <value>A Message Field is part of a definition of a message that contains exactly one element.  It is populated from the Input Translator and mapped to a Input on a Device Workflow</value>
   </data>
