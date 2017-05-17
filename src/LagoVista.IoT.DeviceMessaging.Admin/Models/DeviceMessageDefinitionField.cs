@@ -105,7 +105,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ParserBinaryType_Int64 = "int64";
 
         public const string ParserBinaryType_SinglePrecisionFloatingPoint = "singleprecisionfloatingpoint";
-        public const string ParserBinaryType_DoublePrecisionFloatingPoint = "dingleprecisionfloatingpoint";
+        public const string ParserBinaryType_DoublePrecisionFloatingPoint = "doubleprecisionfloatingpoint";
 
 
         public const string ParserStringType_String = "string";
