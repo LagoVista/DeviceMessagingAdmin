@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7FB4A492-886
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0DD146D6-0FBD-465A-A1EE-5DC0E5C280E1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceMessaging.Admin.Tests", "tests\LagoVista.IoT.DeviceMessaging.Admin.Tests\LagoVista.IoT.DeviceMessaging.Admin.Tests.csproj", "{489F41D7-867C-4912-B7D0-2DBC4EF111DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,7 +32,10 @@ Global
 		{4398C27D-5681-4AED-B993-1DB057F3EE2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4398C27D-5681-4AED-B993-1DB057F3EE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4398C27D-5681-4AED-B993-1DB057F3EE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4398C27D-5681-4AED-B993-1DB057F3EE2E}.Release|Any CPU.Build.0 = Release|Any CPU		
+		{489F41D7-867C-4912-B7D0-2DBC4EF111DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{489F41D7-867C-4912-B7D0-2DBC4EF111DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{489F41D7-867C-4912-B7D0-2DBC4EF111DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{489F41D7-867C-4912-B7D0-2DBC4EF111DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +44,6 @@ Global
 		{7BD9950B-CC7E-4A9E-929D-CA03A493F1FE} = {7FB4A492-886C-4193-857E-B51C740482A5}
 		{414D5A4D-609E-4D8A-9D1E-8176F6400CAE} = {7FB4A492-886C-4193-857E-B51C740482A5}
 		{4398C27D-5681-4AED-B993-1DB057F3EE2E} = {7FB4A492-886C-4193-857E-B51C740482A5}
+		{489F41D7-867C-4912-B7D0-2DBC4EF111DC} = {0DD146D6-0FBD-465A-A1EE-5DC0E5C280E1}
 	EndGlobalSection
 EndGlobal
