@@ -24,11 +24,14 @@ The following are the available data types that can be extracted from a binary m
 * Double Precision Floating Point as defined by by [IEEE 754-1985](https://en.wikipedia.org/wiki/IEEE_754-1985)
 
 ## Extracting Values
-Values are extracted by index into the message.  These can be either relative or absolute.
+Values are extracted by index into the message.  These can be either relative or absolute.  
 
+### Absolute
+This is used if your message is always the same size and the expected values are always in the same position.
 
-##
-
+### Relative
+This is used if your message size is different based on the type of message, this is generally the case when there are string included or content depends on values parsed earlier in the message.
+(Currently only fixed length message are supported, this will likely be changed prior to launch)
 
 ## Parsing String Values 
 At this time only single byte ASCII text is supported Unicode characters are not supported.
