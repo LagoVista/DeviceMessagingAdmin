@@ -1,4 +1,4 @@
-[Home](Index.md)
+[Device Messaging Home](Index.md)
 
 # Parsing a Binary Message
 

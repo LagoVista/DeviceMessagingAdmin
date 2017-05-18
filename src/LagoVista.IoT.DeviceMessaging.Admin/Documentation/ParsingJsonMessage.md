@@ -1,4 +1,4 @@
-﻿[Home](Index.md)
+﻿[Device Messaging Home](Index.md)
 
 # Parsing a Json Message
 
@@ -17,7 +17,7 @@ Assuming the following JSON:
 		'field4':'another value'
 	}
 }
-~~~
+~~~~
 
 Values can be extracted with the following JSON path.
 

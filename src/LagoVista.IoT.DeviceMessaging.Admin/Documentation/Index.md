@@ -1,5 +1,3 @@
-# Device Messaging
-
 ### Intro
 
 Since in many cases you can't dictate what messages your devices will send, you can create contracts that define how data should be extracted from your messages.  Extracting this data is independent of the message source.  
@@ -52,7 +50,7 @@ These make up the type system that is used throughout the rest of the system
 * Decimal - Double Precision Floating Point Number
 * True False - Boolean
 * GeoLocation - Stored as Latitude and Longitude in Decimal Degrees with 6 decimal points
-* Date Time - Date Time Stored in (ISO 8601 Format)[https://en.wikipedia.org/wiki/ISO_8601]
+* Date Time - Date Time Stored in [ISO 8601 Format](https://en.wikipedia.org/wiki/ISO_8601)
 
 *Note* - Currently Arrays are not supported, this will likely be shortly after releas or sooner if required for implementation
 
