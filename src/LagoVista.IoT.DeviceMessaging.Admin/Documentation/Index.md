@@ -19,8 +19,8 @@ This is primarily used for REST based protocols but can be used to extract value
 In addition to the server and port number being available in your message if your message also specifies a resource address such as https://mydomain.coom/device/run/2342 the /device/run/2342 can be used to populate the message content.
 
 ### Body or Payload
-If you have a REST message this will be the POST or PUT content, most transports have some mechanism for passing data along with your message.  They body can be either Binary or Text, a Text message can be one of the following
-* String
-* Delimited
-* JSON
-* XML
+If you have a REST message this will be the POST or PUT content, most transports have some mechanism for passing data along with your message.  They body can be either [Binary](ParsingBinaryMessages.md) or Text, a Text message can be one of the following
+* [String](ParsingStringMessage.md)
+* [Delimited](ParsingDelimitedMessage.dm)
+* [JSON](ParsingJsonMessage.md)
+* [XML](ParsingXMLMessage.md)
