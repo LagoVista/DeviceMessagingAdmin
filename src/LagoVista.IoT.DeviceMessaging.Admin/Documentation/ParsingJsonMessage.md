@@ -22,5 +22,7 @@ Assuming the following JSON:
 Values can be extracted with the following JSON path.
 
 `field` = value1
+
 `subset1.field3` = value2
+
 `subset1.field4` = another value

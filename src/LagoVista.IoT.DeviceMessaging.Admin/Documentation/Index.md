@@ -20,7 +20,7 @@ In addition to the server and port number being available in your message if you
 ### Body or Payload
 If you have a REST message this will be the POST or PUT content, most transports have some mechanism for passing data along with your message.  They body can be either [Binary](ParsingBinaryMessages.md) or Text, a Text message can be one of the following
 * [String](ParsingStringMessage.md)
-* [Delimited](ParsingDelimitedMessage.dm)
+* [Delimited](ParsingDelimitedMessage.md)
 * [JSON](ParsingJsonMessage.md)
 * [XML](ParsingXMLMessage.md)
 
