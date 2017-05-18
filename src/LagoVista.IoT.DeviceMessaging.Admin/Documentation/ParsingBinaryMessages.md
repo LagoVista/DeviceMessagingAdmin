@@ -3,7 +3,7 @@
 # Parsing a Binary Message
 
 ## Intro 
-Parsing a binary message is fairly complex but there are many options to specify how values should be extracted from the message payload.
+Parsing a binary message is fairly complex but there are many options to specify how values should be extracted from the binary message payload.
 
 ## Endiness
 The device may produce data in either [Little Endian](https://en.wikipedia.org/wiki/Endianness#Little) or [Big Endian](https://en.wikipedia.org/wiki/Endianness#Big).  Unless the firmware of your device is customizable this will be dictated by the device.  This is set at the device level since the device will send all its values in one format or the other and not mixed. 
@@ -23,8 +23,13 @@ The following are the available data types that can be extracted from a binary m
 * Single Precision Floating Point as defined by by [IEEE 754-1985](https://en.wikipedia.org/wiki/IEEE_754-1985)
 * Double Precision Floating Point as defined by by [IEEE 754-1985](https://en.wikipedia.org/wiki/IEEE_754-1985)
 
-## Extracting Values
-Values are extracted by index into the message.  These can be either relative or absolute.  
+## Framing Bytes
+[Framing Bytes](FramingBytes.md) can be used to confirm the validity of your message as well as provide checkpoints for relative parsing of your message.
+
+## Binary Offset
+Enter the Absolute Offset or Relative offset within the message to extract the value.  The data type will determine how many bytes will be read.  If you attempt to read past the end of the message, the parser will fail.
+
+*NOTE* In this case the index or binary offset is 0 based which is different than parsing delimited values where the index of the delimited value is 
 
 ### Absolute
 This is used if your message is always the same size and the expected values are always in the same position.

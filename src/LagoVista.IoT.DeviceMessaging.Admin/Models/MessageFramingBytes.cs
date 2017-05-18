@@ -17,5 +17,17 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Description, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Description { get; set; }
+
+        public byte? ToByte()
+        {
+            if(System.Byte.TryParse(Byte, System.Globalization.NumberStyles.HexNumber, null, out byte output))
+            {
+                return output;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

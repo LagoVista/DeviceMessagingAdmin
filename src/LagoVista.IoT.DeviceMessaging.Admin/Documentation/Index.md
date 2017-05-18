@@ -34,7 +34,11 @@ Your Message and Device Ids are always saved as strings.
 ### Nessage Value Parsers
 There are two parts of defining how values are parsed out of a message, defining common paraemters such as the delimiter, quoted text, endiness at the message level.  Then for each field paticulars such as the field index or parameter name.  More details are available based on the type message.
 
-There are two important parts of defining how your messages are parsed, specifying where to search and how the data should be stored.
+There are three important parts of defining how your messages are parsed and used. 
+* Key - The key will be used to identify this value as it's used to further process the message
+* [Search Location](#Search-Location) - The Listener will populate different components that can be used to search for message values
+* [Storage Type](#Storage-Types) - The data type that is used to identify the data
+
 
 #### Search Locations
 The following are four different areas that can be searched, these values are populated from the listener and more details are available there, in addition not all listeners support all the different locations.
