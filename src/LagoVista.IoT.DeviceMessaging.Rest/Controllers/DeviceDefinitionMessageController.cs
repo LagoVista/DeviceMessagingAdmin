@@ -12,6 +12,7 @@ using LagoVista.UserAdmin.Models.Account;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Managers;
+using LagoVista.IoT.Logging.Loggers;
 
 namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
 {
@@ -23,7 +24,7 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         /// <summary>
         /// Creates an instance of a DeciceMessageDefinitionController
         /// </summary>
-        public DeviceMessageDefinitionController(IDeviceMessageDefinitionManager deviceConfigManager, UserManager<AppUser> userManager, ILogger logger) : base(userManager, logger)
+        public DeviceMessageDefinitionController(IDeviceMessageDefinitionManager deviceConfigManager, UserManager<AppUser> userManager, IAdminLogger logger) : base(userManager, logger)
         {
             _deviceConfigManager = deviceConfigManager;
         }

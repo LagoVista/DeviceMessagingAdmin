@@ -5,6 +5,7 @@ using LagoVista.Core.PlatformSupport;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Repos;
+using LagoVista.IoT.Logging.Loggers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +18,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
     {
         IDeviceMessageDefinitionRepo _deviceMessageDefinitionRepo;
 
-        public DeviceMessageDefinitionManager (IDeviceMessageDefinitionRepo deviceMessageDefinitionRepo, ILogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
+        public DeviceMessageDefinitionManager (IDeviceMessageDefinitionRepo deviceMessageDefinitionRepo, IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
             base(logger, appConfig, depmanager, security)
         {
             _deviceMessageDefinitionRepo = deviceMessageDefinitionRepo;
