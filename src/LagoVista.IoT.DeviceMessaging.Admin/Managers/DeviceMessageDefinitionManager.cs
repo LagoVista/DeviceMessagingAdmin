@@ -63,6 +63,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             var messageDefinition = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(id);
             await AuthorizeAsync(messageDefinition, AuthorizeActions.Delete, org, user);
             await ConfirmNoDepenenciesAsync(messageDefinition);
+            await _deviceMessageDefinitionRepo.DeleteDeviceMessageDefinitionAsync(id);
             return InvokeResult.Success;
         }
 
