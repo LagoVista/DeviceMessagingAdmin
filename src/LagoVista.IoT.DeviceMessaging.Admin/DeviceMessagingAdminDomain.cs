@@ -6,6 +6,7 @@ using System.Text;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin
 {
+    [DomainDescriptor]
     public class DeviceMessagingAdminDomain
     {
         public const string DeviceMessagingAdmin = "Device Messaging Admin";
