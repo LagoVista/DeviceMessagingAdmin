@@ -68,6 +68,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         QueryString,
         [EnumLabel(DeviceMessageDefinitionField.SearchLocation_Path, DeviceMessagingAdminResources.Names.DeviceMessageField_SearchLocation_Path, typeof(DeviceMessagingAdminResources))]
         Path,
+        [EnumLabel(DeviceMessageDefinitionField.SearchLocation_Topic, DeviceMessagingAdminResources.Names.DeviceMessageField_SearchLocation_Topic, typeof(DeviceMessagingAdminResources))]
+        Topic,
         [EnumLabel(DeviceMessageDefinitionField.SearchLocation_Body, DeviceMessagingAdminResources.Names.DeviceMessageField_SearchLocation_Body, typeof(DeviceMessagingAdminResources))]
         Body
     }
@@ -117,6 +119,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string SearchLocation_QueryString = "querystring";
         public const string SearchLocation_Path = "path";
         public const string SearchLocation_Body = "body";
+        public const string SearchLocation_Topic = "topic";
 
         public const string FieldType_Content = "content";
         public const string FieldType_MessageId = "messageid";

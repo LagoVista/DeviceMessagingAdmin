@@ -352,6 +352,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_Select
 
 		public static string DeviceMessageField_SearchLocation_Select { get { return GetResourceString("DeviceMessageField_SearchLocation_Select"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation_Topic
+
+		public static string DeviceMessageField_SearchLocation_Topic { get { return GetResourceString("DeviceMessageField_SearchLocation_Topic"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StartIndex
 
 		public static string DeviceMessageField_StartIndex { get { return GetResourceString("DeviceMessageField_StartIndex"); } }
@@ -545,6 +548,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_SearchLocation_Path = "DeviceMessageField_SearchLocation_Path";
 			public const string DeviceMessageField_SearchLocation_QueryString = "DeviceMessageField_SearchLocation_QueryString";
 			public const string DeviceMessageField_SearchLocation_Select = "DeviceMessageField_SearchLocation_Select";
+			public const string DeviceMessageField_SearchLocation_Topic = "DeviceMessageField_SearchLocation_Topic";
 			public const string DeviceMessageField_StartIndex = "DeviceMessageField_StartIndex";
 			public const string DeviceMessageField_StorageFieldType = "DeviceMessageField_StorageFieldType";
 			public const string DeviceMessageField_StorageFieldType_Help = "DeviceMessageField_StorageFieldType_Help";

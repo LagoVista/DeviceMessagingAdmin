@@ -324,6 +324,9 @@
   <data name="DeviceMessageField_SearchLocation_Select" xml:space="preserve">
     <value>-select search location-</value>
   </data>
+  <data name="DeviceMessageField_SearchLocation_Topic" xml:space="preserve">
+    <value>Topic</value>
+  </data>
   <data name="DeviceMessageField_StartIndex" xml:space="preserve">
     <value>Start Index</value>
   </data>
