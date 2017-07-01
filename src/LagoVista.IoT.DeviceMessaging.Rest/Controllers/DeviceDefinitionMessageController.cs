@@ -123,6 +123,26 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
             return response;
         }
 
+        /// <summary>
+        ///  Device Message Sample- Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/devicemessageconfig/samplemessage/factory")]
+        public DetailResponse<SampleMessage> CreateSampleMessage()
+        {
+            return DetailResponse<SampleMessage>.Create();
+        }
+
+        /// <summary>
+        ///  Device Message Faming Byte - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/devicemessageconfig/framingbyte/factory")]
+        public DetailResponse<MessageFramingBytes> CreateFramingByte()
+        {
+            return DetailResponse<MessageFramingBytes>.Create();
+        }
+
 
         /// <summary>
         ///  Device Message Config - Create New

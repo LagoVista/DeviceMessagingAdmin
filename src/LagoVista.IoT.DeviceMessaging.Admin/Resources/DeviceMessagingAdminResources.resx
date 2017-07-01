@@ -159,6 +159,12 @@
   <data name="DeviceMessageDefinition_MessageId_Help" xml:space="preserve">
     <value>The Message Id is a free form field that you can add add an Id that you can use to relate this message type to a message type in your system. They key must be unique across your organization. You can add anything you want in the Message Id field.</value>
   </data>
+  <data name="DeviceMessageDefinition_SampleMessages" xml:space="preserve">
+    <value>Sample Messages</value>
+  </data>
+  <data name="DeviceMessageDefinition_SampleMessages_Help" xml:space="preserve">
+    <value>You can provide sample messages that contain the content that your message will send, these are helpful when building your message parsers and can be used as a starting point to create simulators.</value>
+  </data>
   <data name="DeviceMessageDefinition_Script" xml:space="preserve">
     <value>Translation Script</value>
   </data>
@@ -505,5 +511,38 @@
   </data>
   <data name="MessageFramingByte_Title" xml:space="preserve">
     <value>Framing Byte</value>
+  </data>
+  <data name="SampleMessage_Description" xml:space="preserve">
+    <value>A sample message contains the same content that will be sent along with the message, it can be used to create message parsers, build verifiers as well as provide a starting point to create simulators.</value>
+  </data>
+  <data name="SampleMessage_HeaderName" xml:space="preserve">
+    <value>Header Name</value>
+  </data>
+  <data name="SampleMessage_Headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="SampleMessage_HeaderValue" xml:space="preserve">
+    <value>Header Value</value>
+  </data>
+  <data name="SampleMessage_Help" xml:space="preserve">
+    <value>A sample message contains the same content that will be sent along with the message, it can be used to create message parsers, build verifiers as well as provide a starting point to create simulators.</value>
+  </data>
+  <data name="SampleMessage_MessageId" xml:space="preserve">
+    <value>Message Id</value>
+  </data>
+  <data name="SampleMessage_MessageId_Help" xml:space="preserve">
+    <value>The Message Id is the actual message that is contained somewhere in the message that will uniquely identify it</value>
+  </data>
+  <data name="SampleMessage_PathAndQueryString" xml:space="preserve">
+    <value>Path and Query String</value>
+  </data>
+  <data name="SampleMessage_Payload" xml:space="preserve">
+    <value>Payload</value>
+  </data>
+  <data name="SampleMessage_Title" xml:space="preserve">
+    <value>Sample Message</value>
+  </data>
+  <data name="SampleMessage_Topic" xml:space="preserve">
+    <value>Topic</value>
   </data>
 </root>

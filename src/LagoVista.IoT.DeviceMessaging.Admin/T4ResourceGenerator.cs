@@ -187,6 +187,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_MessageId_Help
 
 		public static string DeviceMessageDefinition_MessageId_Help { get { return GetResourceString("DeviceMessageDefinition_MessageId_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_SampleMessages
+
+		public static string DeviceMessageDefinition_SampleMessages { get { return GetResourceString("DeviceMessageDefinition_SampleMessages"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_SampleMessages_Help
+
+		public static string DeviceMessageDefinition_SampleMessages_Help { get { return GetResourceString("DeviceMessageDefinition_SampleMessages_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_Script
 
 		public static string DeviceMessageDefinition_Script { get { return GetResourceString("DeviceMessageDefinition_Script"); } }
@@ -448,6 +454,39 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:MessageFramingByte_Title
 
 		public static string MessageFramingByte_Title { get { return GetResourceString("MessageFramingByte_Title"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_Description
+
+		public static string SampleMessage_Description { get { return GetResourceString("SampleMessage_Description"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_HeaderName
+
+		public static string SampleMessage_HeaderName { get { return GetResourceString("SampleMessage_HeaderName"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_Headers
+
+		public static string SampleMessage_Headers { get { return GetResourceString("SampleMessage_Headers"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_HeaderValue
+
+		public static string SampleMessage_HeaderValue { get { return GetResourceString("SampleMessage_HeaderValue"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_Help
+
+		public static string SampleMessage_Help { get { return GetResourceString("SampleMessage_Help"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_MessageId
+
+		public static string SampleMessage_MessageId { get { return GetResourceString("SampleMessage_MessageId"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_MessageId_Help
+
+		public static string SampleMessage_MessageId_Help { get { return GetResourceString("SampleMessage_MessageId_Help"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_PathAndQueryString
+
+		public static string SampleMessage_PathAndQueryString { get { return GetResourceString("SampleMessage_PathAndQueryString"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_Payload
+
+		public static string SampleMessage_Payload { get { return GetResourceString("SampleMessage_Payload"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_Title
+
+		public static string SampleMessage_Title { get { return GetResourceString("SampleMessage_Title"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessage_Topic
+
+		public static string SampleMessage_Topic { get { return GetResourceString("SampleMessage_Topic"); } }
 
 		public static class Names
 		{
@@ -493,6 +532,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageDefinition_Key_Help = "DeviceMessageDefinition_Key_Help";
 			public const string DeviceMessageDefinition_MessageId = "DeviceMessageDefinition_MessageId";
 			public const string DeviceMessageDefinition_MessageId_Help = "DeviceMessageDefinition_MessageId_Help";
+			public const string DeviceMessageDefinition_SampleMessages = "DeviceMessageDefinition_SampleMessages";
+			public const string DeviceMessageDefinition_SampleMessages_Help = "DeviceMessageDefinition_SampleMessages_Help";
 			public const string DeviceMessageDefinition_Script = "DeviceMessageDefinition_Script";
 			public const string DeviceMessageDefinition_Title = "DeviceMessageDefinition_Title";
 			public const string DeviceMessageField_BinaryOffset = "DeviceMessageField_BinaryOffset";
@@ -580,6 +621,17 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string MessageFramingByte_Index = "MessageFramingByte_Index";
 			public const string MessageFramingByte_Index_Help = "MessageFramingByte_Index_Help";
 			public const string MessageFramingByte_Title = "MessageFramingByte_Title";
+			public const string SampleMessage_Description = "SampleMessage_Description";
+			public const string SampleMessage_HeaderName = "SampleMessage_HeaderName";
+			public const string SampleMessage_Headers = "SampleMessage_Headers";
+			public const string SampleMessage_HeaderValue = "SampleMessage_HeaderValue";
+			public const string SampleMessage_Help = "SampleMessage_Help";
+			public const string SampleMessage_MessageId = "SampleMessage_MessageId";
+			public const string SampleMessage_MessageId_Help = "SampleMessage_MessageId_Help";
+			public const string SampleMessage_PathAndQueryString = "SampleMessage_PathAndQueryString";
+			public const string SampleMessage_Payload = "SampleMessage_Payload";
+			public const string SampleMessage_Title = "SampleMessage_Title";
+			public const string SampleMessage_Topic = "SampleMessage_Topic";
 		}
 	}
 }

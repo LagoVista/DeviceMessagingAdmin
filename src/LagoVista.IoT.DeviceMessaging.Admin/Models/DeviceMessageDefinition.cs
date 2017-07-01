@@ -93,7 +93,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Fields, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<DeviceMessageDefinitionField> Fields { get; set; }
 
-
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId_Help, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public string MessageId { get; set; }
 
@@ -135,6 +134,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<MessageFramingBytes> FramingBytes { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public List<SampleMessage> SampleMessages { get; set; }
+
 
         public DeviceMessageDefinitionSummary CreateSummary()
         {
