@@ -46,7 +46,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
 
         public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user)
         {
-            await AuthorizeOrgAccess(user, orgId, typeof(DeviceMessageDefinition));
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceMessageDefinition));
             return await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionsForOrgAsync(orgId);
         }
 
