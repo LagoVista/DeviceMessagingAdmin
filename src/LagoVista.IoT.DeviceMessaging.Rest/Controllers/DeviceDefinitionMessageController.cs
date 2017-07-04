@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using LagoVista.Core.PlatformSupport;
-using LagoVista.UserAdmin.Models.Account;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Managers;
 using LagoVista.IoT.Logging.Loggers;
+using LagoVista.UserAdmin.Models.Users;
 
 namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
 {
