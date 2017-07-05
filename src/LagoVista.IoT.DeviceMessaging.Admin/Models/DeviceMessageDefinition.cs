@@ -77,6 +77,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         {
             Fields = new List<DeviceMessageDefinitionField>();
             FramingBytes = new List<MessageFramingBytes>();
+            SampleMessages = new List<SampleMessage>();
         }
 
         public String DatabaseName { get; set; }
