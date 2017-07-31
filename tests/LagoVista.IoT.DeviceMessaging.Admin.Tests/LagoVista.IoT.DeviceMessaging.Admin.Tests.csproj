@@ -8,11 +8,11 @@
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.4;portable-net451+win8</PackageTargetFallback>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="LagoVista.Core" Version="1.2.63-alpha1541" />
-    <PackageReference Include="Moq" Version="4.7.25" />
-    <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
-    <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
+    <PackageReference Include="Moq" Version="4.7.99" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.0-beta" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.0-beta" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
     <Reference Include="System" />
