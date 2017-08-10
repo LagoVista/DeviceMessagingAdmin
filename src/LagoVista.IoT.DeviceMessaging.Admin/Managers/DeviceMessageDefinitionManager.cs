@@ -35,7 +35,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
         public async Task<DeviceMessageDefinition> GetDeviceMessageDefinitionAsync(string id, EntityHeader org, EntityHeader user)
         {
             var deviceMessageDefinition = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(id);
-            await AuthorizeAsync(deviceMessageDefinition, AuthorizeActions.Read, org, user);
+            await AuthorizeAsync(deviceMessageDefinition, AuthorizeActions.Read, user, org);
             return deviceMessageDefinition;
         }
 
@@ -52,7 +52,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
 
         public async Task<InvokeResult> UpdateDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageConfiguration, EntityHeader org, EntityHeader user)
         {
-            await AuthorizeAsync(deviceMessageConfiguration, AuthorizeActions.Update, org, user);
+            await AuthorizeAsync(deviceMessageConfiguration, AuthorizeActions.Update, user, org);
             ValidationCheck(deviceMessageConfiguration, Actions.Update);
             await _deviceMessageDefinitionRepo.UpdateDeviceMessageDefinitionAsync(deviceMessageConfiguration);
             return InvokeResult.Success;
@@ -61,7 +61,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
         public async Task<InvokeResult> DeleteDeviceMessageDefinitionAsync(string id, EntityHeader org, EntityHeader user)
         {
             var messageDefinition = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(id);
-            await AuthorizeAsync(messageDefinition, AuthorizeActions.Delete, org, user);
+            await AuthorizeAsync(messageDefinition, AuthorizeActions.Delete, user, org);
             await ConfirmNoDepenenciesAsync(messageDefinition);
             await _deviceMessageDefinitionRepo.DeleteDeviceMessageDefinitionAsync(id);
             return InvokeResult.Success;
