@@ -256,7 +256,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public string HeaderName { get; set; }
 
 
-
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string QueryStringField { get; set; }
 
