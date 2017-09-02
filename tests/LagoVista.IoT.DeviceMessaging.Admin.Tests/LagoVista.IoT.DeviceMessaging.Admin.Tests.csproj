@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="LagoVista.Core" Version="1.2.105-alpha0832" />
+    <PackageReference Include="LagoVista.Core" Version="1.2.105-alpha1550" />
     <PackageReference Include="Moq" Version="4.7.99" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.0-beta" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.0-beta" />
