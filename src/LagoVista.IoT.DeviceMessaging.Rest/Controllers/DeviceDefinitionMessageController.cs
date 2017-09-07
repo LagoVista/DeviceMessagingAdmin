@@ -57,7 +57,7 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/org/{orgid}/devicemessagetypes")]
+        [HttpGet("/api/devicemessagetypes")]
         public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetDeviceMessageConfigurationsForOrgAsync(String orgId)
         {
             var deviceMessageConfiguration = await _deviceConfigManager.GetDeviceMessageDefinitionsForOrgsAsync(orgId, UserEntityHeader);
