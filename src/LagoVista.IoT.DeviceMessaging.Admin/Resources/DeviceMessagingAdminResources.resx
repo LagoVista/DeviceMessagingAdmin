@@ -286,7 +286,7 @@
     <value>Path Locator</value>
   </data>
   <data name="DeviceMessageField_PathLocator_Help" xml:space="preserve">
-    <value>If the Device ID or Message Type Id Arrives in the path it can be extract using the syntax /api/{messageid}/*.  This will extract msg001 from /api/msg001/52345.  The value messageid is specified in the Key Name and can be used to extract either a Message Type Id or a Device Id.</value>
+    <value>If the Device ID or Message Type Id Arrives in the path it can be extract using the syntax /api/\{messageid\}/*.  This will extract msg001 from /api/msg001/52345.  The value messageid is specified in the Key Name and can be used to extract either a Message Type Id or a Device Id.</value>
   </data>
   <data name="DeviceMessageField_PropertyRequiredForContentType" xml:space="preserve">
     <value>Message Field Property: [PROPERTYNAME] is required for content type [CONTENTTYPE].</value>
@@ -544,5 +544,77 @@
   </data>
   <data name="SampleMessage_Topic" xml:space="preserve">
     <value>Topic</value>
+  </data>
+  <data name="DateTimeZone_8601" xml:space="preserve">
+    <value>Expect 8601 Format</value>
+  </data>
+  <data name="DateTimeZone_NoTimeZone" xml:space="preserve">
+    <value>Ignore Time Zone</value>
+  </data>
+  <data name="DateTimeZone_Select" xml:space="preserve">
+    <value>-select time zone-</value>
+  </data>
+  <data name="DateTimeZone_Server" xml:space="preserve">
+    <value>Assume Server Time Zone</value>
+  </data>
+  <data name="DateTimeZone_Time_Zone" xml:space="preserve">
+    <value>Time Zone </value>
+  </data>
+  <data name="DateTimeZone_Time_Zone_Help" xml:space="preserve">
+    <value>Select the Time Zone that will be associated with the incoming value</value>
+  </data>
+  <data name="DateTimeZone_Universal" xml:space="preserve">
+    <value>Assume Universal Time Zone</value>
+  </data>
+  <data name="DeviceMessageField_FieldIndex" xml:space="preserve">
+    <value>Field Index</value>
+  </data>
+  <data name="DeviceMessageField_FieldIndex_Help" xml:space="preserve">
+    <value>For a delimited file type you can enter which column includes the field that contains the data</value>
+  </data>
+  <data name="DeviceMessageField_LatBinaryOffset" xml:space="preserve">
+    <value>Latitude Binary Offset</value>
+  </data>
+  <data name="DeviceMessageField_LatFieldIndex" xml:space="preserve">
+    <value>Latitude Field Index</value>
+  </data>
+  <data name="DeviceMessageField_LatJSONPath" xml:space="preserve">
+    <value>Latitude JSON Path</value>
+  </data>
+  <data name="DeviceMessageField_LatStartIndex" xml:space="preserve">
+    <value>Latitude Start Index</value>
+  </data>
+  <data name="DeviceMessageField_LatXPath" xml:space="preserve">
+    <value>Latitude XPath</value>
+  </data>
+  <data name="DeviceMessageField_LonBinaryOffset" xml:space="preserve">
+    <value>Longitude Binary Offset</value>
+  </data>
+  <data name="DeviceMessageField_LonFieldIndex" xml:space="preserve">
+    <value>Longitude Field Index</value>
+  </data>
+  <data name="DeviceMessageField_LonJSONPath" xml:space="preserve">
+    <value>Longitude JSON Path</value>
+  </data>
+  <data name="DeviceMessageField_LonStartIndex" xml:space="preserve">
+    <value>Longitude Start Index</value>
+  </data>
+  <data name="DeviceMessageField_LonXPath" xml:space="preserve">
+    <value>Longitude XPath</value>
+  </data>
+  <data name="DeviceMessageField_LatDelimitedIndex" xml:space="preserve">
+    <value>Latitude Delimited Index</value>
+  </data>
+  <data name="DeviceMessageField_LatQueryStringField" xml:space="preserve">
+    <value>Latitude Query String Field</value>
+  </data>
+  <data name="DeviceMessageField_LonDelimitedIndex" xml:space="preserve">
+    <value>Longitude Delimited Index</value>
+  </data>
+  <data name="DeviceMessageField_LonQueryStringField" xml:space="preserve">
+    <value>Longitude Query String Field</value>
+  </data>
+  <data name="DeviceMessageField_XPath_Help" xml:space="preserve">
+    <value>Provide an XPath Expression to extract a value from an XML Document</value>
   </data>
 </root>

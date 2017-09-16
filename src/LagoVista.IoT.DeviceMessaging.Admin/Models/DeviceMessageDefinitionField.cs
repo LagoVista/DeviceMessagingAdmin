@@ -9,11 +9,11 @@ using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using System;
 using System.Linq;
 using System.Reflection;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {
+    #region Enum Defs
     public enum ParseBinaryValueType
     {
         [EnumLabel(DeviceMessageDefinitionField.ParserBinaryType_String, DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryParser_String, typeof(DeviceMessagingAdminResources))]
@@ -84,13 +84,34 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         Content,
     }
 
+    public enum DateTimeZoneOptions
+    {
+        [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_NoTimeZone, DeviceMessagingAdminResources.Names.DateTimeZone_NoTimeZone, typeof(DeviceMessagingAdminResources))]
+        NoTimeZone,
+        [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_Server, DeviceMessagingAdminResources.Names.DateTimeZone_Server, typeof(DeviceMessagingAdminResources))]
+        UseServerTimeZone,
+        [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_Universal, DeviceMessagingAdminResources.Names.DateTimeZone_Universal, typeof(DeviceMessagingAdminResources))]
+        UniversalTimeZone,
+        [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_8601, DeviceMessagingAdminResources.Names.DateTimeZone_8601, typeof(DeviceMessagingAdminResources))]
+        ISO8601
+    }
+    #endregion
+
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageField_Title, DeviceMessagingAdminResources.Names.DeviceMessageField_Help, DeviceMessagingAdminResources.Names.DeviceMessageField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
     public class DeviceMessageDefinitionField : IKeyedEntity, INamedEntity, IValidateable
     {
+        #region Constructor
         public DeviceMessageDefinitionField()
         {
             Id = Guid.NewGuid().ToId();
         }
+        #endregion
+
+        #region Constants used for setting values on enums
+        public const string DateTimeZone_NoTimeZone = "notimezone";
+        public const string DateTimeZone_Server = "servertimezone";
+        public const string DateTimeZone_Universal = "universaltimezone";
+        public const string DateTimeZone_8601 = "iso8601";
 
         public const string ParserBinaryType_String = "string";
         public const string ParserBinaryType_Boolean = "boolean";
@@ -124,8 +145,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string FieldType_Content = "content";
         public const string FieldType_MessageId = "messageid";
         public const string FieldType_DeviceId = "deviceid";
+        #endregion
 
-
+        #region Id/Key/Name Properties
         public String Id { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Key, HelpResource: DeviceMessagingAdminResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: DeviceMessagingAdminResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
@@ -133,16 +155,33 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Name, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public String Name { get; set; }
+        #endregion
 
+        #region Common Fields
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_FieldIndex, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_FieldIndex_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? FieldIndex { get; set; }
 
         /* Can search anywhere */
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SearchLocation, EnumType: (typeof(SearchLocations)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SearchLocation_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_SearchLocation_Select, IsRequired: true)]
         public EntityHeader<SearchLocations> SearchLocation { get; set; }
 
+        /* Required for all fields */
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select, IsRequired: true)]
+        public EntityHeader<ParameterTypes> StorageType { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.Binary)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType, EnumType: (typeof(ParseBinaryValueType)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Select)]
-        public EntityHeader<ParseBinaryValueType> ParsedBinaryFieldType { get; set; }
+        [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<UnitSet> UnitSet { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<StateSet> StateSet { get; set; }
+        #endregion
+
+        #region Values for parsing message and device id fields
+        /* 
+         * Normally these values would be present in the message definition, since we are using the same parsing
+         * meta data for both device id/message id and to extract values from content we need to provide these values for 
+         * message id/device id parsers
+         */
 
         [AllowableFieldType(FieldType.DeviceId)]
         [AllowableFieldType(FieldType.MessageId)]
@@ -151,18 +190,30 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public bool QuotedText { get; set; }
 
 
-        [AllowableMessageContentType(MessageContentTypes.Custom)]
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
-        [AllowableMessageContentType(MessageContentTypes.JSON)]
-        [AllowableMessageContentType(MessageContentTypes.String)]
-        [AllowableMessageContentType(MessageContentTypes.XML)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType, EnumType: (typeof(ParseStringValueType)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Select)]
-        public EntityHeader<ParseStringValueType> ParsedStringFieldType { get; set; }
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string Delimiter { get; set; }
+
 
         [AllowableFieldType(FieldType.DeviceId)]
         [AllowableFieldType(FieldType.MessageId)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<MessageContentTypes> ContentType { get; set; }
+        #endregion
+
+        #region Values to extract values from a binary message
+        [AllowableMessageContentType(MessageContentTypes.Binary)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType, EnumType: (typeof(ParseBinaryValueType)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Select)]
+        public EntityHeader<ParseBinaryValueType> ParsedBinaryFieldType { get; set; }
+
+
+        [AllowableStorageContentType(ParameterTypes.TrueFalse)]
+        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? StringLengthByteCount { get; set; }
+
 
         [AllowableFieldType(FieldType.DeviceId)]
         [AllowableFieldType(FieldType.MessageId)]
@@ -172,20 +223,29 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         [AllowableFieldType(FieldType.DeviceId)]
         [AllowableFieldType(FieldType.MessageId)]
+        [AllowableStorageContentType(ParameterTypes.TrueFalse)]
         [AllowableMessageContentType(MessageContentTypes.Binary, true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_StringParsingStrategy_Select, EnumType: typeof(StringParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<StringParsingStrategy> StringParsingStrategy { get; set; }
 
+        [AllowableFieldType(FieldType.DeviceId)]
+        [AllowableFieldType(FieldType.MessageId)]
+        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
+        public EntityHeader<EndianTypes> Endian { get; set; }
+        #endregion
 
-        /* Required for all fields */
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select, IsRequired: true)]
-        public EntityHeader<ParameterTypes> StorageType { get; set; }
+        #region Values for text type content messages
+        [AllowableMessageContentType(MessageContentTypes.Custom)]
+        [AllowableMessageContentType(MessageContentTypes.Delimited)]
+        [AllowableMessageContentType(MessageContentTypes.JSON)]
+        [AllowableMessageContentType(MessageContentTypes.String)]
+        [AllowableMessageContentType(MessageContentTypes.XML)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType, EnumType: (typeof(ParseStringValueType)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_MessageFieldType_Select)]
+        public EntityHeader<ParseStringValueType> ParsedStringFieldType { get; set; }
+        #endregion
 
-        /* Can be used after extracting value */
-        [AllowableStorageContentType(ParameterTypes.String)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string RegExValidation { get; set; }
-
+        #region Locator Fields    
         [AllowableMessageContentType(MessageContentTypes.String)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValueSelector, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValueSelector_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegExValueSelector { get; set; }
@@ -196,69 +256,133 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public string RegExGroupName { get; set; }
 
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader<UnitSet> UnitSet { get; set; }
+        [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
+        [AllowableMessageContentType(MessageContentTypes.JSON)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JSONPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JsonPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string JsonPath { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader<StateSet> StateSet { get; set; }
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.JSON)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatJSONPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JsonPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string LatJsonPath { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.JSON)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonJSONPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JsonPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string LonJsonPath { get; set; }
+
+
+
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Delimited_Index, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Delimited_Index_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? DelimitedIndex { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int? StringLengthByteCount { get; set; }
-
-        [AllowableFieldType(FieldType.DeviceId)]
-        [AllowableFieldType(FieldType.MessageId)]
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string Delimiter { get; set; }
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatDelimitedIndex, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_FieldIndex_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? LatDelimitedIndex { get; set; }
 
-        [AllowableFieldType(FieldType.DeviceId)]
-        [AllowableFieldType(FieldType.MessageId)]
-        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
-        public EntityHeader<EndianTypes> Endian { get; set; }
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.Delimited)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonDelimitedIndex, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_FieldIndex_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? LonDelimitedIndex { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.String)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StartIndex, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int? StartIndex { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.String)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Length, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int? Length { get; set; }
 
         [AllowableMessageContentType(MessageContentTypes.Binary)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? BinaryOffset { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.Binary)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatBinaryOffset, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? LatBinaryOffset { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Index, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Index_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public int? FieldIndex { get; set; }
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.Binary)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonBinaryOffset, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? LonBinaryOffset { get; set; }
 
+
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
+        [AllowableMessageContentType(MessageContentTypes.String)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StartIndex, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? StartIndex { get; set; }
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.String)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatStartIndex, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? LatStartIndex { get; set; }
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.String)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonStartIndex, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? LonStartIndex { get; set; }
+
+        [AllowableMessageContentType(MessageContentTypes.String)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Length, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? Length { get; set; }
+
+
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
         [AllowableMessageContentType(MessageContentTypes.XML)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string XPath { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.JSON)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JSONPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JsonPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string JsonPath { get; set; }
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.XML)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatXPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string LatXPath { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_IsRequired, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public bool IsRequired { get; set; }
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.XML)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonXPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string LonXPath { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string PathLocator { get; set; }
-
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string HeaderName { get; set; }
 
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string QueryStringField { get; set; }
 
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatQueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string LatQueryStringField { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonQueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string LonQueryStringField { get; set; }
+
+
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string PathLocator { get; set; }
+        #endregion
+
+        #region Misc Values
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DateTimeZone_Time_Zone, EnumType: (typeof(DateTimeZoneOptions)), HelpResource: DeviceMessagingAdminResources.Names.DateTimeZone_Time_Zone_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DateTimeZone_Select, IsRequired: false)]
+        public EntityHeader<DateTimeZoneOptions> DateTimeZone { get; set; }
+
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string HeaderName { get; set; }
+
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Notes, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string Notes { get; set; }
+        #endregion
+
+        #region Fields to do validation on value that is extracted
+        /* Can be used after extracting value */
+        [AllowableStorageContentType(ParameterTypes.String)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_RegExValidation_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string RegExValidation { get; set; }
+
+
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_IsRequired, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public bool IsRequired { get; set; }
 
         [AllowableStorageContentType(ParameterTypes.Integer)]
         [AllowableStorageContentType(ParameterTypes.Decimal)]
@@ -269,7 +393,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [AllowableStorageContentType(ParameterTypes.Decimal)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue, FieldType: FieldTypes.Decimal, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public double? MaxValue { get; set; }
+        #endregion
 
+        #region Methods to perform validation against meta data, based on content of meta data.
         private bool HasValue(PropertyInfo property)
         {
             var value = property.GetValue(this);
@@ -288,7 +414,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 var eh = value as EntityHeader;
                 hasValue = !eh.IsEmpty();
             }
-            else if(value is Int32)
+            else if (value is Int32)
             {
                 hasValue = true;
             }
@@ -316,7 +442,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             return name;
         }
 
-        private void AddWarningForUnsedProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue)
+        private void AddWarningForUnsedProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue, bool fieldParser)
         {
             var allowableTypeProperties = property.GetCustomAttributes<AllowableMessageContentTypeAttribute>();
             if (hasValue && allowableTypeProperties.Any() && !allowableTypeProperties.Where(allowable => allowable.ContentType == contentType.Value).Any())
@@ -326,12 +452,48 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             }
         }
 
-        private void AddErrorsForMissingProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue)
+        private void AddErrorsForMissingProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue, bool fieldParser)
         {
             var allowableTypeProperties = property.GetCustomAttributes<AllowableMessageContentTypeAttribute>();
+            var storageTypeValidators = property.GetCustomAttributes<AllowableStorageContentTypeAttribute>();
+
+            var allowableFieldType = property.GetCustomAttributes<AllowableFieldTypeAttribute>().FirstOrDefault();
+            if (allowableFieldType != null && (allowableFieldType.FieldType == FieldType.DeviceId || allowableFieldType.FieldType == FieldType.MessageId))
+            {
+                if (!fieldParser)
+                {
+                    return;
+                }
+            }
+
+            foreach (var storageTypeValidator in storageTypeValidators)
+            {
+                if (storageTypeValidator.AnyValueButThis && StorageType.Value == storageTypeValidator.StorageType)
+                {
+                    return;
+                }
+            }
+
+            var hasStorageTypeValidators = storageTypeValidators.Count() > 0;
+            if (hasStorageTypeValidators)
+            {
+                if (storageTypeValidators.Where(stv => stv.StorageType == StorageType.Value && stv.AnyValueButThis).Any())
+                {
+                    /* If we want anything BUT the match, and we have the match, then don't validate */
+                    return;
+                }
+
+                if (storageTypeValidators.Where(stv => stv.StorageType != StorageType.Value && !stv.AnyValueButThis).Any())
+                {
+                    /* We expect a match, but the storage types are different, then don't validate */
+                    return;
+                }
+            }
+
             foreach (var allowableProperty in allowableTypeProperties)
             {
-                if (!hasValue && allowableProperty.IsRequired && allowableProperty.ContentType == contentType.Value)
+                if (!hasValue && allowableProperty.IsRequired &&
+                    allowableProperty.ContentType == contentType.Value)
                 {
                     var missingMessage = Resources.DeviceMessagingAdminResources.DeviceMessage_PropertyRequiredForContentType.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, contentType.Text);
                     result.Errors.Add(new ErrorMessage(missingMessage));
@@ -353,9 +515,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                             var name = GetDisplayName(property);
                             var hasValue = HasValue(property);
 
-                            AddWarningForUnsedProperties(result, messageDefinition.ContentType, property, name, hasValue);
-                            AddErrorsForMissingProperties(result, messageDefinition.ContentType, property, name, hasValue);
+                            AddWarningForUnsedProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
+                            AddErrorsForMissingProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
                         }
+
                         break;
                     case SearchLocations.Header:
                         break;
@@ -368,5 +531,45 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
             return result;
         }
+
+        public ValidationResult Validate()
+        {
+            var result = Validator.Validate(this);
+
+
+            /* If base validation doesn't work, don't bother getting into the details */
+            if (result.Successful)
+            {
+                if (EntityHeader.IsNullOrEmpty(ContentType))
+                {
+                    result.Errors.Add(Resources.DeviceMessagingAdminErrorCodes.CouldNotDetermineDeviceId.ToErrorMessage());
+                }
+                else
+                {
+                    switch (SearchLocation.Value)
+                    {
+                        case SearchLocations.Body:
+                            foreach (var property in typeof(DeviceMessageDefinitionField).GetTypeInfo().DeclaredProperties)
+                            {
+                                var name = GetDisplayName(property);
+                                var hasValue = HasValue(property);
+                                AddWarningForUnsedProperties(result, ContentType, property, name, hasValue, true);
+                                AddErrorsForMissingProperties(result, ContentType, property, name, hasValue, true);
+                            }
+
+                            break;
+                        case SearchLocations.Header:
+                            break;
+                        case SearchLocations.Path:
+                            break;
+                        case SearchLocations.QueryString:
+                            break;
+                    }
+                }
+            }
+
+            return result;
+        }
+        #endregion
     }
 }

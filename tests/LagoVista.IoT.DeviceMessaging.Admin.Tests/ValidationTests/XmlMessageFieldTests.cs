@@ -13,7 +13,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
     public class XmlMessageFieldTests : MessageFieldTestBase
     {
         [TestMethod]
-        public void JsonMessageField_Valid()
+        public void XmlMessageField_Valid()
         {
             var msg = this.GetValidMessage(Models.MessageContentTypes.XML);
             var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.XML, DeviceAdmin.Models.ParameterTypes.Integer);
@@ -27,7 +27,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void JsonMessageField_MissingStart_InValid()
+        public void XmlMessageField_MissingXPath_InValid()
         {
             var msg = this.GetValidMessage(Models.MessageContentTypes.XML);
             var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.XML, DeviceAdmin.Models.ParameterTypes.Integer);
@@ -43,7 +43,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void JsondMessageField_ParsedBinaryField_InValid()
+        public void XmlMessageField_MissingParsedStringType_InValid()
         {
             var msg = this.GetValidMessage(Models.MessageContentTypes.XML);
             var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.XML, DeviceAdmin.Models.ParameterTypes.Integer);

@@ -24,13 +24,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
 
 
         [TestMethod]
-        public void BinaryMessageField_MissingStart_InValid()
+        public void BinaryMessageField_MissingBindaryOffset_InValid()
         {
             var msg = this.GetValidMessage(Models.MessageContentTypes.Binary);
             var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.Binary, DeviceAdmin.Models.ParameterTypes.Integer);
             msg.Fields.Add(fld);
 
-            fld.StartIndex = null;
+            fld.BinaryOffset = null;
 
             var result = Validator.Validate(msg);
             ShowErrors(result);

@@ -197,6 +197,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                     hasValue = false;
 
                 }
+                else if (value is Int32)
+                {
+                    hasValue = true;
+                }
                 else if (value is string)
                 {
                     hasValue = !String.IsNullOrEmpty(value.ToString());

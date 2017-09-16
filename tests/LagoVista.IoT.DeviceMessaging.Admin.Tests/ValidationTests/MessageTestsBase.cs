@@ -29,7 +29,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                     msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_Binary, Text = "Binary" };
                     msg.StringParsingStrategy = new Core.Models.EntityHeader<StringParsingStrategy>() { Id = DeviceMessageDefinition.StringParsingStrategy_NullTerminated, Text = "Null" };
                     msg.Endian = new Core.Models.EntityHeader<EndianTypes>() { Id = DeviceMessageDefinition.Endian_BigEndian, Text = "Little Endian" };
-                    msg.BinaryParsingStrategy = new Core.Models.EntityHeader<BinaryParsingStrategy>() { Id = DeviceMessageDefinition.BinaryParsingStrategy_Relative, Text = "Null" };
+                    msg.BinaryParsingStrategy = new Core.Models.EntityHeader<BinaryParsingStrategy>() { Id = DeviceMessageDefinition.BinaryParsingStrategy_Absolute, Text = "AbsolutePosition" };
+                    msg.StringLengthByteCount = 2;
 
                     break;
                 case MessageContentTypes.Custom:

@@ -17,14 +17,14 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
             fld.Name = "fld1";
             switch(parameterType)
             {
-                case ParameterTypes.DateTime: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.DateTime, Text = "read" }; break;
-                case ParameterTypes.Decimal: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Decimal, Text = "read" }; break;
-                case ParameterTypes.GeoLocation: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Geolocation, Text = "read" }; break;
-                case ParameterTypes.Integer: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Integer, Text = "read" }; break;
-                case ParameterTypes.State: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.State, Text = "read" }; break;
-                case ParameterTypes.String: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.String, Text = "read" }; break;
-                case ParameterTypes.TrueFalse: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.TrueFalse, Text = "read" }; break;
-                case ParameterTypes.ValueWithUnit: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.ValueWithUnit, Text = "read" }; break;
+                case ParameterTypes.DateTime: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.DateTime, Text = "Date Time" }; break;
+                case ParameterTypes.Decimal: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Decimal, Text = "Decimal" }; break;
+                case ParameterTypes.GeoLocation: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Geolocation, Text = "Geo Location" }; break;
+                case ParameterTypes.Integer: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Integer, Text = "Integer" }; break;
+                case ParameterTypes.State: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.State, Text = "State" }; break;
+                case ParameterTypes.String: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.String, Text = "String" }; break;
+                case ParameterTypes.TrueFalse: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.TrueFalse, Text = "True/False" }; break;
+                case ParameterTypes.ValueWithUnit: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.ValueWithUnit, Text = "value with unit" }; break;
 
             }
                        
@@ -35,7 +35,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                     switch (contentType)
                     {
                         case MessageContentTypes.Binary:
-                            fld.StartIndex = 32;
+                            fld.BinaryOffset = 32;
                             fld.ParsedBinaryFieldType = new Core.Models.EntityHeader<ParseBinaryValueType>() { Id = DeviceMessageDefinitionField.ParserBinaryType_UInt64, Text = "uint64" };
                             break;
                         case MessageContentTypes.Custom:
