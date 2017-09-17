@@ -94,6 +94,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         {
             ShowErrors(result);
             ShowWarnings(result);
+            Assert.AreEqual(0, result.Warnings.Count);
             Assert.IsTrue(result.Successful);
         }
 

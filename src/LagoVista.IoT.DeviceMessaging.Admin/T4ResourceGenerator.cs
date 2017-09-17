@@ -514,6 +514,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:Err_QueryStringNameMissing
 
 		public static string Err_QueryStringNameMissing { get { return GetResourceString("Err_QueryStringNameMissing"); } }
+//Resources:DeviceMessagingAdminResources:Err_TopicGroupNameMissing
+
+		public static string Err_TopicGroupNameMissing { get { return GetResourceString("Err_TopicGroupNameMissing"); } }
 //Resources:DeviceMessagingAdminResources:Err_TopicRegEx
 
 		public static string Err_TopicRegEx { get { return GetResourceString("Err_TopicRegEx"); } }
@@ -731,6 +734,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string Err_HeaderNameMissing = "Err_HeaderNameMissing";
 			public const string Err_PathNameMissing = "Err_PathNameMissing";
 			public const string Err_QueryStringNameMissing = "Err_QueryStringNameMissing";
+			public const string Err_TopicGroupNameMissing = "Err_TopicGroupNameMissing";
 			public const string Err_TopicRegEx = "Err_TopicRegEx";
 			public const string MessageFramingByte_AfterPayload = "MessageFramingByte_AfterPayload";
 			public const string MessageFramingByte_AfterPayload_Help = "MessageFramingByte_AfterPayload_Help";

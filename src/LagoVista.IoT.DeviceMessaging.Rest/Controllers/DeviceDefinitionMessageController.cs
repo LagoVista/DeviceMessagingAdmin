@@ -151,5 +151,28 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         {
             return DetailResponse<DeviceMessageDefinitionField>.Create();
         }
+
+
+        /// <summary>
+        ///  Device Message Type, Validate Message Field
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut("/api/devicemessagetype/field/validate")]
+        public ValidationResult ValidateMessageField(MessageFieldValidator field)
+        {
+            return field.Field.Validate(field.MessageDefinition);
+        }
+
+
+        /// <summary>
+        ///  Device Message Type, Validate Message Id/Device Id Parser
+        /// </summary>
+        /// <returns></returns>
+        [HttpPut("/api/devicemessagetype/fieldparser/validate")]
+        public ValidationResult ValidateMessageField(DeviceMessageDefinitionField field)
+        {
+            return field.Validate();
+        }
+
     }
 }

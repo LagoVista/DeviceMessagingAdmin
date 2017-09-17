@@ -509,14 +509,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             /* If base validation doesn't work, don't bother getting into the details */
             if (result.Successful)
             {
-                foreach (var property in typeof(DeviceMessageDefinitionField).GetTypeInfo().DeclaredProperties)
-                {
-                    var name = GetDisplayName(property);
-                    var hasValue = HasValue(property);
-
-                    AddWarningForUnsedProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
-                }
-
                 switch (SearchLocation.Value)
                 {
                     case SearchLocations.Body:
@@ -524,7 +516,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                         {
                             var name = GetDisplayName(property);
                             var hasValue = HasValue(property);
-
+                            AddWarningForUnsedProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
                             AddErrorsForMissingProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
                         }
 
@@ -540,6 +532,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                         break;
                     case SearchLocations.Topic:
                         if (String.IsNullOrEmpty(TopicRegEx)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
+                        if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                         break;
                 }
             }
@@ -561,13 +554,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 }
                 else
                 {
-                    foreach (var property in typeof(DeviceMessageDefinitionField).GetTypeInfo().DeclaredProperties)
-                    {
-                        var name = GetDisplayName(property);
-                        var hasValue = HasValue(property);
-                        AddWarningForUnsedProperties(result, ContentType, property, name, hasValue, true);
-                    }
-
                     switch (SearchLocation.Value)
                     {
                         case SearchLocations.Body:
@@ -575,6 +561,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                             {
                                 var name = GetDisplayName(property);
                                 var hasValue = HasValue(property);
+                                AddWarningForUnsedProperties(result, ContentType, property, name, hasValue, true);
                                 AddErrorsForMissingProperties(result, ContentType, property, name, hasValue, true);
                             }
 
@@ -590,6 +577,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                             break;
                         case SearchLocations.Topic:
                             if (String.IsNullOrEmpty(TopicRegEx)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
+                            if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                             break;
                     }
                 }

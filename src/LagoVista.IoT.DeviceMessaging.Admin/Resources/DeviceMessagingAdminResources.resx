@@ -635,4 +635,7 @@
   <data name="Err_TopicRegEx" xml:space="preserve">
     <value>Must provide a Topic Regular Expression to extract a field from a Topic.</value>
   </data>
+  <data name="Err_TopicGroupNameMissing" xml:space="preserve">
+    <value>When selecting a topic via regex, you must provide a group name to find the value.</value>
+  </data>
 </root>

@@ -1,11 +1,6 @@
 ﻿using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
 {
@@ -147,17 +142,95 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         public void MessageIdDeviceId_Valid_Topic()
         {
             var fld = CreateValidMessageField(Models.SearchLocations.Topic);
-            fld.TopicRegEx = "^somecrazyregex$";
+            fld.TopicRegEx = "foo";
+            fld.RegExGroupName = "mygroup";
             AssertValid(fld.Validate());
         }
 
         [TestMethod]
-        public void MessageIdDeviceId_InValid_Topic_NoTopic()
+        public void MessageIdDeviceId_InValid_Topic_NoTopicRegEx()
         {
             var fld = CreateValidMessageField(Models.SearchLocations.Topic);
             fld.TopicRegEx = null;
+            fld.RegExGroupName = "valid";
             AssertInValid(fld.Validate());
         }
 
+
+        [TestMethod]
+        public void MessageIdDeviceId_InValid_Topic_NoTopicGroupName()
+        {
+            var fld = CreateValidMessageField(Models.SearchLocations.Topic);
+            fld.TopicRegEx = "group";
+            fld.RegExGroupName = null;
+            AssertInValid(fld.Validate());
+        }
+
+        [TestMethod]
+        public void MessageIdDeviceId_Binary_Valid()
+        {
+            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
+            fld.BinaryOffset = 3;
+            fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
+            fld.Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian);
+            fld.ParsedStringFieldType = null;
+            fld.ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.String);
+            AssertValid(fld.Validate());
+        }
+
+        [TestMethod]
+        public void MessageIdDeviceId_Binary_Valid_MissingBinaryOffset()
+        {
+            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
+            fld.BinaryOffset = null;
+            fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
+            fld.Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian);
+            fld.ParsedStringFieldType = null;
+            fld.ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.String);
+            AssertInValid(fld.Validate());
+        }
+
+        [TestMethod]
+        public void MessageIdDeviceId_Binary_Valid_MissingParsingStrategy()
+        {
+            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
+            fld.BinaryOffset = 3;
+            fld.BinaryParsingStrategy = null;
+            fld.Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian);
+            fld.ParsedStringFieldType = null;
+            fld.ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.String);
+            AssertInValid(fld.Validate());
+        }
+
+
+        [TestMethod]
+        public void MessageIdDeviceId_Binary_Valid_MissingEndian()
+        {
+            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
+            fld.BinaryOffset = 3;
+            fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
+            fld.Endian = null;
+            fld.ParsedStringFieldType = null;
+            fld.ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.String);
+            AssertInValid(fld.Validate());
+        }
+
+
+        [TestMethod]
+        public void MessageIdDeviceId_Binary_Valid_MissingBinaryFieldType()
+        {
+            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
+            fld.BinaryOffset = 3;
+            fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
+            fld.Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian);
+            fld.ParsedStringFieldType = null;
+            fld.ParsedBinaryFieldType = null;
+            AssertInValid(fld.Validate());
+        }
     }
 }
