@@ -411,8 +411,8 @@
   <data name="DeviceMessage_ContentType_Select" xml:space="preserve">
     <value>-select content format-</value>
   </data>
-  <data name="DeviceMessage_ContentType_String" xml:space="preserve">
-    <value>String</value>
+  <data name="DeviceMessage_ContentType_StringRegEx" xml:space="preserve">
+    <value>String with Reg Ex</value>
   </data>
   <data name="DeviceMessage_ContentType_Xml" xml:space="preserve">
     <value>XML</value>
@@ -637,5 +637,14 @@
   </data>
   <data name="Err_TopicGroupNameMissing" xml:space="preserve">
     <value>When selecting a topic via regex, you must provide a group name to find the value.</value>
+  </data>
+  <data name="DeviceMessageField_LatGroupName" xml:space="preserve">
+    <value>Latitude RegEx Group Name</value>
+  </data>
+  <data name="DeviceMessageField_LonGroupName" xml:space="preserve">
+    <value>Longitude RegEx Group Name</value>
+  </data>
+  <data name="DeviceMessage_ContentType_StringPosition" xml:space="preserve">
+    <value>String with Position</value>
   </data>
 </root>

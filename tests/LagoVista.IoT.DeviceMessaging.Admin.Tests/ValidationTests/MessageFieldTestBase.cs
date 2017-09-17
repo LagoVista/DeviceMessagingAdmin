@@ -10,7 +10,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
 {
     public class MessageFieldTestBase : MessageTestsBase
     {
-        public DeviceMessageDefinitionField CreateValidMessageField(SearchLocations searchLocation, MessageContentTypes contentType = MessageContentTypes.String, ParameterTypes parameterType = ParameterTypes.String)
+        public DeviceMessageDefinitionField CreateValidMessageField(SearchLocations searchLocation, MessageContentTypes contentType = MessageContentTypes.JSON, ParameterTypes parameterType = ParameterTypes.String)
         {            
             var fld = new DeviceMessageDefinitionField();
             fld.Key = "key";
@@ -36,24 +36,30 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                     {
                         case MessageContentTypes.Binary:
                             fld.BinaryOffset = 32;
-                            fld.ParsedBinaryFieldType = new Core.Models.EntityHeader<ParseBinaryValueType>() { Id = DeviceMessageDefinitionField.ParserBinaryType_UInt64, Text = "uint64" };
+                            fld.ParsedBinaryFieldType = new Core.Models.EntityHeader<ParseBinaryValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "uint64" };
                             break;
                         case MessageContentTypes.Custom:
 
                             break;
                         case MessageContentTypes.Delimited:
                             fld.DelimitedIndex = 3;
-                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserBinaryType_String, Text = "abc123" };
+                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "abc123" };
                             break;
                         case MessageContentTypes.JSON:
-                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserBinaryType_String, Text = "abc123" };
+                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "abc123" };
                             fld.JsonPath = "one.two.three";
                             break;
-                        case MessageContentTypes.String:
-                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserBinaryType_String, Text = "abc123" };
+                        case MessageContentTypes.StringRegEx:
+                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "abc123" };
+                            fld.RegExGroupName = "somefield";
+                            break;
+                        case MessageContentTypes.StringPosition:
+                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "abc123" };
+                            fld.StartIndex = 5;
+                            fld.Length = 5;
                             break;
                         case MessageContentTypes.XML:
-                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserBinaryType_String, Text = "abc123" };
+                            fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "abc123" };
                             fld.XPath = "//foo/fee/fum";
                             break;
                     }

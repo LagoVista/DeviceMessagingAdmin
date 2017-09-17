@@ -59,10 +59,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void MessageDefinition_String_Valid()
+        public void MessageDefinition_StringRegEx_Valid()
         {
-            /* Just pick binary...doesn't matter just needs to be valid */
-            var msg = GetValidMessage(MessageContentTypes.String);
+            var msg = GetValidMessage(MessageContentTypes.StringRegEx);
             var result = Validator.Validate(msg);
             ShowErrors(result);
             ShowWarnings(result);
@@ -71,9 +70,21 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
+        public void MessageDefinition_StringPosition_Valid()
+        {
+            var msg = GetValidMessage(MessageContentTypes.StringPosition);
+            var result = Validator.Validate(msg);
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.IsTrue(result.Successful);
+            Assert.AreEqual(0, result.Warnings.Count);
+        }
+
+
+
+        [TestMethod]
         public void MessageDefinition_Xml_Valid()
         {
-            /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.XML);
             var result = Validator.Validate(msg);
             ShowErrors(result);
@@ -85,7 +96,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         [TestMethod]
         public void MessageDefinition_MissingMessageId()
         {
-            /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.Binary);
             msg.MessageId = null;
             var result = Validator.Validate(msg);

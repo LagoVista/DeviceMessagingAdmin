@@ -13,15 +13,18 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
     {
         protected DeviceMessageDefinition GetValidMessage(MessageContentTypes contenttype)
         {
-            var msg = new DeviceMessageDefinition();
-            msg.Name = "msg1234";
-            msg.MessageId = "msg1234";
-            msg.Key = "msg1234";
+            var msg = new DeviceMessageDefinition()
+            {
+                Name = "msg1234",
+                MessageId = "msg1234",
+                Key = "msg1234",
 
-            msg.Id = Guid.NewGuid().ToId();
-            msg.CreationDate = DateTime.Now.ToJSONString();
+                Id = Guid.NewGuid().ToId(),
+                CreationDate = DateTime.Now.ToJSONString(),
+                CreatedBy = new Core.Models.EntityHeader() { Id = Guid.NewGuid().ToId(), Text = "user name" }
+            };
+
             msg.LastUpdatedDate = msg.CreationDate;
-            msg.CreatedBy = new Core.Models.EntityHeader() { Id = Guid.NewGuid().ToId(), Text = "user name" };
             msg.LastUpdatedBy = msg.CreatedBy;
 
             switch (contenttype)
@@ -50,9 +53,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                         Text = "JSON"
                     };
                     break;
-                case MessageContentTypes.String:
-                    msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_String, Text = "String" };
+                case MessageContentTypes.StringRegEx:
+                    msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_StringRegEx, Text = "StringRegEx" };
                     msg.RegEx = "^parse_me_if_i_was_valid_reg_ex$";
+                    break;
+                case MessageContentTypes.StringPosition:
+                    msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_StringPosition, Text = "StringPosition" };
                     break;
                 case MessageContentTypes.XML:
                     msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_Xml, Text = "XML" };

@@ -14,8 +14,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     {
         [EnumLabel(DeviceMessageDefinition.ContentType_Binary, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Binary, typeof(DeviceMessagingAdminResources))]
         Binary,
-        [EnumLabel(DeviceMessageDefinition.ContentType_String, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_String, typeof(DeviceMessagingAdminResources))]
-        String,
+        [EnumLabel(DeviceMessageDefinition.ContentType_StringRegEx, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringRegEx, typeof(DeviceMessagingAdminResources))]
+        StringRegEx,
+        [EnumLabel(DeviceMessageDefinition.ContentType_StringPosition, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringPosition, typeof(DeviceMessagingAdminResources))]
+        StringPosition,
         [EnumLabel(DeviceMessageDefinition.ContentType_Delimited, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Delimited, typeof(DeviceMessagingAdminResources))]
         Delimited,
         [EnumLabel(DeviceMessageDefinition.ContentType_Json, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Json, typeof(DeviceMessagingAdminResources))]
@@ -57,7 +59,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity
     {
         public const string ContentType_Binary = "binary";
-        public const string ContentType_String = "string";
+        public const string ContentType_StringPosition = "stringposition";
+        public const string ContentType_StringRegEx = "stringregex";
         public const string ContentType_Delimited = "delimited";
         public const string ContentType_Json = "json";
         public const string ContentType_Xml = "xml";
@@ -125,7 +128,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<EndianTypes> Endian { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.String)]
+        [AllowableMessageContentType(MessageContentTypes.StringRegEx)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegEx { get; set; }
 
@@ -138,7 +141,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<SampleMessage> SampleMessages { get; set; }
-
 
         public DeviceMessageDefinitionSummary CreateSummary()
         {

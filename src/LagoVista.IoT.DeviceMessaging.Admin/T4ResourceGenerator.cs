@@ -137,9 +137,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_Select
 
 		public static string DeviceMessage_ContentType_Select { get { return GetResourceString("DeviceMessage_ContentType_Select"); } }
-//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_String
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_StringPosition
 
-		public static string DeviceMessage_ContentType_String { get { return GetResourceString("DeviceMessage_ContentType_String"); } }
+		public static string DeviceMessage_ContentType_StringPosition { get { return GetResourceString("DeviceMessage_ContentType_StringPosition"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_StringRegEx
+
+		public static string DeviceMessage_ContentType_StringRegEx { get { return GetResourceString("DeviceMessage_ContentType_StringRegEx"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_Xml
 
 		public static string DeviceMessage_ContentType_Xml { get { return GetResourceString("DeviceMessage_ContentType_Xml"); } }
@@ -322,6 +325,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_LatFieldIndex
 
 		public static string DeviceMessageField_LatFieldIndex { get { return GetResourceString("DeviceMessageField_LatFieldIndex"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_LatGroupName
+
+		public static string DeviceMessageField_LatGroupName { get { return GetResourceString("DeviceMessageField_LatGroupName"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_LatJSONPath
 
 		public static string DeviceMessageField_LatJSONPath { get { return GetResourceString("DeviceMessageField_LatJSONPath"); } }
@@ -346,6 +352,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_LonFieldIndex
 
 		public static string DeviceMessageField_LonFieldIndex { get { return GetResourceString("DeviceMessageField_LonFieldIndex"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_LonGroupName
+
+		public static string DeviceMessageField_LonGroupName { get { return GetResourceString("DeviceMessageField_LonGroupName"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_LonJSONPath
 
 		public static string DeviceMessageField_LonJSONPath { get { return GetResourceString("DeviceMessageField_LonJSONPath"); } }
@@ -611,7 +620,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessage_ContentType_Help = "DeviceMessage_ContentType_Help";
 			public const string DeviceMessage_ContentType_Json = "DeviceMessage_ContentType_Json";
 			public const string DeviceMessage_ContentType_Select = "DeviceMessage_ContentType_Select";
-			public const string DeviceMessage_ContentType_String = "DeviceMessage_ContentType_String";
+			public const string DeviceMessage_ContentType_StringPosition = "DeviceMessage_ContentType_StringPosition";
+			public const string DeviceMessage_ContentType_StringRegEx = "DeviceMessage_ContentType_StringRegEx";
 			public const string DeviceMessage_ContentType_Xml = "DeviceMessage_ContentType_Xml";
 			public const string DeviceMessage_Delimiter = "DeviceMessage_Delimiter";
 			public const string DeviceMessage_Endian = "DeviceMessage_Endian";
@@ -670,6 +680,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_LatBinaryOffset = "DeviceMessageField_LatBinaryOffset";
 			public const string DeviceMessageField_LatDelimitedIndex = "DeviceMessageField_LatDelimitedIndex";
 			public const string DeviceMessageField_LatFieldIndex = "DeviceMessageField_LatFieldIndex";
+			public const string DeviceMessageField_LatGroupName = "DeviceMessageField_LatGroupName";
 			public const string DeviceMessageField_LatJSONPath = "DeviceMessageField_LatJSONPath";
 			public const string DeviceMessageField_LatQueryStringField = "DeviceMessageField_LatQueryStringField";
 			public const string DeviceMessageField_LatStartIndex = "DeviceMessageField_LatStartIndex";
@@ -678,6 +689,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_LonBinaryOffset = "DeviceMessageField_LonBinaryOffset";
 			public const string DeviceMessageField_LonDelimitedIndex = "DeviceMessageField_LonDelimitedIndex";
 			public const string DeviceMessageField_LonFieldIndex = "DeviceMessageField_LonFieldIndex";
+			public const string DeviceMessageField_LonGroupName = "DeviceMessageField_LonGroupName";
 			public const string DeviceMessageField_LonJSONPath = "DeviceMessageField_LonJSONPath";
 			public const string DeviceMessageField_LonQueryStringField = "DeviceMessageField_LonQueryStringField";
 			public const string DeviceMessageField_LonStartIndex = "DeviceMessageField_LonStartIndex";

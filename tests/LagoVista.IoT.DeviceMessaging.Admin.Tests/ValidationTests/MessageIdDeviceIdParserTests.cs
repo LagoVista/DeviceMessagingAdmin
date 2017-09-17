@@ -169,7 +169,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         [TestMethod]
         public void MessageIdDeviceId_Binary_Valid()
         {
-            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            var fld = CreateValidMessageField(Models.SearchLocations.Body, contentType: MessageContentTypes.Binary);
             fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
             fld.BinaryOffset = 3;
             fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
@@ -182,7 +182,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         [TestMethod]
         public void MessageIdDeviceId_Binary_Valid_MissingBinaryOffset()
         {
-            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            var fld = CreateValidMessageField(Models.SearchLocations.Body, contentType: MessageContentTypes.Binary);
             fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
             fld.BinaryOffset = null;
             fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
@@ -195,7 +195,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         [TestMethod]
         public void MessageIdDeviceId_Binary_Valid_MissingParsingStrategy()
         {
-            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            var fld = CreateValidMessageField(Models.SearchLocations.Body, contentType: MessageContentTypes.Binary);
             fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
             fld.BinaryOffset = 3;
             fld.BinaryParsingStrategy = null;
@@ -209,7 +209,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         [TestMethod]
         public void MessageIdDeviceId_Binary_Valid_MissingEndian()
         {
-            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            var fld = CreateValidMessageField(Models.SearchLocations.Body, contentType: MessageContentTypes.Binary);
             fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
             fld.BinaryOffset = 3;
             fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
@@ -223,7 +223,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         [TestMethod]
         public void MessageIdDeviceId_Binary_Valid_MissingBinaryFieldType()
         {
-            var fld = CreateValidMessageField(Models.SearchLocations.Body);
+            var fld = CreateValidMessageField(Models.SearchLocations.Body, contentType: MessageContentTypes.Binary);
             fld.ContentType = EntityHeader<MessageContentTypes>.Create(MessageContentTypes.Binary);
             fld.BinaryOffset = 3;
             fld.BinaryParsingStrategy = EntityHeader<BinaryParsingStrategy>.Create(BinaryParsingStrategy.Absolute);
