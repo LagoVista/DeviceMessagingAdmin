@@ -10,7 +10,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
 {
     public class MessageFieldTestBase : MessageTestsBase
     {
-        public DeviceMessageDefinitionField CreateValidMessageField(SearchLocations searchLocation, MessageContentTypes contentType, ParameterTypes parameterType)
+        public DeviceMessageDefinitionField CreateValidMessageField(SearchLocations searchLocation, MessageContentTypes contentType = MessageContentTypes.String, ParameterTypes parameterType = ParameterTypes.String)
         {            
             var fld = new DeviceMessageDefinitionField();
             fld.Key = "key";
@@ -67,13 +67,17 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                     break;
                 case SearchLocations.QueryString:
                     fld.SearchLocation = new Core.Models.EntityHeader<SearchLocations>() { Id = DeviceMessageDefinitionField.SearchLocation_QueryString, Text = "Query String" };
-                    fld.PathLocator = "/https/{foo}/fee";
+                    fld.PathLocator = "fieldone";
+                    break;
+                case SearchLocations.Topic:
+                    fld.SearchLocation = new Core.Models.EntityHeader<SearchLocations>() { Id = DeviceMessageDefinitionField.SearchLocation_Topic, Text = "Topic" };
+                   
                     break;
             }            
             
 
             return fld;
         }
-
+        
     }
 }

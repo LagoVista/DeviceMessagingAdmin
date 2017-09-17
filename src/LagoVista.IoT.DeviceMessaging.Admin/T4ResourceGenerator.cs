@@ -466,6 +466,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_Title
 
 		public static string DeviceMessageField_Title { get { return GetResourceString("DeviceMessageField_Title"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_TopicRegEx
+
+		public static string DeviceMessageField_TopicRegEx { get { return GetResourceString("DeviceMessageField_TopicRegEx"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_TopicRegEx_Help
+
+		public static string DeviceMessageField_TopicRegEx_Help { get { return GetResourceString("DeviceMessageField_TopicRegEx_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_XPath
 
 		public static string DeviceMessageField_XPath { get { return GetResourceString("DeviceMessageField_XPath"); } }
@@ -499,6 +505,18 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessgaeField_StringSize_CharacterCount_Help
 
 		public static string DeviceMessgaeField_StringSize_CharacterCount_Help { get { return GetResourceString("DeviceMessgaeField_StringSize_CharacterCount_Help"); } }
+//Resources:DeviceMessagingAdminResources:Err_HeaderNameMissing
+
+		public static string Err_HeaderNameMissing { get { return GetResourceString("Err_HeaderNameMissing"); } }
+//Resources:DeviceMessagingAdminResources:Err_PathNameMissing
+
+		public static string Err_PathNameMissing { get { return GetResourceString("Err_PathNameMissing"); } }
+//Resources:DeviceMessagingAdminResources:Err_QueryStringNameMissing
+
+		public static string Err_QueryStringNameMissing { get { return GetResourceString("Err_QueryStringNameMissing"); } }
+//Resources:DeviceMessagingAdminResources:Err_TopicRegEx
+
+		public static string Err_TopicRegEx { get { return GetResourceString("Err_TopicRegEx"); } }
 //Resources:DeviceMessagingAdminResources:MessageFramingByte_AfterPayload
 
 		public static string MessageFramingByte_AfterPayload { get { return GetResourceString("MessageFramingByte_AfterPayload"); } }
@@ -697,6 +715,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_StringParser_WholeNumber = "DeviceMessageField_StringParser_WholeNumber";
 			public const string DeviceMessageField_SubString_Help = "DeviceMessageField_SubString_Help";
 			public const string DeviceMessageField_Title = "DeviceMessageField_Title";
+			public const string DeviceMessageField_TopicRegEx = "DeviceMessageField_TopicRegEx";
+			public const string DeviceMessageField_TopicRegEx_Help = "DeviceMessageField_TopicRegEx_Help";
 			public const string DeviceMessageField_XPath = "DeviceMessageField_XPath";
 			public const string DeviceMessageField_XPath_Help = "DeviceMessageField_XPath_Help";
 			public const string DeviceMessgaeField_Endian_BigEndian = "DeviceMessgaeField_Endian_BigEndian";
@@ -708,6 +728,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessgaeField_StringParsing_Strategy_NullTerminated = "DeviceMessgaeField_StringParsing_Strategy_NullTerminated";
 			public const string DeviceMessgaeField_StringSize_CharacterCount = "DeviceMessgaeField_StringSize_CharacterCount";
 			public const string DeviceMessgaeField_StringSize_CharacterCount_Help = "DeviceMessgaeField_StringSize_CharacterCount_Help";
+			public const string Err_HeaderNameMissing = "Err_HeaderNameMissing";
+			public const string Err_PathNameMissing = "Err_PathNameMissing";
+			public const string Err_QueryStringNameMissing = "Err_QueryStringNameMissing";
+			public const string Err_TopicRegEx = "Err_TopicRegEx";
 			public const string MessageFramingByte_AfterPayload = "MessageFramingByte_AfterPayload";
 			public const string MessageFramingByte_AfterPayload_Help = "MessageFramingByte_AfterPayload_Help";
 			public const string MessageFramingByte_Byte = "MessageFramingByte_Byte";

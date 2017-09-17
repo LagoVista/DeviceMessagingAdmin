@@ -39,7 +39,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void MessageField_MissingStorageLocation_InValid()
+        public void MessageField_MissingStorageType_InValid()
         {
             var msg = this.GetValidMessage(Models.MessageContentTypes.Binary);
 

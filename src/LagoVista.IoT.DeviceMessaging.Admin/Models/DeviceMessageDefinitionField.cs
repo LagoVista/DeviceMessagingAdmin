@@ -291,6 +291,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
 
 
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
         [AllowableMessageContentType(MessageContentTypes.Binary)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? BinaryOffset { get; set; }
@@ -344,10 +346,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public string LonXPath { get; set; }
 
 
-
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string QueryStringField { get; set; }
-
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatQueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string LatQueryStringField { get; set; }
 
@@ -355,19 +353,23 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public string LonQueryStringField { get; set; }
 
 
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string HeaderName { get; set; }
+
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string QueryStringField { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string PathLocator { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_TopicRegEx, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_TopicRegEx_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string TopicRegEx { get; set; }
         #endregion
 
         #region Misc Values
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DateTimeZone_Time_Zone, EnumType: (typeof(DateTimeZoneOptions)), HelpResource: DeviceMessagingAdminResources.Names.DateTimeZone_Time_Zone_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DateTimeZone_Select, IsRequired: false)]
         public EntityHeader<DateTimeZoneOptions> DateTimeZone { get; set; }
-
-
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string HeaderName { get; set; }
-
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Notes, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Notes { get; set; }
@@ -507,6 +509,14 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             /* If base validation doesn't work, don't bother getting into the details */
             if (result.Successful)
             {
+                foreach (var property in typeof(DeviceMessageDefinitionField).GetTypeInfo().DeclaredProperties)
+                {
+                    var name = GetDisplayName(property);
+                    var hasValue = HasValue(property);
+
+                    AddWarningForUnsedProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
+                }
+
                 switch (SearchLocation.Value)
                 {
                     case SearchLocations.Body:
@@ -515,16 +525,21 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                             var name = GetDisplayName(property);
                             var hasValue = HasValue(property);
 
-                            AddWarningForUnsedProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
                             AddErrorsForMissingProperties(result, messageDefinition.ContentType, property, name, hasValue, false);
                         }
 
                         break;
                     case SearchLocations.Header:
+                        if (String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_HeaderNameMissing));
                         break;
                     case SearchLocations.Path:
+                        if (String.IsNullOrEmpty(PathLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_PathNameMissing));
                         break;
                     case SearchLocations.QueryString:
+                        if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_QueryStringNameMissing));
+                        break;
+                    case SearchLocations.Topic:
+                        if (String.IsNullOrEmpty(TopicRegEx)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
                         break;
                 }
             }
@@ -540,12 +555,19 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             /* If base validation doesn't work, don't bother getting into the details */
             if (result.Successful)
             {
-                if (EntityHeader.IsNullOrEmpty(ContentType))
+                if (EntityHeader.IsNullOrEmpty(ContentType) && SearchLocation.Value == SearchLocations.Body)
                 {
                     result.Errors.Add(Resources.DeviceMessagingAdminErrorCodes.CouldNotDetermineDeviceId.ToErrorMessage());
                 }
                 else
                 {
+                    foreach (var property in typeof(DeviceMessageDefinitionField).GetTypeInfo().DeclaredProperties)
+                    {
+                        var name = GetDisplayName(property);
+                        var hasValue = HasValue(property);
+                        AddWarningForUnsedProperties(result, ContentType, property, name, hasValue, true);
+                    }
+
                     switch (SearchLocation.Value)
                     {
                         case SearchLocations.Body:
@@ -553,16 +575,21 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                             {
                                 var name = GetDisplayName(property);
                                 var hasValue = HasValue(property);
-                                AddWarningForUnsedProperties(result, ContentType, property, name, hasValue, true);
                                 AddErrorsForMissingProperties(result, ContentType, property, name, hasValue, true);
                             }
 
                             break;
                         case SearchLocations.Header:
+                            if(String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_HeaderNameMissing));
                             break;
                         case SearchLocations.Path:
+                            if (String.IsNullOrEmpty(PathLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_PathNameMissing));
                             break;
                         case SearchLocations.QueryString:
+                            if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_QueryStringNameMissing));
+                            break;
+                        case SearchLocations.Topic:
+                            if (String.IsNullOrEmpty(TopicRegEx)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
                             break;
                     }
                 }

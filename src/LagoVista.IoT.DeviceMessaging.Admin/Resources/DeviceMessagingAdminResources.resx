@@ -617,4 +617,22 @@
   <data name="DeviceMessageField_XPath_Help" xml:space="preserve">
     <value>Provide an XPath Expression to extract a value from an XML Document</value>
   </data>
+  <data name="DeviceMessageField_TopicRegEx" xml:space="preserve">
+    <value>Topic Regular Expression</value>
+  </data>
+  <data name="DeviceMessageField_TopicRegEx_Help" xml:space="preserve">
+    <value>Provde a Regular Expression that will attempt to parse a value from a Topic</value>
+  </data>
+  <data name="Err_HeaderNameMissing" xml:space="preserve">
+    <value>Must provide a Name to extract field from Header</value>
+  </data>
+  <data name="Err_PathNameMissing" xml:space="preserve">
+    <value>Must provide Path Locator to extract field from URL Path</value>
+  </data>
+  <data name="Err_QueryStringNameMissing" xml:space="preserve">
+    <value>Must provide Query String Field to extract field from Query String</value>
+  </data>
+  <data name="Err_TopicRegEx" xml:space="preserve">
+    <value>Must provide a Topic Regular Expression to extract a field from a Topic.</value>
+  </data>
 </root>

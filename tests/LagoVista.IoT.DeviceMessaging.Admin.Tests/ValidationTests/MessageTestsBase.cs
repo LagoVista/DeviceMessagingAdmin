@@ -5,6 +5,7 @@ using System.Linq;
 using LagoVista.Core;
 using System.Threading.Tasks;
 using LagoVista.Core.Validation;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
 {
@@ -87,6 +88,20 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                 }
                 Console.Write("");
             }
+        }
+
+        protected void AssertValid(ValidationResult result)
+        {
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.IsTrue(result.Successful);
+        }
+
+        protected void AssertInValid(ValidationResult result)
+        {
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.IsFalse(result.Successful);
         }
     }
 }

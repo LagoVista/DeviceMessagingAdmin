@@ -11,7 +11,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
     public class MessageTests : MessageTestsBase
     {
         [TestMethod]
-        public void Binary_MessageDefinition_Valid()
+        public void MessageDefintiion_Binary_Valid()
         {
             /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.Binary);
@@ -23,7 +23,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void Custom_MessageDefinition_Valid()
+        public void MessageDefinition_Custom_Valid()
         {
             /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.Custom);
@@ -35,7 +35,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void Delimited_Message_Definition_Valid()
+        public void MessageDefinition_Delimited_Valid()
         {
             /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.Delimited);
@@ -47,7 +47,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void JSON_MessageDefinition_Valid()
+        public void MessageDefinition_JSON_Valid()
         {
             /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.JSON);
@@ -59,7 +59,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void String_MessageDefinition_Valid()
+        public void MessageDefinition_String_Valid()
         {
             /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.String);
@@ -71,7 +71,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         }
 
         [TestMethod]
-        public void Xml_MessageDefinition_Valid()
+        public void MessageDefinition_Xml_Valid()
         {
             /* Just pick binary...doesn't matter just needs to be valid */
             var msg = GetValidMessage(MessageContentTypes.XML);
