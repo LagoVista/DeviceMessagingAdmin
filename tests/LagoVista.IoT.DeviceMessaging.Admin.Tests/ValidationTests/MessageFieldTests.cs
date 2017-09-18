@@ -42,7 +42,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         public void MessageField_MissingStorageType_InValid()
         {
             var msg = this.GetValidMessage(Models.MessageContentTypes.Binary);
-
             var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.Binary, DeviceAdmin.Models.ParameterTypes.Integer);
             fld.StorageType = null;
             msg.Fields.Add(fld);
@@ -52,5 +51,55 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
             Assert.IsFalse(result.Successful);
         }
 
+        [TestMethod]
+        public void MessageField_UnitSet_Valid()
+        {
+            var msg = this.GetValidMessage(Models.MessageContentTypes.JSON);
+            var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.JSON, DeviceAdmin.Models.ParameterTypes.ValueWithUnit);
+            msg.Fields.Add(fld);
+            var result = Validator.Validate(msg);
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.IsTrue(result.Successful);
+
+        }
+
+        [TestMethod]
+        public void MessageField_MissingUnitSet_Invalid()
+        {
+            var msg = this.GetValidMessage(Models.MessageContentTypes.JSON);
+            var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.JSON, DeviceAdmin.Models.ParameterTypes.ValueWithUnit);
+            fld.UnitSet = null;
+            msg.Fields.Add(fld);
+            var result = Validator.Validate(msg);
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.IsFalse(result.Successful);
+        }
+
+        [TestMethod]
+        public void MessageField_StateSet_Valid()
+        {
+            var msg = this.GetValidMessage(Models.MessageContentTypes.JSON);
+            var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.JSON, DeviceAdmin.Models.ParameterTypes.State);
+            msg.Fields.Add(fld);
+            var result = Validator.Validate(msg);
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.IsTrue(result.Successful);
+        }
+
+        [TestMethod]
+        public void MessageField_MissingStateSet_Invalid()
+        {
+            var msg = this.GetValidMessage(Models.MessageContentTypes.JSON);
+            var fld = this.CreateValidMessageField(SearchLocations.Body, MessageContentTypes.JSON, DeviceAdmin.Models.ParameterTypes.State);
+            fld.StateSet = null;
+            msg.Fields.Add(fld);
+            var result = Validator.Validate(msg);
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.IsFalse(result.Successful);
+        }
     }
 }

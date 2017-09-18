@@ -647,4 +647,10 @@
   <data name="DeviceMessage_ContentType_StringPosition" xml:space="preserve">
     <value>String with Position</value>
   </data>
+  <data name="Err_FieldDefinitionMissing_StateSet" xml:space="preserve">
+    <value>Please select a State Set</value>
+  </data>
+  <data name="Err_FieldDefinitionMissing_UnitSet" xml:space="preserve">
+    <value>Please select a Unit Set</value>
+  </data>
 </root>

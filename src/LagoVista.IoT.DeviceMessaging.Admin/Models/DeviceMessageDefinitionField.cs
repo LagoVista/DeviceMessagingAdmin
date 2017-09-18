@@ -169,9 +169,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select, IsRequired: true)]
         public EntityHeader<ParameterTypes> StorageType { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.ValueWithUnit)]
         [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.State)]
         [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
         #endregion
@@ -548,6 +550,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                         if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                         break;
                 }
+
+                if (StorageType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_UnitSet));
+                if (StorageType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_StateSet));
             }
 
             return result;
@@ -580,7 +585,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
                             break;
                         case SearchLocations.Header:
-                            if(String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_HeaderNameMissing));
+                            if (String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_HeaderNameMissing));
                             break;
                         case SearchLocations.Path:
                             if (String.IsNullOrEmpty(PathLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_PathNameMissing));
@@ -594,6 +599,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                             break;
                     }
                 }
+
+                if (StorageType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_UnitSet));
+                if (StorageType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_StateSet));
             }
 
             return result;

@@ -1,4 +1,5 @@
-﻿using LagoVista.IoT.DeviceAdmin.Models;
+﻿using LagoVista.Core.Models;
+using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,25 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                 case ParameterTypes.Decimal: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Decimal, Text = "Decimal" }; break;
                 case ParameterTypes.GeoLocation: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Geolocation, Text = "Geo Location" }; break;
                 case ParameterTypes.Integer: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.Integer, Text = "Integer" }; break;
-                case ParameterTypes.State: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.State, Text = "State" }; break;
+                case ParameterTypes.State:
+                    fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.State, Text = "State" };
+                    fld.StateSet = new EntityHeader<StateSet>()
+                    {
+                        Id = "abc123",
+                        Text = "text123"
+                    };
+                      
+                    break;
                 case ParameterTypes.String: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.String, Text = "String" }; break;
                 case ParameterTypes.TrueFalse: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.TrueFalse, Text = "True/False" }; break;
-                case ParameterTypes.ValueWithUnit: fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.ValueWithUnit, Text = "value with unit" }; break;
-
+                case ParameterTypes.ValueWithUnit:
+                    fld.StorageType = new Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>() { Id = TypeSystem.ValueWithUnit, Text = "value with unit" };
+                    fld.UnitSet = new EntityHeader<UnitSet>()
+                    {
+                        Id = "abc123",
+                        Text="text123"
+                    };
+                    break;
             }
                        
             switch(searchLocation)
@@ -81,9 +96,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                     break;
             }            
             
-
             return fld;
-        }
-        
+        }        
     }
 }
