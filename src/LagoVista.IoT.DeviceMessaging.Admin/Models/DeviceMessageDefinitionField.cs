@@ -558,10 +558,16 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             return result;
         }
 
+        /// <summary>
+        /// This comes in when validating a device id and message id parser.
+        /// </summary>
+        /// <returns></returns>
         public ValidationResult Validate()
         {
-            var result = Validator.Validate(this);
+            /* Will always use strings for device and message ids */
+            StorageType = EntityHeader<ParameterTypes>.Create(ParameterTypes.String);
 
+            var result = Validator.Validate(this);
 
             /* If base validation doesn't work, don't bother getting into the details */
             if (result.Successful)
