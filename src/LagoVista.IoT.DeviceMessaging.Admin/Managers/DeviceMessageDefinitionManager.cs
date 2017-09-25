@@ -1,14 +1,14 @@
-﻿using LagoVista.Core.Interfaces;
+﻿using LagoVista.Core.Exceptions;
+using LagoVista.Core.Interfaces;
 using LagoVista.Core.Managers;
 using LagoVista.Core.Models;
-using LagoVista.Core.PlatformSupport;
 using LagoVista.Core.Validation;
+using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Repos;
+using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using LagoVista.IoT.Logging.Loggers;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using static LagoVista.Core.Models.AuthorizeResult;
 
@@ -17,11 +17,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
     public class DeviceMessageDefinitionManager : ManagerBase, IDeviceMessageDefinitionManager
     {
         IDeviceMessageDefinitionRepo _deviceMessageDefinitionRepo;
+        IDeviceAdminManager _deviceAdminManager;
 
-        public DeviceMessageDefinitionManager (IDeviceMessageDefinitionRepo deviceMessageDefinitionRepo, IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
+        public DeviceMessageDefinitionManager (IDeviceMessageDefinitionRepo deviceMessageDefinitionRepo, IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security, IDeviceAdminManager deviceAdminManager) :
             base(logger, appConfig, depmanager, security)
         {
             _deviceMessageDefinitionRepo = deviceMessageDefinitionRepo;
+            _deviceAdminManager = deviceAdminManager;
         }
 
         public async Task<InvokeResult> AddDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageConfiguration, EntityHeader org, EntityHeader user)
@@ -39,9 +41,54 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             return deviceMessageDefinition;
         }
 
-        public Task<DeviceMessageDefinition> LoadFullDeviceMessageDefinitionAsync(string id)
+        public async Task<InvokeResult<DeviceMessageDefinition>> LoadFullDeviceMessageDefinitionAsync(string id,EntityHeader org, EntityHeader user)
         {
-            return _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(id);
+            DeviceMessageDefinition message = null;
+
+            try
+            {
+                message = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(id);
+            }
+            catch(RecordNotFoundException)
+            {
+                return InvokeResult<DeviceMessageDefinition>.FromErrors(Resources.DeviceMessagingAdminErrorCodes.CouldNotLoadDeviceMessageDefinition.ToErrorMessage($"MessageId={id}"));
+            }
+
+            var result = new InvokeResult<DeviceMessageDefinition>();
+
+            foreach(var field in message.Fields)
+            {
+                if(!EntityHeader.IsNullOrEmpty( field.UnitSet))
+                {
+                    try
+                    {
+                        field.UnitSet.Value = await _deviceAdminManager.GetAttributeUnitSetAsync(field.UnitSet.Id, org, user);
+                    }
+                    catch (RecordNotFoundException)
+                    {
+                        result.Errors.Add(DeviceMessagingAdminErrorCodes.CouldNotLoadUnitSet.ToErrorMessage($"MessageId={id},UnitSetId={field.UnitSet.Id}"));
+                    }
+                }
+
+                if (!EntityHeader.IsNullOrEmpty(field.StateSet))
+                {
+                    try
+                    {
+                        field.StateSet.Value = await _deviceAdminManager.GetStateSetAsync(field.StateSet.Id, org, user);
+                    }
+                    catch (RecordNotFoundException)
+                    {
+                        result.Errors.Add(DeviceMessagingAdminErrorCodes.CouldNotLoadStateSet.ToErrorMessage($"MessageId={id},StateSetId={field.StateSet.Id}"));
+                    }
+                }
+            }
+
+            if(result.Successful)
+            {
+                return InvokeResult<DeviceMessageDefinition>.Create(message);
+            }
+
+            return result;
         }
 
         public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user)
