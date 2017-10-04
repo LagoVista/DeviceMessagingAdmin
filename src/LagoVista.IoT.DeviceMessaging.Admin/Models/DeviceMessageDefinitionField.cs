@@ -378,8 +378,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_PathLocator_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string PathLocator { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_TopicRegEx, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_TopicRegEx_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string TopicRegEx { get; set; }
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_TopicLocator, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_TopicLocator_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string TopicLocator { get; set; }
         #endregion
 
         #region Misc Values
@@ -546,7 +546,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                         if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_QueryStringNameMissing));
                         break;
                     case SearchLocations.Topic:
-                        if (String.IsNullOrEmpty(TopicRegEx)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
+                        if (String.IsNullOrEmpty(TopicLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
                         if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                         break;
                 }
@@ -600,7 +600,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                             if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_QueryStringNameMissing));
                             break;
                         case SearchLocations.Topic:
-                            if (String.IsNullOrEmpty(TopicRegEx)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
+                            if (String.IsNullOrEmpty(TopicLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
                             if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                             break;
                     }

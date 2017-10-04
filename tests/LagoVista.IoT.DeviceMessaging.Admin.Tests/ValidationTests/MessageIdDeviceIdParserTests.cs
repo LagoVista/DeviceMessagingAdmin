@@ -142,7 +142,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         public void MessageIdDeviceId_Valid_Topic()
         {
             var fld = CreateValidMessageField(Models.SearchLocations.Topic);
-            fld.TopicRegEx = "foo";
+            fld.TopicLocator = "foo";
             fld.RegExGroupName = "mygroup";
             AssertValid(fld.Validate());
         }
@@ -151,7 +151,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         public void MessageIdDeviceId_InValid_Topic_NoTopicRegEx()
         {
             var fld = CreateValidMessageField(Models.SearchLocations.Topic);
-            fld.TopicRegEx = null;
+            fld.TopicLocator = null;
             fld.RegExGroupName = "valid";
             AssertInValid(fld.Validate());
         }
@@ -161,7 +161,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         public void MessageIdDeviceId_InValid_Topic_NoTopicGroupName()
         {
             var fld = CreateValidMessageField(Models.SearchLocations.Topic);
-            fld.TopicRegEx = "group";
+            fld.TopicLocator = "group";
             fld.RegExGroupName = null;
             AssertInValid(fld.Validate());
         }

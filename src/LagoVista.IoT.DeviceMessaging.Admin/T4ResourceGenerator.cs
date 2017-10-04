@@ -475,12 +475,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_Title
 
 		public static string DeviceMessageField_Title { get { return GetResourceString("DeviceMessageField_Title"); } }
-//Resources:DeviceMessagingAdminResources:DeviceMessageField_TopicRegEx
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_TopicLocator
 
-		public static string DeviceMessageField_TopicRegEx { get { return GetResourceString("DeviceMessageField_TopicRegEx"); } }
-//Resources:DeviceMessagingAdminResources:DeviceMessageField_TopicRegEx_Help
+		public static string DeviceMessageField_TopicLocator { get { return GetResourceString("DeviceMessageField_TopicLocator"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_TopicLocator_Help
 
-		public static string DeviceMessageField_TopicRegEx_Help { get { return GetResourceString("DeviceMessageField_TopicRegEx_Help"); } }
+		public static string DeviceMessageField_TopicLocator_Help { get { return GetResourceString("DeviceMessageField_TopicLocator_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_XPath
 
 		public static string DeviceMessageField_XPath { get { return GetResourceString("DeviceMessageField_XPath"); } }
@@ -736,8 +736,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessageField_StringParser_WholeNumber = "DeviceMessageField_StringParser_WholeNumber";
 			public const string DeviceMessageField_SubString_Help = "DeviceMessageField_SubString_Help";
 			public const string DeviceMessageField_Title = "DeviceMessageField_Title";
-			public const string DeviceMessageField_TopicRegEx = "DeviceMessageField_TopicRegEx";
-			public const string DeviceMessageField_TopicRegEx_Help = "DeviceMessageField_TopicRegEx_Help";
+			public const string DeviceMessageField_TopicLocator = "DeviceMessageField_TopicLocator";
+			public const string DeviceMessageField_TopicLocator_Help = "DeviceMessageField_TopicLocator_Help";
 			public const string DeviceMessageField_XPath = "DeviceMessageField_XPath";
 			public const string DeviceMessageField_XPath_Help = "DeviceMessageField_XPath_Help";
 			public const string DeviceMessgaeField_Endian_BigEndian = "DeviceMessgaeField_Endian_BigEndian";

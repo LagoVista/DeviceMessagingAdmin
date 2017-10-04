@@ -286,7 +286,7 @@
     <value>Path Locator</value>
   </data>
   <data name="DeviceMessageField_PathLocator_Help" xml:space="preserve">
-    <value>If the Device ID or Message Type Id Arrives in the path it can be extract using the syntax /api/\{messageid\}/*.  This will extract msg001 from /api/msg001/52345.  The value messageid is specified in the Key Name and can be used to extract either a Message Type Id or a Device Id.</value>
+    <value>If the Device ID or Message Type Id Arrives in the path it can be extracted using the syntax /api/\{messageid\}/*.  This will extract msg001 from /api/msg001/52345.  The value messageid is specified in the Key Name and can be used to extract either a Message Type Id or a Device Id.</value>
   </data>
   <data name="DeviceMessageField_PropertyRequiredForContentType" xml:space="preserve">
     <value>Message Field Property: [PROPERTYNAME] is required for content type [CONTENTTYPE].</value>
@@ -617,11 +617,11 @@
   <data name="DeviceMessageField_XPath_Help" xml:space="preserve">
     <value>Provide an XPath Expression to extract a value from an XML Document</value>
   </data>
-  <data name="DeviceMessageField_TopicRegEx" xml:space="preserve">
-    <value>Topic Regular Expression</value>
+  <data name="DeviceMessageField_TopicLocator" xml:space="preserve">
+    <value>Topic Locator</value>
   </data>
-  <data name="DeviceMessageField_TopicRegEx_Help" xml:space="preserve">
-    <value>Provde a Regular Expression that will attempt to parse a value from a Topic</value>
+  <data name="DeviceMessageField_TopicLocator_Help" xml:space="preserve">
+    <value>If the Device ID or Message Type Id Arrives in the topic it can be extracted using the syntax /api/\{messageid\}/*.  This will extract msg001 from /api/msg001/52345.  The value messageid is specified in the Key Name and can be used to extract either a Message Type Id or a Device Id.</value>
   </data>
   <data name="Err_HeaderNameMissing" xml:space="preserve">
     <value>Must provide a Name to extract field from Header</value>
