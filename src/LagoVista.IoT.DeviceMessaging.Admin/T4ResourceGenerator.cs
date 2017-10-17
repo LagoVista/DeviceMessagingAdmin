@@ -98,6 +98,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DateTimeZone_Universal
 
 		public static string DateTimeZone_Universal { get { return GetResourceString("DateTimeZone_Universal"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMesage_MessageDirection
+
+		public static string DeviceMesage_MessageDirection { get { return GetResourceString("DeviceMesage_MessageDirection"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_BinaryParsing_Strategy
 
 		public static string DeviceMessage_BinaryParsing_Strategy { get { return GetResourceString("DeviceMessage_BinaryParsing_Strategy"); } }
@@ -164,6 +167,15 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_FramingBytes_Help
 
 		public static string DeviceMessage_FramingBytes_Help { get { return GetResourceString("DeviceMessage_FramingBytes_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_MessageDirection_Help
+
+		public static string DeviceMessage_MessageDirection_Help { get { return GetResourceString("DeviceMessage_MessageDirection_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_OutputMessageScript
+
+		public static string DeviceMessage_OutputMessageScript { get { return GetResourceString("DeviceMessage_OutputMessageScript"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_OutputMessageScript_Help
+
+		public static string DeviceMessage_OutputMessageScript_Help { get { return GetResourceString("DeviceMessage_OutputMessageScript_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_PropertyRequiredForContentType
 
 
@@ -535,6 +547,18 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:Err_TopicRegEx
 
 		public static string Err_TopicRegEx { get { return GetResourceString("Err_TopicRegEx"); } }
+//Resources:DeviceMessagingAdminResources:MessageDirection_Incoming
+
+		public static string MessageDirection_Incoming { get { return GetResourceString("MessageDirection_Incoming"); } }
+//Resources:DeviceMessagingAdminResources:MessageDirection_IncomingOutgoing
+
+		public static string MessageDirection_IncomingOutgoing { get { return GetResourceString("MessageDirection_IncomingOutgoing"); } }
+//Resources:DeviceMessagingAdminResources:MessageDirection_Outgoing
+
+		public static string MessageDirection_Outgoing { get { return GetResourceString("MessageDirection_Outgoing"); } }
+//Resources:DeviceMessagingAdminResources:MessageDirection_Select
+
+		public static string MessageDirection_Select { get { return GetResourceString("MessageDirection_Select"); } }
 //Resources:DeviceMessagingAdminResources:MessageFramingByte_AfterPayload
 
 		public static string MessageFramingByte_AfterPayload { get { return GetResourceString("MessageFramingByte_AfterPayload"); } }
@@ -613,6 +637,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DateTimeZone_Time_Zone = "DateTimeZone_Time_Zone";
 			public const string DateTimeZone_Time_Zone_Help = "DateTimeZone_Time_Zone_Help";
 			public const string DateTimeZone_Universal = "DateTimeZone_Universal";
+			public const string DeviceMesage_MessageDirection = "DeviceMesage_MessageDirection";
 			public const string DeviceMessage_BinaryParsing_Strategy = "DeviceMessage_BinaryParsing_Strategy";
 			public const string DeviceMessage_BinaryParsing_Strategy_Absolute = "DeviceMessage_BinaryParsing_Strategy_Absolute";
 			public const string DeviceMessage_BinaryParsing_Strategy_Help = "DeviceMessage_BinaryParsing_Strategy_Help";
@@ -635,6 +660,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessage_Endian_Select = "DeviceMessage_Endian_Select";
 			public const string DeviceMessage_FramingBytes = "DeviceMessage_FramingBytes";
 			public const string DeviceMessage_FramingBytes_Help = "DeviceMessage_FramingBytes_Help";
+			public const string DeviceMessage_MessageDirection_Help = "DeviceMessage_MessageDirection_Help";
+			public const string DeviceMessage_OutputMessageScript = "DeviceMessage_OutputMessageScript";
+			public const string DeviceMessage_OutputMessageScript_Help = "DeviceMessage_OutputMessageScript_Help";
 			public const string DeviceMessage_PropertyRequiredForContentType = "DeviceMessage_PropertyRequiredForContentType";
 			public const string DeviceMessage_PropertyTypeHasValueButNotSupported = "DeviceMessage_PropertyTypeHasValueButNotSupported";
 			public const string DeviceMessage_QuotedText = "DeviceMessage_QuotedText";
@@ -756,6 +784,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string Err_QueryStringNameMissing = "Err_QueryStringNameMissing";
 			public const string Err_TopicGroupNameMissing = "Err_TopicGroupNameMissing";
 			public const string Err_TopicRegEx = "Err_TopicRegEx";
+			public const string MessageDirection_Incoming = "MessageDirection_Incoming";
+			public const string MessageDirection_IncomingOutgoing = "MessageDirection_IncomingOutgoing";
+			public const string MessageDirection_Outgoing = "MessageDirection_Outgoing";
+			public const string MessageDirection_Select = "MessageDirection_Select";
 			public const string MessageFramingByte_AfterPayload = "MessageFramingByte_AfterPayload";
 			public const string MessageFramingByte_AfterPayload_Help = "MessageFramingByte_AfterPayload_Help";
 			public const string MessageFramingByte_Byte = "MessageFramingByte_Byte";

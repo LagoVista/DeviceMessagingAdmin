@@ -55,6 +55,16 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         LittleEndian
     }
 
+    public enum MessageDirections
+    {
+        [EnumLabel(DeviceMessageDefinition.MessageDirection_Incoming, DeviceMessagingAdminResources.Names.MessageDirection_Incoming, typeof(DeviceMessagingAdminResources))]
+        Incoming,
+        [EnumLabel(DeviceMessageDefinition.MessageDirection_Outgoing, DeviceMessagingAdminResources.Names.MessageDirection_Outgoing, typeof(DeviceMessagingAdminResources))]
+        Outgoing,
+        [EnumLabel(DeviceMessageDefinition.MessageDirection_IncomingAndOutgoing, DeviceMessagingAdminResources.Names.MessageDirection_IncomingOutgoing, typeof(DeviceMessagingAdminResources))]
+        IncomingAndOutgoing
+    }
+
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminDomain))]
     public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity
     {
@@ -75,6 +85,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public const string Endian_BigEndian = "bigendian";
         public const string Endian_LittleEndian = "littleendian";
+
+
+        public const string MessageDirection_Incoming = "incoming";
+        public const string MessageDirection_Outgoing = "outgoing";
+        public const string MessageDirection_IncomingAndOutgoing = "IncomingAndOutgoing";
 
         public DeviceMessageDefinition()
         {
@@ -109,6 +124,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public string Delimiter { get; set; }
 
 
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMesage_MessageDirection, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_MessageDirection_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.MessageDirection_Select, EnumType: typeof(MessageDirections), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
+        public EntityHeader<MessageDirections> MessageDirection { get; set; }
+
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public EntityHeader<MessageContentTypes> ContentType { get; set; }
 
@@ -129,12 +147,16 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public EntityHeader<EndianTypes> Endian { get; set; }
 
         [AllowableMessageContentType(MessageContentTypes.StringRegEx)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegEx { get; set; }
 
         [AllowableMessageContentType(MessageContentTypes.Custom)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Script, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Script { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string OutputMessageScript { get; set; }
+
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<MessageFramingBytes> FramingBytes { get; set; }

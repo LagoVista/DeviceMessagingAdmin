@@ -653,4 +653,28 @@
   <data name="Err_FieldDefinitionMissing_UnitSet" xml:space="preserve">
     <value>Please select a Unit Set</value>
   </data>
+  <data name="DeviceMesage_MessageDirection" xml:space="preserve">
+    <value>Message Direction</value>
+  </data>
+  <data name="DeviceMessage_MessageDirection_Help" xml:space="preserve">
+    <value>Select the direction of this message type, it can be incoming so that it comes from the device, outgoing so it goes back to the device or an external source or it could be both incoming and outgoing.</value>
+  </data>
+  <data name="DeviceMessage_OutputMessageScript" xml:space="preserve">
+    <value>Output Message Script</value>
+  </data>
+  <data name="DeviceMessage_OutputMessageScript_Help" xml:space="preserve">
+    <value>Provide a Script that will build up a JSON message.</value>
+  </data>
+  <data name="MessageDirection_Incoming" xml:space="preserve">
+    <value>Incoming Message</value>
+  </data>
+  <data name="MessageDirection_IncomingOutgoing" xml:space="preserve">
+    <value>Incoming and Outgoing</value>
+  </data>
+  <data name="MessageDirection_Outgoing" xml:space="preserve">
+    <value>Outgoing Message</value>
+  </data>
+  <data name="MessageDirection_Select" xml:space="preserve">
+    <value>-select message direction-</value>
+  </data>
 </root>
