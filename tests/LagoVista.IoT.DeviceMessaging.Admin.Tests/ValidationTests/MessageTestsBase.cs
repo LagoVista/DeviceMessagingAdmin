@@ -6,6 +6,7 @@ using LagoVista.Core;
 using System.Threading.Tasks;
 using LagoVista.Core.Validation;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using LagoVista.Core.Models;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
 {
@@ -18,7 +19,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                 Name = "msg1234",
                 MessageId = "msg1234",
                 Key = "msg1234",
-
+                MessageDirection = EntityHeader<MessageDirections>.Create(MessageDirections.Incoming),
                 Id = Guid.NewGuid().ToId(),
                 CreationDate = DateTime.Now.ToJSONString(),
                 CreatedBy = new Core.Models.EntityHeader() { Id = Guid.NewGuid().ToId(), Text = "user name" }
