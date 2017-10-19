@@ -28,6 +28,18 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         Custom
     }
 
+    public enum RESTMethod
+    {
+        [EnumLabel(DeviceMessageDefinition.RESTMethod_GET, DeviceMessagingAdminResources.Names.RESTMethod_GET, typeof(DeviceMessagingAdminResources))]
+        GET,
+        [EnumLabel(DeviceMessageDefinition.RESTMethod_POST, DeviceMessagingAdminResources.Names.RESTMethod_PUT, typeof(DeviceMessagingAdminResources))]
+        PUT,
+        [EnumLabel(DeviceMessageDefinition.RESTMethod_PUT, DeviceMessagingAdminResources.Names.RESTMethod_POST, typeof(DeviceMessagingAdminResources))]
+        POST,
+        [EnumLabel(DeviceMessageDefinition.RESTMethod_DELETE, DeviceMessagingAdminResources.Names.RESTMethod_DELETE, typeof(DeviceMessagingAdminResources))]
+        DELETE
+    }
+
     public enum BinaryParsingStrategy
     {
         [EnumLabel(DeviceMessageDefinition.BinaryParsingStrategy_Absolute, DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy_Absolute, typeof(DeviceMessagingAdminResources))]
@@ -86,6 +98,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string Endian_BigEndian = "bigendian";
         public const string Endian_LittleEndian = "littleendian";
 
+        public const string RESTMethod_GET = "get";
+        public const string RESTMethod_POST = "post";
+        public const string RESTMethod_PUT = "put";
+        public const string RESTMethod_DELETE = "delete";
 
         public const string MessageDirection_Incoming = "incoming";
         public const string MessageDirection_Outgoing = "outgoing";
@@ -157,6 +173,14 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string OutputMessageScript { get; set; }
 
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_RESTMethod_Select, EnumType: typeof(RESTMethod), ResourceType: typeof(DeviceMessagingAdminResources))]
+        public EntityHeader<RESTMethod> RestMethod { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string PathAndQueryString { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string Topic { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<MessageFramingBytes> FramingBytes { get; set; }

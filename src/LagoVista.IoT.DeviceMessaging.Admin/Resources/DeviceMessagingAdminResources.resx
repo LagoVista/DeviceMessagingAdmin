@@ -677,4 +677,31 @@
   <data name="MessageDirection_Select" xml:space="preserve">
     <value>-select message direction-</value>
   </data>
+  <data name="DeviceMessage_PathAndQueryString" xml:space="preserve">
+    <value>Path and Query String</value>
+  </data>
+  <data name="DeviceMessage_PathAndQueryString_Help" xml:space="preserve">
+    <value>For outgoing messages, you can provide a Path and Query String that will be appended to the host name set in the Transmitter where this message should be sent.  Note you should only provide the path and such as /service/action?id=123 and NOT the full url such as https://mydomain.com/service/action?id=123</value>
+  </data>
+  <data name="DeviceMessage_RESTMethod" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="DeviceMessage_RESTMethod_Select" xml:space="preserve">
+    <value>-select method-</value>
+  </data>
+  <data name="DeviceMessage_Topic" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="RESTMethod_DELETE" xml:space="preserve">
+    <value>DELETE</value>
+  </data>
+  <data name="RESTMethod_GET" xml:space="preserve">
+    <value>GET</value>
+  </data>
+  <data name="RESTMethod_POST" xml:space="preserve">
+    <value>POST</value>
+  </data>
+  <data name="RESTMethod_PUT" xml:space="preserve">
+    <value>PUT</value>
+  </data>
 </root>
