@@ -2,6 +2,9 @@
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using LagoVista.IoT.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using System.Resources;
+
+[assembly: NeutralResourcesLanguage("en")]
 
 namespace LagoVista.IoT.DeviceMessaging.Admin
 {
