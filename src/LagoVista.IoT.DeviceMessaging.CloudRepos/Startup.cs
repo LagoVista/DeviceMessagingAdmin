@@ -1,9 +1,6 @@
-﻿using LagoVista.IoT.DeviceMessaging.Admin.Repos;
+﻿using LagoVista.Core.Interfaces;
+using LagoVista.IoT.DeviceMessaging.Admin.Repos;
 using LagoVista.IoT.DeviceMessaging.CloudRepos.Repos;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LagoVista.IoT.DeviceMessaging.CloudRepos
 {

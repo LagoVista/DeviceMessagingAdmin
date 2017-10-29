@@ -1,7 +1,7 @@
-﻿using LagoVista.IoT.DeviceMessaging.Admin.Managers;
+﻿using LagoVista.Core.Interfaces;
+using LagoVista.IoT.DeviceMessaging.Admin.Managers;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using LagoVista.IoT.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using System.Resources;
 
 [assembly: NeutralResourcesLanguage("en")]
