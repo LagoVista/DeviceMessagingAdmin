@@ -220,6 +220,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_Topic
 
 		public static string DeviceMessage_Topic { get { return GetResourceString("DeviceMessage_Topic"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_DefaultValue
+
+		public static string DeviceMessageDefinition_DefaultValue { get { return GetResourceString("DeviceMessageDefinition_DefaultValue"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_DefaultValue_Help
+
+		public static string DeviceMessageDefinition_DefaultValue_Help { get { return GetResourceString("DeviceMessageDefinition_DefaultValue_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_Description
 
 		public static string DeviceMessageDefinition_Description { get { return GetResourceString("DeviceMessageDefinition_Description"); } }
@@ -702,6 +708,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessage_RESTMethod_Select = "DeviceMessage_RESTMethod_Select";
 			public const string DeviceMessage_StringParsingStrategy_Select = "DeviceMessage_StringParsingStrategy_Select";
 			public const string DeviceMessage_Topic = "DeviceMessage_Topic";
+			public const string DeviceMessageDefinition_DefaultValue = "DeviceMessageDefinition_DefaultValue";
+			public const string DeviceMessageDefinition_DefaultValue_Help = "DeviceMessageDefinition_DefaultValue_Help";
 			public const string DeviceMessageDefinition_Description = "DeviceMessageDefinition_Description";
 			public const string DeviceMessageDefinition_Fields = "DeviceMessageDefinition_Fields";
 			public const string DeviceMessageDefinition_Help = "DeviceMessageDefinition_Help";

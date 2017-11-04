@@ -704,4 +704,10 @@
   <data name="RESTMethod_PUT" xml:space="preserve">
     <value>PUT</value>
   </data>
+  <data name="DeviceMessageDefinition_DefaultValue" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
+  <data name="DeviceMessageDefinition_DefaultValue_Help" xml:space="preserve">
+    <value>Provide an optional default value that will be used as an input on an incoming message and will be populated as an output on an outgoing message.</value>
+  </data>
 </root>
