@@ -307,7 +307,7 @@
     <value>RegEx Value Selector</value>
   </data>
   <data name="DeviceMessageField_RegExValueSelector_Help" xml:space="preserve">
-    <value>If the value that is presented in the message string needs to be extracted from the full field, you can provide a Regular Expression to select the value.</value>
+    <value>The field parser will find the field that matches your search criteria.  You can add a regular expression value selector to fine tune your selection criteria.  Once your initial value has been located, if this field is present it will be used to find a group match and use that as the final value to be used from the message.</value>
   </data>
   <data name="DeviceMessageField_SearchLocation" xml:space="preserve">
     <value>Search Location</value>
