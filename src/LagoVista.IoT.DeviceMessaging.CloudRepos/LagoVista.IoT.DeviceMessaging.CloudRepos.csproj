@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageReference Include="LagoVista.CloudStorage" Version="1.2.184-alpha1030" />
     <PackageReference Include="LagoVista.Core" Version="1.2.184-alpha1030" />
-    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.6.0" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.7.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceMessaging.Admin\LagoVista.IoT.DeviceMessaging.Admin.csproj" />
