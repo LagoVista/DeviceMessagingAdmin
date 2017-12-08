@@ -53,9 +53,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                             fld.BinaryOffset = 32;
                             fld.ParsedBinaryFieldType = new Core.Models.EntityHeader<ParseBinaryValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "uint64" };
                             break;
-                        case MessageContentTypes.Custom:
+                        /*case MessageContentTypes.Custom:
 
-                            break;
+                            break;*/
                         case MessageContentTypes.Delimited:
                             fld.DelimitedIndex = 3;
                             fld.ParsedStringFieldType = new Core.Models.EntityHeader<ParseStringValueType>() { Id = DeviceMessageDefinitionField.ParserStringType_String, Text = "abc123" };

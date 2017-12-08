@@ -244,7 +244,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         #endregion
 
         #region Values for text type content messages
-        [AllowableMessageContentType(MessageContentTypes.Custom)]
+        //[AllowableMessageContentType(MessageContentTypes.Custom)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
         [AllowableMessageContentType(MessageContentTypes.JSON)]
         [AllowableMessageContentType(MessageContentTypes.StringPosition)]

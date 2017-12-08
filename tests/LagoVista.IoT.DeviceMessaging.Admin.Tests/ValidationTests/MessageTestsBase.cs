@@ -38,10 +38,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                     msg.StringLengthByteCount = 2;
 
                     break;
-                case MessageContentTypes.Custom:
+/*                case MessageContentTypes.Custom:
                     msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_Custom, Text = "Custom" };
                     msg.Script = "function() {do something, for now javascript validate}";
-                    break;
+                    break;*/;
                 case MessageContentTypes.Delimited:
                     msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_Delimited, Text = "Delimited" };
                     msg.Delimiter = ",";

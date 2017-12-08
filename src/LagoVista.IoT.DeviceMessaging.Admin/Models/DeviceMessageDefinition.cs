@@ -12,20 +12,22 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {
     public enum MessageContentTypes
     {
+        [EnumLabel(DeviceMessageDefinition.ContentType_NoContent, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_NoContent, typeof(DeviceMessagingAdminResources))]
+        NoContent,
         [EnumLabel(DeviceMessageDefinition.ContentType_Binary, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Binary, typeof(DeviceMessagingAdminResources))]
         Binary,
-        [EnumLabel(DeviceMessageDefinition.ContentType_StringRegEx, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringRegEx, typeof(DeviceMessagingAdminResources))]
-        StringRegEx,
-        [EnumLabel(DeviceMessageDefinition.ContentType_StringPosition, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringPosition, typeof(DeviceMessagingAdminResources))]
-        StringPosition,
         [EnumLabel(DeviceMessageDefinition.ContentType_Delimited, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Delimited, typeof(DeviceMessagingAdminResources))]
         Delimited,
         [EnumLabel(DeviceMessageDefinition.ContentType_Json, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Json, typeof(DeviceMessagingAdminResources))]
         JSON,
+        [EnumLabel(DeviceMessageDefinition.ContentType_StringRegEx, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringRegEx, typeof(DeviceMessagingAdminResources))]
+        StringRegEx,
+        [EnumLabel(DeviceMessageDefinition.ContentType_StringPosition, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringPosition, typeof(DeviceMessagingAdminResources))]
+        StringPosition,
         [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Xml, typeof(DeviceMessagingAdminResources))]
         XML,
-        [EnumLabel(DeviceMessageDefinition.ContentType_Custom, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Custom, typeof(DeviceMessagingAdminResources))]
-        Custom
+    //    [EnumLabel(DeviceMessageDefinition.ContentType_Custom, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Custom, typeof(DeviceMessagingAdminResources))]
+      //  Custom
     }
 
     public enum RESTMethod
@@ -80,6 +82,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminDomain))]
     public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity
     {
+        public const string ContentType_NoContent = "nocontent";
         public const string ContentType_Binary = "binary";
         public const string ContentType_StringPosition = "stringposition";
         public const string ContentType_StringRegEx = "stringregex";
@@ -166,7 +169,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegEx { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.Custom)]
+        //[AllowableMessageContentType(MessageContentTypes.Custom)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Script, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Script { get; set; }
 

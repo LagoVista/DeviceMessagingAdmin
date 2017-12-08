@@ -710,4 +710,7 @@
   <data name="DeviceMessageDefinition_DefaultValue_Help" xml:space="preserve">
     <value>Provide an optional default value that will be used as an input on an incoming message and will be populated as an output on an outgoing message.</value>
   </data>
+  <data name="DeviceMessage_ContentType_NoContent" xml:space="preserve">
+    <value>No Content</value>
+  </data>
 </root>

@@ -137,6 +137,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_Json
 
 		public static string DeviceMessage_ContentType_Json { get { return GetResourceString("DeviceMessage_ContentType_Json"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_NoContent
+
+		public static string DeviceMessage_ContentType_NoContent { get { return GetResourceString("DeviceMessage_ContentType_NoContent"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_Select
 
 		public static string DeviceMessage_ContentType_Select { get { return GetResourceString("DeviceMessage_ContentType_Select"); } }
@@ -683,6 +686,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			public const string DeviceMessage_ContentType_Delimited = "DeviceMessage_ContentType_Delimited";
 			public const string DeviceMessage_ContentType_Help = "DeviceMessage_ContentType_Help";
 			public const string DeviceMessage_ContentType_Json = "DeviceMessage_ContentType_Json";
+			public const string DeviceMessage_ContentType_NoContent = "DeviceMessage_ContentType_NoContent";
 			public const string DeviceMessage_ContentType_Select = "DeviceMessage_ContentType_Select";
 			public const string DeviceMessage_ContentType_StringPosition = "DeviceMessage_ContentType_StringPosition";
 			public const string DeviceMessage_ContentType_StringRegEx = "DeviceMessage_ContentType_StringRegEx";
