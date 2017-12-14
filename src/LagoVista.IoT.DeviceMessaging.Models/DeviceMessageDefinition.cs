@@ -7,6 +7,7 @@ using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using LagoVista.IoT.DeviceMessaging.Models.Resources;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {
@@ -265,7 +266,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 var allowableTypeProperties = property.GetCustomAttributes<AllowableMessageContentTypeAttribute>();
                 if (hasValue && allowableTypeProperties.Any() && !allowableTypeProperties.Where(allowable => allowable.ContentType == ContentType.Value).Any())
                 {
-                    var invalidTypeMsg = Resources.DeviceMessagingAdminResources.DeviceMessage_PropertyTypeHasValueButNotSupported.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, ContentType.Text);
+                    var invalidTypeMsg = DeviceMessagingAdminResources.DeviceMessage_PropertyTypeHasValueButNotSupported.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, ContentType.Text);
                     result.Warnings.Add(new ErrorMessage(invalidTypeMsg));
                 }
 
@@ -273,7 +274,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 {
                     if (!hasValue && allowableProperty.IsRequired && allowableProperty.ContentType == ContentType.Value)
                     {
-                        var missingMessage = Resources.DeviceMessagingAdminResources.DeviceMessage_PropertyRequiredForContentType.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, ContentType.Text);
+                        var missingMessage = DeviceMessagingAdminResources.DeviceMessage_PropertyRequiredForContentType.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, ContentType.Text);
                         result.Errors.Add(new ErrorMessage(missingMessage));
                     }
                 }

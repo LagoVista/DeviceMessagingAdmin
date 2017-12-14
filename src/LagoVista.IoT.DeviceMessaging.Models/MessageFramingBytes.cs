@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
+using LagoVista.IoT.DeviceMessaging.Models.Resources;
 using System;
 using System.Collections.Generic;
 using System.Text;

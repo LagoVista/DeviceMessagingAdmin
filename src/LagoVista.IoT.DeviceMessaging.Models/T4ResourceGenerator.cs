@@ -2,7 +2,7 @@
 using System.Reflection;
 
 //Resources:DeviceMessagingAdminResources:Common_Description
-namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
+namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 {
 	public class DeviceMessagingAdminResources
 	{
@@ -18,7 +18,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Resources
 			{
                 if (object.ReferenceEquals(_resourceManager, null)) 
 				{
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagoVista.IoT.DeviceMessaging.Admin.Resources.DeviceMessagingAdminResources", typeof(DeviceMessagingAdminResources).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagoVista.IoT.DeviceMessaging.Models.Resources.DeviceMessagingAdminResources", typeof(DeviceMessagingAdminResources).GetTypeInfo().Assembly);
                     _resourceManager = temp;
                 }
                 return _resourceManager;

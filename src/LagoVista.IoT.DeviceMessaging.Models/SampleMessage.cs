@@ -5,6 +5,7 @@ using System.Text;
 using LagoVista.Core;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using LagoVista.Core.Attributes;
+using LagoVista.IoT.DeviceMessaging.Models.Resources;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {

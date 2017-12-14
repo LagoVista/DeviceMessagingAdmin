@@ -6,6 +6,7 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
+using LagoVista.IoT.DeviceMessaging.Models.Resources;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -466,7 +467,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             var allowableTypeProperties = property.GetCustomAttributes<AllowableMessageContentTypeAttribute>();
             if (hasValue && allowableTypeProperties.Any() && !allowableTypeProperties.Where(allowable => allowable.ContentType == contentType.Value).Any())
             {
-                var invalidTypeMsg = Resources.DeviceMessagingAdminResources.DeviceMessage_PropertyTypeHasValueButNotSupported.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, contentType.Text);
+                var invalidTypeMsg = DeviceMessagingAdminResources.DeviceMessage_PropertyTypeHasValueButNotSupported.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, contentType.Text);
                 result.Warnings.Add(new ErrorMessage(invalidTypeMsg));
             }
         }
@@ -514,7 +515,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 if (!hasValue && allowableProperty.IsRequired &&
                     allowableProperty.ContentType == contentType.Value)
                 {
-                    var missingMessage = Resources.DeviceMessagingAdminResources.DeviceMessage_PropertyRequiredForContentType.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, contentType.Text);
+                    var missingMessage = DeviceMessagingAdminResources.DeviceMessage_PropertyRequiredForContentType.Replace(Tokens.PROPERTYNAME, name).Replace(Tokens.MESSAGECONTENTTYPE, contentType.Text);
                     result.Errors.Add(new ErrorMessage(missingMessage));
                 }
             }
@@ -539,22 +540,22 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
                         break;
                     case SearchLocations.Header:
-                        if (String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_HeaderNameMissing));
+                        if (String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_HeaderNameMissing));
                         break;
                     case SearchLocations.Path:
-                        if (String.IsNullOrEmpty(PathLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_PathNameMissing));
+                        if (String.IsNullOrEmpty(PathLocator)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_PathNameMissing));
                         break;
                     case SearchLocations.QueryString:
-                        if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_QueryStringNameMissing));
+                        if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_QueryStringNameMissing));
                         break;
                     case SearchLocations.Topic:
-                        if (String.IsNullOrEmpty(TopicLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
-                        if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
+                        if (String.IsNullOrEmpty(TopicLocator)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_TopicRegEx));
+                        if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                         break;
                 }
 
-                if (StorageType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_UnitSet));
-                if (StorageType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_StateSet));
+                if (StorageType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_FieldDefinitionMissing_UnitSet));
+                if (StorageType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_FieldDefinitionMissing_StateSet));
             }
 
             return result;
@@ -593,23 +594,23 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
                             break;
                         case SearchLocations.Header:
-                            if (String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_HeaderNameMissing));
+                            if (String.IsNullOrEmpty(HeaderName)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_HeaderNameMissing));
                             break;
                         case SearchLocations.Path:
-                            if (String.IsNullOrEmpty(PathLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_PathNameMissing));
+                            if (String.IsNullOrEmpty(PathLocator)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_PathNameMissing));
                             break;
                         case SearchLocations.QueryString:
-                            if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_QueryStringNameMissing));
+                            if (String.IsNullOrEmpty(QueryStringField)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_QueryStringNameMissing));
                             break;
                         case SearchLocations.Topic:
-                            if (String.IsNullOrEmpty(TopicLocator)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicRegEx));
-                            if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
+                            if (String.IsNullOrEmpty(TopicLocator)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_TopicRegEx));
+                            if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                             break;
                     }
                 }
 
-                if (StorageType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_UnitSet));
-                if (StorageType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet)) result.Errors.Add(new ErrorMessage(Resources.DeviceMessagingAdminResources.Err_FieldDefinitionMissing_StateSet));
+                if (StorageType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_FieldDefinitionMissing_UnitSet));
+                if (StorageType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_FieldDefinitionMissing_StateSet));
             }
 
             return result;

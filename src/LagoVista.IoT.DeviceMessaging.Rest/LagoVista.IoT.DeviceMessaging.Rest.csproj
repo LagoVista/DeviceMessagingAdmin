@@ -5,12 +5,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard1.2\LagoVista.IoT.DeviceMessaging.Rest.xml</DocumentationFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\LagoVista.IoT.DeviceMessaging.Rest.xml</DocumentationFile>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Startup.cs" />
@@ -21,6 +20,7 @@
     <PackageReference Include="LagoVista.UserAdmin" Version="1.2.202-alpha0849" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceMessaging.Admin\LagoVista.IoT.DeviceMessaging.Admin.csproj" />

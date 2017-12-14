@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>LagoVista.IoT.DeviceMessaging.Models</id>
+    <version>1.2.211-alpha0847</version>
+    <authors>Software Logistics, LLC</authors>
+    <owners>Software Logistics, LLC</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/LagoVista/DeviceAdmin</projectUrl>
+    <iconUrl>http://bytemaster.blob.core.windows.net/icons/LagoVistaIcon.png</iconUrl>
+    <description>Provides Models for managing Device Message Definitions in the LagoVista IoT and Devices Framework</description>
+    <releaseNotes>Initial and Unstable Release</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>HomeAutomation IoT LagoVista</tags>
+  </metadata>
+  <files>
+    <file src="bin\release\netstandard1.2\*.dll" target="lib\netstandard1.2" />
+  </files>
+</package>
