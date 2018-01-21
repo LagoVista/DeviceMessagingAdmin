@@ -256,7 +256,7 @@
     <value>JSON Path</value>
   </data>
   <data name="DeviceMessageField_JsonPath_Help" xml:space="preserve">
-    <value>You can extract values from your JSON document by using a dot notation to denote heirachry.  This will extract the subnode Name Person_Name in the json {'Person':{'Name':'Rascal'}}</value>
+    <value>You can extract values from your JSON document by using a dot notation to denote heirachry.  This will extract the subnode Name Person.Name in the json {'Person':{'Name':'Rascal'}}</value>
   </data>
   <data name="DeviceMessageField_Length" xml:space="preserve">
     <value>Length</value>

@@ -168,7 +168,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public EntityHeader<SearchLocations> SearchLocation { get; set; }
 
         /* Required for all fields */
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select, IsRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select)]
         public EntityHeader<ParameterTypes> StorageType { get; set; }
 
         [AllowableStorageContentType(ParameterTypes.ValueWithUnit)]
@@ -290,7 +290,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
 
 
-
         [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Delimited_Index, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Delimited_Index_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
@@ -345,7 +344,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Length, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? Length { get; set; }
 
-        
+
         [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
         [AllowableMessageContentType(MessageContentTypes.XML)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
@@ -525,6 +524,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public ValidationResult Validate(DeviceMessageDefinition messageDefinition)
         {
             var result = Validator.Validate(this);
+
             /* If base validation doesn't work, don't bother getting into the details */
             if (result.Successful)
             {

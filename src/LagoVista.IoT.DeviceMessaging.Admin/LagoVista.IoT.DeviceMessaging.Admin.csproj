@@ -7,10 +7,10 @@
     <FileVersion>1.2.1.1</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="1.2.202-alpha0849" />
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin" Version="1.2.202-alpha0849" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="1.2.202-alpha0849" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="1.2.202-alpha0849" />
+    <PackageReference Include="LagoVista.Core" Version="1.2.248-alpha2001" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin" Version="1.2.248-alpha2001" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="1.2.248-alpha2001" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="1.2.248-alpha2001" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta1" />
   </ItemGroup>
   <ItemGroup>
