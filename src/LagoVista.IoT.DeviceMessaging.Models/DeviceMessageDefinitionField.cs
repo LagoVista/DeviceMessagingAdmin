@@ -105,6 +105,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         #region Constructor
         public DeviceMessageDefinitionField()
         {
+            DecimalScaler = 1.0;
             Id = Guid.NewGuid().ToId();
         }
         #endregion
@@ -224,6 +225,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? StringLengthByteCount { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.Decimal)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Scaler, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_ScalerHelp, FieldType: FieldTypes.Decimal, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public double DecimalScaler { get; set; }
 
         [AllowableFieldType(FieldType.DeviceId)]
         [AllowableFieldType(FieldType.MessageId)]

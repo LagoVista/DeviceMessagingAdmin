@@ -713,4 +713,10 @@
   <data name="DeviceMessage_ContentType_NoContent" xml:space="preserve">
     <value>No Content</value>
   </data>
+  <data name="DeviceMessageField_Scaler" xml:space="preserve">
+    <value>Scaler</value>
+  </data>
+  <data name="DeviceMessageField_ScalerHelp" xml:space="preserve">
+    <value>If your field arrives as a scaled integer you can apply a factor to it to convert it to a decimal number. The default for this is 1.0</value>
+  </data>
 </root>

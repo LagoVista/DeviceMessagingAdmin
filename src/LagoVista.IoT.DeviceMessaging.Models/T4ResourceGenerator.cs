@@ -451,6 +451,12 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_RegExValueSelector_Help
 
 		public static string DeviceMessageField_RegExValueSelector_Help { get { return GetResourceString("DeviceMessageField_RegExValueSelector_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_Scaler
+
+		public static string DeviceMessageField_Scaler { get { return GetResourceString("DeviceMessageField_Scaler"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_ScalerHelp
+
+		public static string DeviceMessageField_ScalerHelp { get { return GetResourceString("DeviceMessageField_ScalerHelp"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_SearchLocation
 
 		public static string DeviceMessageField_SearchLocation { get { return GetResourceString("DeviceMessageField_SearchLocation"); } }
@@ -788,6 +794,8 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessageField_RegExValidation_Help = "DeviceMessageField_RegExValidation_Help";
 			public const string DeviceMessageField_RegExValueSelector = "DeviceMessageField_RegExValueSelector";
 			public const string DeviceMessageField_RegExValueSelector_Help = "DeviceMessageField_RegExValueSelector_Help";
+			public const string DeviceMessageField_Scaler = "DeviceMessageField_Scaler";
+			public const string DeviceMessageField_ScalerHelp = "DeviceMessageField_ScalerHelp";
 			public const string DeviceMessageField_SearchLocation = "DeviceMessageField_SearchLocation";
 			public const string DeviceMessageField_SearchLocation_Body = "DeviceMessageField_SearchLocation_Body";
 			public const string DeviceMessageField_SearchLocation_Headers = "DeviceMessageField_SearchLocation_Headers";
