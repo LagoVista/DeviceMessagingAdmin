@@ -27,8 +27,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         StringPosition,
         [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Xml, typeof(DeviceMessagingAdminResources))]
         XML,
-    //    [EnumLabel(DeviceMessageDefinition.ContentType_Custom, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Custom, typeof(DeviceMessagingAdminResources))]
-      //  Custom
+        //    [EnumLabel(DeviceMessageDefinition.ContentType_Custom, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Custom, typeof(DeviceMessagingAdminResources))]
+        //  Custom
     }
 
     public enum RESTMethod
@@ -135,7 +135,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId_Help, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public string MessageId { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.Delimited, isRequired:false)]
+        [AllowableMessageContentType(MessageContentTypes.Delimited, isRequired: false)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
         public bool QuotedText { get; set; }
 
@@ -158,7 +158,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_StringParsingStrategy_Select, EnumType: typeof(StringParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<StringParsingStrategy> StringParsingStrategy { get; set; }
 
-        [AllowableMessageContentType(MessageContentTypes.Binary, true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? StringLengthByteCount { get; set; }
 
@@ -215,15 +214,24 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 return;
             }
 
-            if(ContentType == null || ContentType.IsEmpty())
+            if (ContentType == null || ContentType.IsEmpty())
             {
-                if(ContentType == null || ContentType.IsEmpty())
+                if (ContentType == null || ContentType.IsEmpty())
                 {
                     //TODO: should arlready call core validation, if content type is null we went through an invalid path and we aren't localizing...sorry.
                     result.Errors.Add(new ErrorMessage("Content Type is Required."));
                     return;
                 }
             }
+
+            if (ContentType.Value == MessageContentTypes.Binary &&
+                !EntityHeader.IsNullOrEmpty(StringParsingStrategy) &&
+                StringParsingStrategy.Value == Models.StringParsingStrategy.StringLength &&
+                !StringLengthByteCount.HasValue)
+            {
+                result.Errors.Add(new ErrorMessage("If string parsing strategy is String Length, length of string is required."));
+            }
+
 
             foreach (var property in typeof(DeviceMessageDefinition).GetTypeInfo().DeclaredProperties)
             {

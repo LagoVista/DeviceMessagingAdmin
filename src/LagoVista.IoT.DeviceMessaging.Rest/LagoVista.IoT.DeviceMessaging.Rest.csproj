@@ -15,9 +15,9 @@
     <Compile Remove="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="1.2.267-alpha1249" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="1.2.267-alpha1249" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="1.2.267-alpha1249" />
+    <PackageReference Include="LagoVista.Core" Version="1.2.269-alpha0710" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="1.2.269-alpha0710" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="1.2.269-alpha0710" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta3" />
