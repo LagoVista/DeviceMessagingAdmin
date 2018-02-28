@@ -555,7 +555,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                         break;
                     case SearchLocations.Topic:
                         if (String.IsNullOrEmpty(TopicLocator)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_TopicRegEx));
-                        if (String.IsNullOrEmpty(RegExGroupName)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_TopicGroupNameMissing));
                         break;
                 }
 

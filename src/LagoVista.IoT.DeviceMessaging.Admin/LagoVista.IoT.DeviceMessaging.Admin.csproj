@@ -7,6 +7,11 @@
     <FileVersion>1.2.1.1</FileVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="LagoVista.Core" Version="1.2.285-alpha1447" />
     <PackageReference Include="LagoVista.IoT.DeviceAdmin" Version="1.2.285-alpha1447" />
     <PackageReference Include="LagoVista.IoT.Logging" Version="1.2.285-alpha1447" />
@@ -15,9 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceMessaging.Models\LagoVista.IoT.DeviceMessaging.Models.csproj" />
