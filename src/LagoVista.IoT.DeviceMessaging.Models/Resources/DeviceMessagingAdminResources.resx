@@ -719,4 +719,19 @@
   <data name="DeviceMessageField_ScalerHelp" xml:space="preserve">
     <value>If your field arrives as a scaled integer you can apply a factor to it to convert it to a decimal number. The default for this is 1.0</value>
   </data>
+  <data name="DeviceMessage_ContentType_Media" xml:space="preserve">
+    <value>File Upload/Media</value>
+  </data>
+  <data name="DeviceMessageDefinition_MediaContentType" xml:space="preserve">
+    <value>Media Content Type</value>
+  </data>
+  <data name="DeviceMessage_ContentType_FormPost" xml:space="preserve">
+    <value>Form Post</value>
+  </data>
+  <data name="DeviceMessage_ContentType_MultiPart_Media" xml:space="preserve">
+    <value>Multi-Part Media</value>
+  </data>
+  <data name="DeviceMessageDefinition_Extension" xml:space="preserve">
+    <value>Extension</value>
+  </data>
 </root>

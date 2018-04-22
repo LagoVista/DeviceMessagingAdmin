@@ -27,6 +27,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         StringPosition,
         [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Xml, typeof(DeviceMessagingAdminResources))]
         XML,
+        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Media, typeof(DeviceMessagingAdminResources))]
+        Media,
+        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_MultiPart_Media, typeof(DeviceMessagingAdminResources))]
+        MultiPartContent,
+        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_FormPost, typeof(DeviceMessagingAdminResources))]
+        FormPost,
+
         //    [EnumLabel(DeviceMessageDefinition.ContentType_Custom, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Custom, typeof(DeviceMessagingAdminResources))]
         //  Custom
     }
@@ -90,7 +97,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ContentType_Delimited = "delimited";
         public const string ContentType_Json = "json";
         public const string ContentType_Xml = "xml";
-        public const string ContentType_Custom = "custom";
+        public const string ContentType_Media = "media";
+        public const string ContentType_MultiPart = "multipart";
+        public const string ContentType_FormPost = "formpost";
 
         public const string BinaryParsingStrategy_Absolute = "absolute";
         public const string BinaryParsingStrategy_Relative = "relative";
@@ -143,6 +152,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Delimiter { get; set; }
 
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MediaContentType, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string MediaContentType { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Extension, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string FileExtension { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMesage_MessageDirection, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_MessageDirection_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.MessageDirection_Select, EnumType: typeof(MessageDirections), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public EntityHeader<MessageDirections> MessageDirection { get; set; }
