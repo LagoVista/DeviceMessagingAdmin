@@ -161,7 +161,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         public void MessageIdDeviceId_InValid_Topic_NoTopicGroupName()
         {
             var fld = CreateValidMessageField(Models.SearchLocations.Topic);
-            fld.TopicLocator = "group";
+            fld.RegExValueSelector = "group";
             fld.RegExGroupName = null;
             AssertInValid(fld.Validate());
         }
