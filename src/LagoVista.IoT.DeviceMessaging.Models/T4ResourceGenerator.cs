@@ -232,6 +232,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_Topic
 
 		public static string DeviceMessage_Topic { get { return GetResourceString("DeviceMessage_Topic"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_Topic_Help
+
+		public static string DeviceMessage_Topic_Help { get { return GetResourceString("DeviceMessage_Topic_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_DefaultValue
 
 		public static string DeviceMessageDefinition_DefaultValue { get { return GetResourceString("DeviceMessageDefinition_DefaultValue"); } }
@@ -736,6 +739,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_RESTMethod_Select = "DeviceMessage_RESTMethod_Select";
 			public const string DeviceMessage_StringParsingStrategy_Select = "DeviceMessage_StringParsingStrategy_Select";
 			public const string DeviceMessage_Topic = "DeviceMessage_Topic";
+			public const string DeviceMessage_Topic_Help = "DeviceMessage_Topic_Help";
 			public const string DeviceMessageDefinition_DefaultValue = "DeviceMessageDefinition_DefaultValue";
 			public const string DeviceMessageDefinition_DefaultValue_Help = "DeviceMessageDefinition_DefaultValue_Help";
 			public const string DeviceMessageDefinition_Description = "DeviceMessageDefinition_Description";

@@ -197,7 +197,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string PathAndQueryString { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, HelpResource:DeviceMessagingAdminResources.Names.DeviceMessage_Topic_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Topic { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
