@@ -59,7 +59,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [EnumLabel(DeviceMessageDefinitionField.ParserStringType_RealNumber, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_FloatingPointNumber, typeof(DeviceMessagingAdminResources))]
         RealNumber,
         [EnumLabel(DeviceMessageDefinitionField.ParserStringType_Boolean, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_Boolean, typeof(DeviceMessagingAdminResources))]
-        Boolean
+        Boolean,
+        [EnumLabel(DeviceMessageDefinitionField.ParserStringType_File, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_File, typeof(DeviceMessagingAdminResources))]
+        File
     }
 
     public enum SearchLocations
@@ -138,6 +140,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ParserStringType_WholeNumber = "wholenumber";
         public const string ParserStringType_RealNumber = "realnumber";
         public const string ParserStringType_Boolean = "boolean";
+        public const string ParserStringType_File = "file";
 
         public const string SearchLocation_Headers = "headers";
         public const string SearchLocation_QueryString = "querystring";
@@ -560,6 +563,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
                 if (StorageType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_FieldDefinitionMissing_UnitSet));
                 if (StorageType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet)) result.Errors.Add(new ErrorMessage(DeviceMessagingAdminResources.Err_FieldDefinitionMissing_StateSet));
+
+                if (StorageType.Value == ParameterTypes.Image && messageDefinition.ContentType.Value != MessageContentTypes.Media) result.AddUserError("Image storage type is only valid when the message definition content type is media.");
+                if (StorageType.Value == ParameterTypes.Image && SearchLocation.Value != SearchLocations.Body) result.AddUserError("Field types of image are only valid when associated with the body of the message.");
             }
 
             return result;

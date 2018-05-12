@@ -520,6 +520,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_Boolean
 
 		public static string DeviceMessageField_StringParser_Boolean { get { return GetResourceString("DeviceMessageField_StringParser_Boolean"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_File
+
+		public static string DeviceMessageField_StringParser_File { get { return GetResourceString("DeviceMessageField_StringParser_File"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_FloatingPointNumber
 
 		public static string DeviceMessageField_StringParser_FloatingPointNumber { get { return GetResourceString("DeviceMessageField_StringParser_FloatingPointNumber"); } }
@@ -835,6 +838,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessageField_String_LeadingLength = "DeviceMessageField_String_LeadingLength";
 			public const string DeviceMessageField_String_LeadingLength_Help = "DeviceMessageField_String_LeadingLength_Help";
 			public const string DeviceMessageField_StringParser_Boolean = "DeviceMessageField_StringParser_Boolean";
+			public const string DeviceMessageField_StringParser_File = "DeviceMessageField_StringParser_File";
 			public const string DeviceMessageField_StringParser_FloatingPointNumber = "DeviceMessageField_StringParser_FloatingPointNumber";
 			public const string DeviceMessageField_StringParser_String = "DeviceMessageField_StringParser_String";
 			public const string DeviceMessageField_StringParser_WholeNumber = "DeviceMessageField_StringParser_WholeNumber";

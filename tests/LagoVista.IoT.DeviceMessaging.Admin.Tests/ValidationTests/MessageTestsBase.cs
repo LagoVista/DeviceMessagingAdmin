@@ -64,6 +64,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                 case MessageContentTypes.XML:
                     msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_Xml, Text = "XML" };
                     break;
+                case MessageContentTypes.Media:
+                    msg.ContentType = new Core.Models.EntityHeader<MessageContentTypes>() { Id = DeviceMessageDefinition.ContentType_Media, Text = "Media" };
+                    break;
             }
 
             return msg;
@@ -109,6 +112,18 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
         {
             ShowErrors(result);
             ShowWarnings(result);
+            Assert.IsFalse(result.Successful);
+        }
+
+        protected void AssertInValid(ValidationResult result, params string[] errors)
+        {
+            ShowErrors(result);
+            ShowWarnings(result);
+            Assert.AreEqual(errors.Length, result.Errors.Count);
+            foreach(var err in errors)
+            {
+                Assert.IsTrue((result.Errors.Where(er => er.Message == err).Count() == 1), $"Missing [{err}] in validation results.");
+            }
             Assert.IsFalse(result.Successful);
         }
     }
