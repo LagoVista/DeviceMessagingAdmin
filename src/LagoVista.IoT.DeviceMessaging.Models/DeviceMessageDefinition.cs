@@ -27,12 +27,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         StringPosition,
         [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Xml, typeof(DeviceMessagingAdminResources))]
         XML,
-        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Media, typeof(DeviceMessagingAdminResources))]
+        [EnumLabel(DeviceMessageDefinition.ContentType_Media, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Media, typeof(DeviceMessagingAdminResources))]
         Media,
-        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_MultiPart_Media, typeof(DeviceMessagingAdminResources))]
+/*        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_MultiPart_Media, typeof(DeviceMessagingAdminResources))]
         MultiPartContent,
         [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_FormPost, typeof(DeviceMessagingAdminResources))]
-        FormPost,
+        FormPost,*/
 
         //    [EnumLabel(DeviceMessageDefinition.ContentType_Custom, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Custom, typeof(DeviceMessagingAdminResources))]
         //  Custom
@@ -42,9 +42,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     {
         [EnumLabel(DeviceMessageDefinition.RESTMethod_GET, DeviceMessagingAdminResources.Names.RESTMethod_GET, typeof(DeviceMessagingAdminResources))]
         GET,
-        [EnumLabel(DeviceMessageDefinition.RESTMethod_POST, DeviceMessagingAdminResources.Names.RESTMethod_PUT, typeof(DeviceMessagingAdminResources))]
+        [EnumLabel(DeviceMessageDefinition.RESTMethod_PUT, DeviceMessagingAdminResources.Names.RESTMethod_PUT, typeof(DeviceMessagingAdminResources))]
         PUT,
-        [EnumLabel(DeviceMessageDefinition.RESTMethod_PUT, DeviceMessagingAdminResources.Names.RESTMethod_POST, typeof(DeviceMessagingAdminResources))]
+        [EnumLabel(DeviceMessageDefinition.RESTMethod_POST, DeviceMessagingAdminResources.Names.RESTMethod_POST, typeof(DeviceMessagingAdminResources))]
         POST,
         [EnumLabel(DeviceMessageDefinition.RESTMethod_DELETE, DeviceMessagingAdminResources.Names.RESTMethod_DELETE, typeof(DeviceMessagingAdminResources))]
         DELETE
@@ -214,7 +214,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 Name = Name,
                 Key = Key,
                 IsPublic = IsPublic,
-                Description = Description
+                Description = Description,
+                Direction = MessageDirection.Text
             };
         }
 
@@ -314,6 +315,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
     public class DeviceMessageDefinitionSummary : LagoVista.Core.Models.SummaryData
     {
+        public string Direction { get; set; }
 
     }
 }
