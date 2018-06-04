@@ -172,7 +172,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public EntityHeader<SearchLocations> SearchLocation { get; set; }
 
         /* Required for all fields */
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select, IsRequired:true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType, EnumType: (typeof(ParameterTypes)), HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceMessagingAdminResources), WaterMark: DeviceMessagingAdminResources.Names.DeviceMessageField_StorageFieldType_Select, IsRequired: true)]
         public EntityHeader<ParameterTypes> StorageType { get; set; }
 
         [AllowableStorageContentType(ParameterTypes.ValueWithUnit)]
@@ -626,5 +626,81 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             return result;
         }
         #endregion
+
+
+        public DeviceMessageDefinitionField Clone(bool newId = false, EntityHeader org = null, EntityHeader user = null)
+        {
+            var fld = new DeviceMessageDefinitionField()
+            {
+                Id = newId ? Guid.NewGuid().ToId() : Id,
+                BinaryOffset = BinaryOffset,
+                BinaryParsingStrategy = BinaryParsingStrategy.Clone(),
+                ContentType = ContentType.Clone(),
+                DateTimeZone = DateTimeZone.Clone(),
+                DecimalScaler = DecimalScaler,
+                DefaultValue = DefaultValue,
+                DelimitedIndex = DelimitedIndex,
+                Delimiter = Delimiter,
+                Endian = Endian.Clone(),
+                FieldIndex = FieldIndex,
+                HeaderName = HeaderName,
+                IsRequired = IsRequired,
+                JsonPath = JsonPath,
+                Key = Key,
+                LatBinaryOffset = LatBinaryOffset,
+                LatDelimitedIndex = LatDelimitedIndex,
+                LatJsonPath = LatJsonPath,
+                LatQueryStringField = LatQueryStringField,
+                LatRegExGroupName = LatRegExGroupName,
+                LatStartIndex = LatStartIndex,
+                LatXPath = LatXPath,
+                Length = Length,
+                LonBinaryOffset = LonBinaryOffset,
+                LonDelimitedIndex = LonDelimitedIndex,
+                LonJsonPath = LonJsonPath,
+                LonQueryStringField = LonQueryStringField,
+                LonRegExGroupName = LonRegExGroupName,
+                LonStartIndex = LonStartIndex,
+                LonXPath = LonXPath,
+                MaxValue = MaxValue,
+                MinValue = MinValue,
+                Name = Name,
+                Notes = Notes,
+                ParsedBinaryFieldType = ParsedBinaryFieldType.Clone(),
+                ParsedStringFieldType = ParsedStringFieldType.Clone(),
+                PathLocator = PathLocator,
+                QueryStringField = QueryStringField,
+                QuotedText = QuotedText,
+                RegExGroupName = RegExGroupName,
+                RegExValidation = RegExValidation,
+                RegExValueSelector = RegExValueSelector,
+                SearchLocation = SearchLocation.Clone(),
+                StartIndex = StartIndex,
+                StorageType = StorageType.Clone(),
+                StringLengthByteCount = StringLengthByteCount,
+                TopicLocator = TopicLocator,
+                StringParsingStrategy = StringParsingStrategy.Clone(),
+                XPath = XPath
+            };
+
+            fld.StateSet = new EntityHeader<DeviceAdmin.Models.StateSet>()
+            {
+                Id = StateSet.Id,
+                Text = StateSet.Text,
+            };
+
+            fld.StateSet.Value = StateSet.Value.Clone(newId, org, user);
+
+            fld.UnitSet = new EntityHeader<DeviceAdmin.Models.UnitSet>()
+            {
+                Id = UnitSet.Id,
+                Text = UnitSet.Text,
+            };
+
+            fld.UnitSet.Value = UnitSet.Value.Clone(newId, org, user);
+
+
+            return fld;
+        }
     }
 }
