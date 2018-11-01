@@ -735,7 +735,7 @@
     <value>Extension</value>
   </data>
   <data name="DeviceMessage_Topic_Help" xml:space="preserve">
-    <value>If the message should be sent, you can provide a topic that can be used for message queue based transmitters.  To specifiy an address/device in the topic use the notation \{deviceid\}.  This will replace that token with the device id in the associated message. ex: rover/action/\{deviceid\}</value>
+    <value>If the message should be sent, you can provide a topic that can be used for message queue based transmitters.  To specifiy an address/device in the topic use the notation ~deviceid~.  This will replace that token with the device id in the associated message. ex: rover/action/~deviceid~.  You can also use parameters within the fields defined for the output message with the format rover/\{outputfield\}/~deviceid~.</value>
   </data>
   <data name="DeviceMessageField_StringParser_File" xml:space="preserve">
     <value>File</value>
