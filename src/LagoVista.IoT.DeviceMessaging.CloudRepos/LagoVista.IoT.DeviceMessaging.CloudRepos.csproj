@@ -7,7 +7,7 @@
     <PackageReference Include="LagoVista.CloudStorage" Version="2.1.732-beta1037" />
     <PackageReference Include="LagoVista.Core" Version="2.1.732-beta1037" />
     <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.2.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceMessaging.Admin\LagoVista.IoT.DeviceMessaging.Admin.csproj" />
