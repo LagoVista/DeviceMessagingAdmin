@@ -12,6 +12,7 @@ using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Managers;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.UserAdmin.Models.Users;
+using LagoVista.Core.Cloning;
 
 namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
 {
@@ -64,6 +65,17 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         }
 
         /// <summary>
+        /// Device Message Type - Get Public  Message Types
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/devicemessagetypes/public")]
+        public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetPublishMessageTypesForOrgAsync()
+        {
+            var deviceMessageConfiguration = await _deviceConfigManager.GetPublicDeviceMessageDefinitionsAsync();
+            return ListResponse<DeviceMessageDefinitionSummary>.Create(deviceMessageConfiguration);
+        }
+
+        /// <summary>
         /// Device Message Type - Get A Configuration
         /// </summary>
         /// <param name="id"></param>
@@ -73,6 +85,17 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         {
             var deviceMessageConfiguration = await _deviceConfigManager.GetDeviceMessageDefinitionAsync(id, OrgEntityHeader, UserEntityHeader);
             return DetailResponse<DeviceMessageDefinition>.Create(deviceMessageConfiguration);
+        }
+
+        /// <summary>
+        /// Device Message Type - Get A Configuration
+        /// </summary>
+        /// <param name="cloneRequest"></param>
+        /// <returns></returns>
+        [HttpGet("/api/devicemessagetype/clone")]
+        public Task<InvokeResult> CloneMessageDefintion([FromBody] CloneRequest cloneRequest)
+        {
+            return _deviceConfigManager.CloneDeviceMessageDefinition(cloneRequest, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
@@ -158,7 +181,7 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut("/api/devicemessagetype/field/validate")]
-        public ValidationResult ValidateMessageField(MessageFieldValidator field)
+        public ValidationResult ValidateMessageField([FromBody] MessageFieldValidator field)
         {
             return field.Field.Validate(field.MessageDefinition);
         }
@@ -169,7 +192,7 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut("/api/devicemessagetype/fieldparser/validate")]
-        public ValidationResult ValidateMessageField(DeviceMessageDefinitionField field)
+        public ValidationResult ValidateMessageField([FromBody] DeviceMessageDefinitionField field)
         {
             return field.Validate();
         }

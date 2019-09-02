@@ -740,4 +740,7 @@
   <data name="DeviceMessageField_StringParser_File" xml:space="preserve">
     <value>File</value>
   </data>
+  <data name="Common_IsPublic_Help" xml:space="preserve">
+    <value>If you create this object as a public object it will be available to other users to use and clone within their application.  You will be  the only person allowed to edit it.</value>
+  </data>
 </root>

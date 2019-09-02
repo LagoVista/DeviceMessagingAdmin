@@ -62,6 +62,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:Common_IsPublic
 
 		public static string Common_IsPublic { get { return GetResourceString("Common_IsPublic"); } }
+//Resources:DeviceMessagingAdminResources:Common_IsPublic_Help
+
+		public static string Common_IsPublic_Help { get { return GetResourceString("Common_IsPublic_Help"); } }
 //Resources:DeviceMessagingAdminResources:Common_Key
 
 		public static string Common_Key { get { return GetResourceString("Common_Key"); } }
@@ -688,6 +691,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string Common_Description = "Common_Description";
 			public const string Common_Id = "Common_Id";
 			public const string Common_IsPublic = "Common_IsPublic";
+			public const string Common_IsPublic_Help = "Common_IsPublic_Help";
 			public const string Common_Key = "Common_Key";
 			public const string Common_Key_Help = "Common_Key_Help";
 			public const string Common_Key_Validation = "Common_Key_Validation";

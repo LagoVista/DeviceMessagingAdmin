@@ -1,4 +1,5 @@
-﻿using LagoVista.Core.Models;
+﻿using LagoVista.Core.Cloning;
+using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using System;
@@ -10,7 +11,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
 {
     public interface IDeviceMessageDefinitionManager
     {
-
+        Task<IEnumerable<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync();
+        Task<InvokeResult> CloneDeviceMessageDefinition(CloneRequest request, EntityHeader org, EntityHeader user);
         Task<InvokeResult> AddDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageConfiguration, EntityHeader org, EntityHeader user);
         Task<DeviceMessageDefinition> GetDeviceMessageDefinitionAsync(string id, EntityHeader org, EntityHeader user);
         Task<InvokeResult<DeviceMessageDefinition>> LoadFullDeviceMessageDefinitionAsync(string id, EntityHeader org, EntityHeader user);

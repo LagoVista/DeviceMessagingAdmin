@@ -1,4 +1,5 @@
-﻿using LagoVista.Core.Exceptions;
+﻿using LagoVista.Core.Cloning;
+using LagoVista.Core.Exceptions;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Managers;
 using LagoVista.Core.Models;
@@ -91,6 +92,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             return result;
         }
 
+        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync()
+        {
+            return await _deviceMessageDefinitionRepo.GetPublicDeviceMessageDefinitionsAsync();
+        }
+
         public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user)
         {
             await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceMessageDefinition));
@@ -124,6 +130,25 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             var deviceMessageConfiguration = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(id);
             await AuthorizeAsync(deviceMessageConfiguration, AuthorizeActions.Read, user, org);
             return await base.CheckForDepenenciesAsync(deviceMessageConfiguration);
+        }
+
+        public async Task<InvokeResult> CloneDeviceMessageDefinition(CloneRequest request, EntityHeader org, EntityHeader user)
+        {
+            if(await _deviceMessageDefinitionRepo.QueryKeyInUseAsync(request.NewKey, org.Id))
+            {
+                throw new System.Exception($"Key [{request.NewKey}] is currently in use.");
+            }
+
+            var message = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(request.OriginalId);
+            if(!message.IsPublic && message.OwnerOrganization.Id != org.Id)
+            {
+                throw new NotAuthorizedException("Could not clone non public message definition or one from a different organization.");
+            }
+
+            var clonedMessage = await message.CloneAsync(user, org, request.NewName, request.NewKey);
+            await this._deviceMessageDefinitionRepo.AddDeviceMessageDefinitionAsync(clonedMessage);
+
+            return InvokeResult.Success;
         }
     }
 }

@@ -8,6 +8,8 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using LagoVista.IoT.DeviceMessaging.Models.Resources;
+using System.Threading.Tasks;
+using LagoVista.Core.Cloning;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {
@@ -88,7 +90,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     }
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminDomain))]
-    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity
+    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity, ICloneable<DeviceMessageDefinition>
     {
         public const string ContentType_NoContent = "nocontent";
         public const string ContentType_Binary = "binary";
@@ -131,80 +133,120 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public String EntityType { get; set; }
 
+        public string OriginalId { get; set; }
+
+        public EntityHeader OriginalOwnerOrganization { get; set; }
+        public EntityHeader OriginalOwnerUser { get; set; }
+
+        public EntityHeader OriginallyCreatedBy { get; set; }
+
+        public string OriginalCreationDate { get; set; }
+
+        [CloneOptions(false)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_IsPublic, HelpResource: DeviceMessagingAdminResources.Names.Common_IsPublic_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
         public bool IsPublic { get; set; }
+
+        [CloneOptions(false)]
         public EntityHeader OwnerOrganization { get; set; }
+
+        [CloneOptions(false)]
         public EntityHeader OwnerUser { get; set; }
 
+        [CloneOptions(false)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Key, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: DeviceMessagingAdminResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public String Key { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Fields, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<DeviceMessageDefinitionField> Fields { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId_Help, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public string MessageId { get; set; }
 
+        [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited, isRequired: false)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
         public bool QuotedText { get; set; }
 
+        [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Delimiter { get; set; }
 
-
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MediaContentType, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string MediaContentType { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Extension, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string FileExtension { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMesage_MessageDirection, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_MessageDirection_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.MessageDirection_Select, EnumType: typeof(MessageDirections), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public EntityHeader<MessageDirections> MessageDirection { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Select, EnumType: typeof(MessageContentTypes), ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public EntityHeader<MessageContentTypes> ContentType { get; set; }
 
+        [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Binary, true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_BinaryParsingStrategy_Select, EnumType: typeof(BinaryParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<BinaryParsingStrategy> BinaryParsingStrategy { get; set; }
 
+        [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Binary, true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_StringParsingStrategy_Select, EnumType: typeof(StringParsingStrategy), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<StringParsingStrategy> StringParsingStrategy { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_String_LeadingLength_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? StringLengthByteCount { get; set; }
 
+        [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Binary, true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Help, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Endian_Select, EnumType: typeof(EndianTypes), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<EndianTypes> Endian { get; set; }
 
+        [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.StringRegEx)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_RegEx_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string RegEx { get; set; }
 
         //[AllowableMessageContentType(MessageContentTypes.Custom)]
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Script, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Script { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string OutputMessageScript { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_RESTMethod, FieldType: FieldTypes.Picker, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_RESTMethod_Select, EnumType: typeof(RESTMethod), ResourceType: typeof(DeviceMessagingAdminResources))]
         public EntityHeader<RESTMethod> RestMethod { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string PathAndQueryString { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, HelpResource:DeviceMessagingAdminResources.Names.DeviceMessage_Topic_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Topic { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_FramingBytes_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<MessageFramingBytes> FramingBytes { get; set; }
 
+        [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<SampleMessage> SampleMessages { get; set; }
+
+        public Task<DeviceMessageDefinition> CloneAsync(EntityHeader user, EntityHeader org, string name, string key)
+        {            
+            return Task.FromResult(CloneService.Clone(this, user, org, name, key));
+        }
 
         public DeviceMessageDefinitionSummary CreateSummary()
         {

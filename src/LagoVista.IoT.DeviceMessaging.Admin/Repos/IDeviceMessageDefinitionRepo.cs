@@ -10,6 +10,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Repos
         Task AddDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageDefinition);
         Task<DeviceMessageDefinition> GetDeviceMessageDefinitionAsync(string id);
         Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgAsync(string orgId);
+        Task<IEnumerable<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync();
         Task UpdateDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageDefinition);
         Task DeleteDeviceMessageDefinitionAsync(string id);
         Task<bool> QueryKeyInUseAsync(string key, string orgId);
