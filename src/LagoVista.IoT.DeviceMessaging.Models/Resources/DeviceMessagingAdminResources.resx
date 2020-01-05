@@ -743,4 +743,13 @@
   <data name="Common_IsPublic_Help" xml:space="preserve">
     <value>If you create this object as a public object it will be available to other users to use and clone within their application.  You will be  the only person allowed to edit it.</value>
   </data>
+  <data name="DeviceMessage_ContentType_ProtoBuf" xml:space="preserve">
+    <value>Protocol Buffers</value>
+  </data>
+  <data name="DeviecMessage_ProtoBuf_Definition" xml:space="preserve">
+    <value>Protobuf Definition</value>
+  </data>
+  <data name="DeviecMessage_ProtoBuf_Definition_Help" xml:space="preserve">
+    <value>Copy your protocol buffer type definition into this field to have it parsed and create fields.</value>
+  </data>
 </root>

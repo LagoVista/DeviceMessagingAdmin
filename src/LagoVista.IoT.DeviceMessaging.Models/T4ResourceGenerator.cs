@@ -152,6 +152,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_NoContent
 
 		public static string DeviceMessage_ContentType_NoContent { get { return GetResourceString("DeviceMessage_ContentType_NoContent"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_ProtoBuf
+
+		public static string DeviceMessage_ContentType_ProtoBuf { get { return GetResourceString("DeviceMessage_ContentType_ProtoBuf"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_Select
 
 		public static string DeviceMessage_ContentType_Select { get { return GetResourceString("DeviceMessage_ContentType_Select"); } }
@@ -580,6 +583,12 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessgaeField_StringSize_CharacterCount_Help
 
 		public static string DeviceMessgaeField_StringSize_CharacterCount_Help { get { return GetResourceString("DeviceMessgaeField_StringSize_CharacterCount_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviecMessage_ProtoBuf_Definition
+
+		public static string DeviecMessage_ProtoBuf_Definition { get { return GetResourceString("DeviecMessage_ProtoBuf_Definition"); } }
+//Resources:DeviceMessagingAdminResources:DeviecMessage_ProtoBuf_Definition_Help
+
+		public static string DeviecMessage_ProtoBuf_Definition_Help { get { return GetResourceString("DeviecMessage_ProtoBuf_Definition_Help"); } }
 //Resources:DeviceMessagingAdminResources:Err_FieldDefinitionMissing_StateSet
 
 		public static string Err_FieldDefinitionMissing_StateSet { get { return GetResourceString("Err_FieldDefinitionMissing_StateSet"); } }
@@ -721,6 +730,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_ContentType_Media = "DeviceMessage_ContentType_Media";
 			public const string DeviceMessage_ContentType_MultiPart_Media = "DeviceMessage_ContentType_MultiPart_Media";
 			public const string DeviceMessage_ContentType_NoContent = "DeviceMessage_ContentType_NoContent";
+			public const string DeviceMessage_ContentType_ProtoBuf = "DeviceMessage_ContentType_ProtoBuf";
 			public const string DeviceMessage_ContentType_Select = "DeviceMessage_ContentType_Select";
 			public const string DeviceMessage_ContentType_StringPosition = "DeviceMessage_ContentType_StringPosition";
 			public const string DeviceMessage_ContentType_StringRegEx = "DeviceMessage_ContentType_StringRegEx";
@@ -861,6 +871,8 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessgaeField_StringParsing_Strategy_NullTerminated = "DeviceMessgaeField_StringParsing_Strategy_NullTerminated";
 			public const string DeviceMessgaeField_StringSize_CharacterCount = "DeviceMessgaeField_StringSize_CharacterCount";
 			public const string DeviceMessgaeField_StringSize_CharacterCount_Help = "DeviceMessgaeField_StringSize_CharacterCount_Help";
+			public const string DeviecMessage_ProtoBuf_Definition = "DeviecMessage_ProtoBuf_Definition";
+			public const string DeviecMessage_ProtoBuf_Definition_Help = "DeviecMessage_ProtoBuf_Definition_Help";
 			public const string Err_FieldDefinitionMissing_StateSet = "Err_FieldDefinitionMissing_StateSet";
 			public const string Err_FieldDefinitionMissing_UnitSet = "Err_FieldDefinitionMissing_UnitSet";
 			public const string Err_HeaderNameMissing = "Err_HeaderNameMissing";

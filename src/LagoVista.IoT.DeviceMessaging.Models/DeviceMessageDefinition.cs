@@ -25,6 +25,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         JSON,
         [EnumLabel(DeviceMessageDefinition.ContentType_StringRegEx, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringRegEx, typeof(DeviceMessagingAdminResources))]
         StringRegEx,
+        [EnumLabel(DeviceMessageDefinition.ContentType_ProtoBuf, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_ProtoBuf, typeof(DeviceMessagingAdminResources))]
+        ProtoBuf,
         [EnumLabel(DeviceMessageDefinition.ContentType_StringPosition, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_StringPosition, typeof(DeviceMessagingAdminResources))]
         StringPosition,
         [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Xml, typeof(DeviceMessagingAdminResources))]
@@ -96,6 +98,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ContentType_Binary = "binary";
         public const string ContentType_StringPosition = "stringposition";
         public const string ContentType_StringRegEx = "stringregex";
+        public const string ContentType_ProtoBuf = "protobuf";
         public const string ContentType_Delimited = "delimited";
         public const string ContentType_Json = "json";
         public const string ContentType_Xml = "xml";
@@ -168,6 +171,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [AllowableMessageContentType(MessageContentTypes.Delimited, isRequired: false)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
         public bool QuotedText { get; set; }
+
+        [CloneOptions(true)]
+        [AllowableMessageContentType(MessageContentTypes.ProtoBuf, isRequired: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string ProtoBufDefintion { get; set; }
 
         [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
