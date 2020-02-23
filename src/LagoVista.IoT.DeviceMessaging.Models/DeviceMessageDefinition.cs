@@ -251,6 +251,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<SampleMessage> SampleMessages { get; set; }
 
+        public string BackgroundColor { get; set; }
+
+        public string SegementColor { get; set; }
+
+        public bool IsSevenSegmentImage { get; set; }
+
         public Task<DeviceMessageDefinition> CloneAsync(EntityHeader user, EntityHeader org, string name, string key)
         {            
             return Task.FromResult(CloneService.Clone(this, user, org, name, key));

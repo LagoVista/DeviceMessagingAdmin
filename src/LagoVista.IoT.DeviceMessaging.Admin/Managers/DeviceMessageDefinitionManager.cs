@@ -103,6 +103,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             return await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionsForOrgAsync(orgId);
         }
 
+        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetSevenSegementDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user)
+        {
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceMessageDefinition));
+            return await _deviceMessageDefinitionRepo.GetSevenSegmentDeviceMessageDefinitionsForOrgAsync(orgId);
+        }
+
         public async Task<InvokeResult> UpdateDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageConfiguration, EntityHeader org, EntityHeader user)
         {
             await AuthorizeAsync(deviceMessageConfiguration, AuthorizeActions.Update, user, org);

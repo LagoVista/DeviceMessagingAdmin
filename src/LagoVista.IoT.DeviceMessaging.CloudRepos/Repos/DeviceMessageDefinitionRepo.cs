@@ -44,7 +44,15 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
 
         public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgAsync(string orgId)
         {
-            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId);
+            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId && qry.IsSevenSegmentImage == false);
+
+            return from item in items
+                   select item.CreateSummary();
+        }
+
+        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetSevenSegmentDeviceMessageDefinitionsForOrgAsync(string orgId)
+        {
+            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId && qry.IsSevenSegmentImage == true);
 
             return from item in items
                    select item.CreateSummary();
@@ -52,7 +60,7 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
 
         public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync()
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true);
+            var items = await base.QueryAsync(qry => qry.IsPublic == true && qry.IsSevenSegmentImage == false);
 
             return from item in items
                    select item.CreateSummary();

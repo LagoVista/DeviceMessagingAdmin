@@ -7,8 +7,10 @@ using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
+using LagoVista.IoT.DeviceMessaging.Models;
 using LagoVista.IoT.DeviceMessaging.Models.Resources;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -109,6 +111,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         {
             DecimalScaler = 1.0;
             Id = Guid.NewGuid().ToId();
+            Segments = new List<DisplayImageSegment>();
         }
         #endregion
 
@@ -134,7 +137,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public const string ParserBinaryType_SinglePrecisionFloatingPoint = "singleprecisionfloatingpoint";
         public const string ParserBinaryType_DoublePrecisionFloatingPoint = "doubleprecisionfloatingpoint";
-
 
         public const string ParserStringType_String = "string";
         public const string ParserStringType_WholeNumber = "wholenumber";
@@ -628,6 +630,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         #endregion
 
 
+        public List<DisplayImageSegment> Segments { get; set; }
+
         public DeviceMessageDefinitionField Clone(bool newId = false, EntityHeader org = null, EntityHeader user = null)
         {
             var fld = new DeviceMessageDefinitionField()
@@ -680,7 +684,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 StringLengthByteCount = StringLengthByteCount,
                 TopicLocator = TopicLocator,
                 StringParsingStrategy = StringParsingStrategy.Clone(),
-                XPath = XPath
+                XPath = XPath,
+                Segments = Segments
             };
 
             fld.StateSet = new EntityHeader<DeviceAdmin.Models.StateSet>()

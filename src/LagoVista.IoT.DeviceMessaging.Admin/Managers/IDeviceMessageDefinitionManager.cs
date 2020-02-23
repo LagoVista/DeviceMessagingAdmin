@@ -18,6 +18,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
         Task<InvokeResult<DeviceMessageDefinition>> LoadFullDeviceMessageDefinitionAsync(string id, EntityHeader org, EntityHeader user);
 
         Task<DependentObjectCheckResult> CheckDeviceMessageInUseAsync(string id, EntityHeader org, EntityHeader user);
+        Task<IEnumerable<DeviceMessageDefinitionSummary>> GetSevenSegementDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user);
 
         Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user);
         Task<InvokeResult> UpdateDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageConfiguration, EntityHeader org, EntityHeader user);
