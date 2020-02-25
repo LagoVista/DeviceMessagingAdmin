@@ -5,7 +5,6 @@ using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
-using LagoVista.IoT.DeviceAdmin.Resources;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using LagoVista.IoT.DeviceMessaging.Models;
 using LagoVista.IoT.DeviceMessaging.Models.Resources;

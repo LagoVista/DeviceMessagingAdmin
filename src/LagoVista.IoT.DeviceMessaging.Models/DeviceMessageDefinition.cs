@@ -255,6 +255,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public string SegementColor { get; set; }
 
+        public string B64Image { get; set; }
+
         public bool IsSevenSegmentImage { get; set; }
 
         public Task<DeviceMessageDefinition> CloneAsync(EntityHeader user, EntityHeader org, string name, string key)

@@ -10,5 +10,6 @@ namespace LagoVista.IoT.DeviceMessaging.Models
         public int Left { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public string B64Image { get; set; }
     }
 }
