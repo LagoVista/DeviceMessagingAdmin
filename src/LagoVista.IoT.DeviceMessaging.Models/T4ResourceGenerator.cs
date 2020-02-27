@@ -158,6 +158,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_Select
 
 		public static string DeviceMessage_ContentType_Select { get { return GetResourceString("DeviceMessage_ContentType_Select"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_SevenSegementImage
+
+		public static string DeviceMessage_ContentType_SevenSegementImage { get { return GetResourceString("DeviceMessage_ContentType_SevenSegementImage"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_StringPosition
 
 		public static string DeviceMessage_ContentType_StringPosition { get { return GetResourceString("DeviceMessage_ContentType_StringPosition"); } }
@@ -732,6 +735,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_ContentType_NoContent = "DeviceMessage_ContentType_NoContent";
 			public const string DeviceMessage_ContentType_ProtoBuf = "DeviceMessage_ContentType_ProtoBuf";
 			public const string DeviceMessage_ContentType_Select = "DeviceMessage_ContentType_Select";
+			public const string DeviceMessage_ContentType_SevenSegementImage = "DeviceMessage_ContentType_SevenSegementImage";
 			public const string DeviceMessage_ContentType_StringPosition = "DeviceMessage_ContentType_StringPosition";
 			public const string DeviceMessage_ContentType_StringRegEx = "DeviceMessage_ContentType_StringRegEx";
 			public const string DeviceMessage_ContentType_Xml = "DeviceMessage_ContentType_Xml";

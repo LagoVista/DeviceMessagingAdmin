@@ -752,4 +752,7 @@
   <data name="DeviecMessage_ProtoBuf_Definition_Help" xml:space="preserve">
     <value>Copy your protocol buffer type definition into this field to have it parsed and create fields.</value>
   </data>
+  <data name="DeviceMessage_ContentType_SevenSegementImage" xml:space="preserve">
+    <value>Seven Segement Image</value>
+  </data>
 </root>

@@ -33,10 +33,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         XML,
         [EnumLabel(DeviceMessageDefinition.ContentType_Media, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Media, typeof(DeviceMessagingAdminResources))]
         Media,
-/*        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_MultiPart_Media, typeof(DeviceMessagingAdminResources))]
-        MultiPartContent,
-        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_FormPost, typeof(DeviceMessagingAdminResources))]
-        FormPost,*/
+        [EnumLabel(DeviceMessageDefinition.ContentType_SevenSegementImage, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_SevenSegementImage, typeof(DeviceMessagingAdminResources))]
+        SevenSegementImage,
+        /*        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_MultiPart_Media, typeof(DeviceMessagingAdminResources))]
+                MultiPartContent,
+                [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_FormPost, typeof(DeviceMessagingAdminResources))]
+                FormPost,*/
 
         //    [EnumLabel(DeviceMessageDefinition.ContentType_Custom, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_Custom, typeof(DeviceMessagingAdminResources))]
         //  Custom
@@ -104,6 +106,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ContentType_Xml = "xml";
         public const string ContentType_Media = "media";
         public const string ContentType_MultiPart = "multipart";
+        public const string ContentType_SevenSegementImage = "sevensegementimage";
         public const string ContentType_FormPost = "formpost";
 
         public const string BinaryParsingStrategy_Absolute = "absolute";
@@ -257,7 +260,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public string B64Image { get; set; }
 
-        public bool IsSevenSegmentImage { get; set; }
+        public bool IsSevenSegementImage { get; set; }
 
         public Task<DeviceMessageDefinition> CloneAsync(EntityHeader user, EntityHeader org, string name, string key)
         {            
