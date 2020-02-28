@@ -13,6 +13,9 @@ using LagoVista.IoT.DeviceMessaging.Admin.Managers;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.UserAdmin.Models.Users;
 using LagoVista.Core.Cloning;
+using LagoVista.IoT.DeviceMessaging.Admin.Services;
+using LagoVista.IoT.DeviceMessaging.Models;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
 {
@@ -39,6 +42,17 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         public Task<InvokeResult> AddDeviceMessageConfigurationAsync([FromBody] DeviceMessageDefinition deviceMessageConfiguration)
         {
             return _deviceConfigManager.AddDeviceMessageDefinitionAsync(deviceMessageConfiguration, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// Device Message Type - Test parsing a seven segement message.
+        /// </summary>
+        /// <param name="deviceMessageConfiguration"></param>
+        /// <returns></returns>
+        [HttpPost("/api/devicemessagetype/sevensegement/test")]
+        public InvokeResult<List<SevenSegementParseResult>> TestParseConfiguration([FromBody] DeviceMessageDefinition deviceMessageConfiguration)
+        {
+            return SevenSegementImageParser.Parse(deviceMessageConfiguration);
         }
 
         /// <summary>

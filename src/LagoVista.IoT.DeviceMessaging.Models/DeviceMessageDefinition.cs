@@ -73,8 +73,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [EnumLabel(DeviceMessageDefinition.StringParsingStrategy_StringLength, DeviceMessagingAdminResources.Names.DeviceMessgaeField_StringParsing_Strategy_LengthProvided, typeof(DeviceMessagingAdminResources))]
         StringLength
     }
-
-
     public enum EndianTypes
     {
         [EnumLabel(DeviceMessageDefinition.Endian_BigEndian, DeviceMessagingAdminResources.Names.DeviceMessgaeField_Endian_BigEndian, typeof(DeviceMessagingAdminResources))]
