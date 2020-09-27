@@ -35,6 +35,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         Media,
         [EnumLabel(DeviceMessageDefinition.ContentType_SevenSegementImage, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_SevenSegementImage, typeof(DeviceMessagingAdminResources))]
         SevenSegementImage,
+        [EnumLabel(DeviceMessageDefinition.ContentType_PointArray, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_PointArray, typeof(DeviceMessagingAdminResources))]
+        PointArray,
         /*        [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_MultiPart_Media, typeof(DeviceMessagingAdminResources))]
                 MultiPartContent,
                 [EnumLabel(DeviceMessageDefinition.ContentType_Xml, DeviceMessagingAdminResources.Names.DeviceMessage_ContentType_FormPost, typeof(DeviceMessagingAdminResources))]
@@ -102,6 +104,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ContentType_Delimited = "delimited";
         public const string ContentType_Json = "json";
         public const string ContentType_Xml = "xml";
+        public const string ContentType_PointArray = "pointarray";
         public const string ContentType_Media = "media";
         public const string ContentType_MultiPart = "multipart";
         public const string ContentType_SevenSegementImage = "sevensegementimage";

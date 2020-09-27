@@ -152,6 +152,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_NoContent
 
 		public static string DeviceMessage_ContentType_NoContent { get { return GetResourceString("DeviceMessage_ContentType_NoContent"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_PointArray
+
+		public static string DeviceMessage_ContentType_PointArray { get { return GetResourceString("DeviceMessage_ContentType_PointArray"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_ProtoBuf
 
 		public static string DeviceMessage_ContentType_ProtoBuf { get { return GetResourceString("DeviceMessage_ContentType_ProtoBuf"); } }
@@ -733,6 +736,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_ContentType_Media = "DeviceMessage_ContentType_Media";
 			public const string DeviceMessage_ContentType_MultiPart_Media = "DeviceMessage_ContentType_MultiPart_Media";
 			public const string DeviceMessage_ContentType_NoContent = "DeviceMessage_ContentType_NoContent";
+			public const string DeviceMessage_ContentType_PointArray = "DeviceMessage_ContentType_PointArray";
 			public const string DeviceMessage_ContentType_ProtoBuf = "DeviceMessage_ContentType_ProtoBuf";
 			public const string DeviceMessage_ContentType_Select = "DeviceMessage_ContentType_Select";
 			public const string DeviceMessage_ContentType_SevenSegementImage = "DeviceMessage_ContentType_SevenSegementImage";

@@ -755,4 +755,7 @@
   <data name="DeviceMessage_ContentType_SevenSegementImage" xml:space="preserve">
     <value>Seven Segement Image</value>
   </data>
+  <data name="DeviceMessage_ContentType_PointArray" xml:space="preserve">
+    <value>Point Array</value>
+  </data>
 </root>
