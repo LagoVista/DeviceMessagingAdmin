@@ -1,4 +1,5 @@
-﻿using LagoVista.Core.Cloning;
+﻿using LagoVista.Core;
+using LagoVista.Core.Cloning;
 using LagoVista.Core.Exceptions;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Managers;
@@ -9,6 +10,7 @@ using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.DeviceMessaging.Admin.Repos;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using LagoVista.IoT.Logging.Loggers;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static LagoVista.Core.Models.AuthorizeResult;
@@ -20,7 +22,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
         IDeviceMessageDefinitionRepo _deviceMessageDefinitionRepo;
         IDeviceAdminManager _deviceAdminManager;
 
-        public DeviceMessageDefinitionManager (IDeviceMessageDefinitionRepo deviceMessageDefinitionRepo, IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security, IDeviceAdminManager deviceAdminManager) :
+        public DeviceMessageDefinitionManager(IDeviceMessageDefinitionRepo deviceMessageDefinitionRepo, IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security, IDeviceAdminManager deviceAdminManager) :
             base(logger, appConfig, depmanager, security)
         {
             _deviceMessageDefinitionRepo = deviceMessageDefinitionRepo;
@@ -31,7 +33,101 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
         {
             await AuthorizeAsync(deviceMessageConfiguration, AuthorizeActions.Create, user, org);
             ValidationCheck(deviceMessageConfiguration, Actions.Create);
+          
+            if (deviceMessageConfiguration.ContentType.Value == MessageContentTypes.PointArray)
+            {
+                deviceMessageConfiguration.Fields.Clear();
+
+                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+                {
+                    Name = "Start Time Stamp",
+                    Key = "starttimestamp",
+                    Id = Guid.NewGuid().ToId(),
+                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                    HeaderName = "Start Time Stamp",
+                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                    IsRequired = true,
+                    FieldIndex = 0,
+                    BinaryOffset = 0,
+                    DateTimeZone = EntityHeader<DateTimeZoneOptions>.Create(DateTimeZoneOptions.UniversalTimeZone),
+                    Notes = "Time in seconds from UTC epoch (1/1/1970).",
+                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt32),
+                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+                });
+
+                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+                {
+                    Name = "Sensor Index",
+                    Key = "sensorindex",
+                    Id = Guid.NewGuid().ToId(),
+                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                    HeaderName = "Sensor Index",
+                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                    IsRequired = true,
+                    FieldIndex = 1,
+                    BinaryOffset = 4,
+                    MinValue = 0,
+                    MaxValue = 65535,
+                    Notes = "Sensor index from the device for this point array.",
+                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+                });
+
+                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+                {
+                    Name = "Point Count",
+                    Key = "pointcount",
+                    Id = Guid.NewGuid().ToId(),
+                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                    HeaderName = "Point Count",
+                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                    IsRequired = true,
+                    FieldIndex = 2,
+                    BinaryOffset = 6,
+                    MinValue = 1,
+                    MaxValue = 2500,
+                    Notes = "Number of points that make up this point array.",
+                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+                });
+
+                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+                {
+                    Name = "Interval",
+                    Key = "interval",
+                    Id = Guid.NewGuid().ToId(),
+                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                    HeaderName = "Interval",
+                    IsRequired = true,
+                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                    FieldIndex = 3,
+                    BinaryOffset = 8,
+                    MinValue = 0,
+                    MaxValue = 600,
+                    Notes = "Interval (16 bit unsigned decimal scaled to one decimal point) between sample collection points.",
+                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Decimal)
+                });
+
+                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField
+                {
+                    Name = "Point Array",
+                    Key = "pointarray",
+                    Id = Guid.NewGuid().ToId(),
+                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                    HeaderName = "Point Array",
+                    IsRequired = true,
+                    FieldIndex = 4,
+                    BinaryOffset = 10,
+                    Notes = "Collection of points (16 bit unsigned scaled decimal to two decimal points) that make up the data collected from the device.",
+                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.Int16),
+                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.DecimalArray)
+                });
+            }
+
             await _deviceMessageDefinitionRepo.AddDeviceMessageDefinitionAsync(deviceMessageConfiguration);
+
             return InvokeResult.Success;
         }
 
@@ -42,7 +138,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             return deviceMessageDefinition;
         }
 
-        public async Task<InvokeResult<DeviceMessageDefinition>> LoadFullDeviceMessageDefinitionAsync(string id,EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult<DeviceMessageDefinition>> LoadFullDeviceMessageDefinitionAsync(string id, EntityHeader org, EntityHeader user)
         {
             DeviceMessageDefinition message = null;
 
@@ -50,16 +146,16 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             {
                 message = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(id);
             }
-            catch(RecordNotFoundException)
+            catch (RecordNotFoundException)
             {
                 return InvokeResult<DeviceMessageDefinition>.FromErrors(Resources.DeviceMessagingAdminErrorCodes.CouldNotLoadDeviceMessageDefinition.ToErrorMessage($"MessageId={id}"));
             }
 
             var result = new InvokeResult<DeviceMessageDefinition>();
 
-            foreach(var field in message.Fields)
+            foreach (var field in message.Fields)
             {
-                if(!EntityHeader.IsNullOrEmpty( field.UnitSet))
+                if (!EntityHeader.IsNullOrEmpty(field.UnitSet))
                 {
                     try
                     {
@@ -84,7 +180,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
                 }
             }
 
-            if(result.Successful)
+            if (result.Successful)
             {
                 return InvokeResult<DeviceMessageDefinition>.Create(message);
             }
@@ -140,13 +236,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
 
         public async Task<InvokeResult> CloneDeviceMessageDefinition(CloneRequest request, EntityHeader org, EntityHeader user)
         {
-            if(await _deviceMessageDefinitionRepo.QueryKeyInUseAsync(request.NewKey, org.Id))
+            if (await _deviceMessageDefinitionRepo.QueryKeyInUseAsync(request.NewKey, org.Id))
             {
                 throw new System.Exception($"Key [{request.NewKey}] is currently in use.");
             }
 
             var message = await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionAsync(request.OriginalId);
-            if(!message.IsPublic && message.OwnerOrganization.Id != org.Id)
+            if (!message.IsPublic && message.OwnerOrganization.Id != org.Id)
             {
                 throw new NotAuthorizedException("Could not clone non public message definition or one from a different organization.");
             }
