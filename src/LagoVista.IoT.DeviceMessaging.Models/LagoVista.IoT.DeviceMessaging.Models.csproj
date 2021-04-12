@@ -5,12 +5,15 @@
     <NetStandardImplicitPackageVersion>2.0.3</NetStandardImplicitPackageVersion>
     <AssemblyVersion>1.2.1.1</AssemblyVersion>
     <FileVersion>1.2.1.1</FileVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>lagovista.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="2.1.1378-beta0436" />
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="2.1.1378-beta0436" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1378-beta0436" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1378-beta0436" />
+    <PackageReference Include="LagoVista.Core" Version="2.1.1426-beta0823" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="2.1.1426-beta0823" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1426-beta0823" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1426-beta0823" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
