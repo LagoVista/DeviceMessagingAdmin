@@ -311,11 +311,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             }
 
             if(ContentType.Value == MessageContentTypes.Media &&
-                (Fields.Where(fld => fld.StorageType.Value != DeviceAdmin.Models.ParameterTypes.Image && fld.SearchLocation.Value == SearchLocations.Body).Any() ||
+                (Fields.Where(fld => fld.StorageType.Value != DeviceAdmin.Models.ParameterTypes.MLInference && fld.SearchLocation.Value == SearchLocations.Body).Any() ||
                 Fields.Where(fld=>fld.SearchLocation.Value == SearchLocations.Body).Count() > 1)
                 )
             {
-                result.Errors.Add(new ErrorMessage("For messages with content type media, you can only have on field associated with the body of the message, and that field must be a media storage type such as Image."));
+                result.Errors.Add(new ErrorMessage("For messages with content type media, you can only have one field associated with the body of the message, and that field must be a ML Inference that can be passed to a workflow."));
             }
 
 
