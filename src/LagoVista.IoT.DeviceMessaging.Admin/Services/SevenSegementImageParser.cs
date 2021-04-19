@@ -32,7 +32,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Services
 
             public byte IsEnabled(Image img)
             {
-                using (var cloned = img.Clone(m => m.Crop(new SixLabors.Primitives.Rectangle(_left, _top, _right - _left, _bottom - _top))))
+                using (var cloned = img.Clone(m => m.Crop(new Rectangle(_left, _top, _right - _left, _bottom - _top))))
                 {
                     var bldr = new StringBuilder();
                     long segTotal = 0;
@@ -124,7 +124,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Services
 
             Console.WriteLine($"The image size: {fullImage.Width}x{fullImage.Height} - {left} {top} {digitWidth} {digitHeight}");
 
-            using (var image = fullImage.Clone(ss => ss.Crop(new SixLabors.Primitives.Rectangle(left, top, digitWidth, digitHeight))))
+            using (var image = fullImage.Clone(ss => ss.Crop(new Rectangle(left, top, digitWidth, digitHeight))))
             {
                 var arc_tan_theta = 6;
                 var w = image.Width;
