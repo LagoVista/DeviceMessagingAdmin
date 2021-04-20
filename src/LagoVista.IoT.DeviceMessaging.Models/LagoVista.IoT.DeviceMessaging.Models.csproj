@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <VersionPrefix>2.0</VersionPrefix>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard1.2</TargetFramework>
     <AssemblyVersion>1.2.1.1</AssemblyVersion>
     <FileVersion>1.2.1.1</FileVersion>
     <SignAssembly>true</SignAssembly>
@@ -9,10 +9,10 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="2.1.1433-beta0722" />
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="2.1.1433-beta0722" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1433-beta0722" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1433-beta0722" />
+    <PackageReference Include="LagoVista.Core" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1434.0352" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>

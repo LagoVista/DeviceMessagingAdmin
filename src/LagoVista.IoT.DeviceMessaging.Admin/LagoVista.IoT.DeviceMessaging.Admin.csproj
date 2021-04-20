@@ -12,11 +12,11 @@
     <None Remove="Models\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="2.1.1433-beta0722" />
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin" Version="2.1.1433-beta0722" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1433-beta0722" />
+    <PackageReference Include="LagoVista.Core" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1434.0352" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="2.1.1433-beta0722" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="2.1.1434.0352" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
