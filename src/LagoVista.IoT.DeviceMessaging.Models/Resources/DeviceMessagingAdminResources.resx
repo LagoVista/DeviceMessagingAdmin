@@ -758,4 +758,13 @@
   <data name="DeviceMessage_ContentType_PointArray" xml:space="preserve">
     <value>Point Array</value>
   </data>
+  <data name="DeviceMessageField_StringParser_RealNumberArray" xml:space="preserve">
+    <value>Real Number Array</value>
+  </data>
+  <data name="DeviceMessageField_StringParser_StringArray" xml:space="preserve">
+    <value>stringArray</value>
+  </data>
+  <data name="DeviceMessageField_StringParser_WholeNumberArray" xml:space="preserve">
+    <value>Whole Number Array</value>
+  </data>
 </root>

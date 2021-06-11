@@ -538,12 +538,21 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_FloatingPointNumber
 
 		public static string DeviceMessageField_StringParser_FloatingPointNumber { get { return GetResourceString("DeviceMessageField_StringParser_FloatingPointNumber"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_RealNumberArray
+
+		public static string DeviceMessageField_StringParser_RealNumberArray { get { return GetResourceString("DeviceMessageField_StringParser_RealNumberArray"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_String
 
 		public static string DeviceMessageField_StringParser_String { get { return GetResourceString("DeviceMessageField_StringParser_String"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_StringArray
+
+		public static string DeviceMessageField_StringParser_StringArray { get { return GetResourceString("DeviceMessageField_StringParser_StringArray"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_WholeNumber
 
 		public static string DeviceMessageField_StringParser_WholeNumber { get { return GetResourceString("DeviceMessageField_StringParser_WholeNumber"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_StringParser_WholeNumberArray
+
+		public static string DeviceMessageField_StringParser_WholeNumberArray { get { return GetResourceString("DeviceMessageField_StringParser_WholeNumberArray"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_SubString_Help
 
 		public static string DeviceMessageField_SubString_Help { get { return GetResourceString("DeviceMessageField_SubString_Help"); } }
@@ -862,8 +871,11 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessageField_StringParser_Boolean = "DeviceMessageField_StringParser_Boolean";
 			public const string DeviceMessageField_StringParser_File = "DeviceMessageField_StringParser_File";
 			public const string DeviceMessageField_StringParser_FloatingPointNumber = "DeviceMessageField_StringParser_FloatingPointNumber";
+			public const string DeviceMessageField_StringParser_RealNumberArray = "DeviceMessageField_StringParser_RealNumberArray";
 			public const string DeviceMessageField_StringParser_String = "DeviceMessageField_StringParser_String";
+			public const string DeviceMessageField_StringParser_StringArray = "DeviceMessageField_StringParser_StringArray";
 			public const string DeviceMessageField_StringParser_WholeNumber = "DeviceMessageField_StringParser_WholeNumber";
+			public const string DeviceMessageField_StringParser_WholeNumberArray = "DeviceMessageField_StringParser_WholeNumberArray";
 			public const string DeviceMessageField_SubString_Help = "DeviceMessageField_SubString_Help";
 			public const string DeviceMessageField_Title = "DeviceMessageField_Title";
 			public const string DeviceMessageField_TopicLocator = "DeviceMessageField_TopicLocator";

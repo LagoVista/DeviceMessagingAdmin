@@ -8,6 +8,8 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using LagoVista.IoT.DeviceMessaging.Admin.Resources;
 using LagoVista.IoT.DeviceMessaging.Models;
 using LagoVista.IoT.DeviceMessaging.Models.Resources;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +64,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [EnumLabel(DeviceMessageDefinitionField.ParserStringType_Boolean, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_Boolean, typeof(DeviceMessagingAdminResources))]
         Boolean,
         [EnumLabel(DeviceMessageDefinitionField.ParserStringType_File, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_File, typeof(DeviceMessagingAdminResources))]
-        File
+        File,
+        [EnumLabel(DeviceMessageDefinitionField.ParserStringType_WholeNumberArray, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_WholeNumberArray, typeof(DeviceMessagingAdminResources))]
+        WholeNumberArray,
+        [EnumLabel(DeviceMessageDefinitionField.ParserStringType_RealNummberArray, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_RealNumberArray, typeof(DeviceMessagingAdminResources))]
+        RealNumberArray,
+        [EnumLabel(DeviceMessageDefinitionField.ParserStringType_StringArray, DeviceMessagingAdminResources.Names.DeviceMessageField_StringParser_StringArray, typeof(DeviceMessagingAdminResources))]
+        StringArray,
     }
 
     public enum SearchLocations
@@ -142,6 +150,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string ParserStringType_RealNumber = "realnumber";
         public const string ParserStringType_Boolean = "boolean";
         public const string ParserStringType_File = "file";
+        public const string ParserStringType_StringArray = "stringarray";
+        public const string ParserStringType_RealNummberArray = "realarray";
+        public const string ParserStringType_WholeNumberArray = "wholenumberarray";
 
         public const string SearchLocation_Headers = "headers";
         public const string SearchLocation_QueryString = "querystring";
@@ -625,6 +636,61 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             }
 
             return result;
+        }
+
+        public static InvokeResult<List<DeviceMessageDefinitionField>> CreateFieldsFromJSON(String json)
+        {
+            try
+            {
+                var jobj = JsonConvert.DeserializeObject(json) as JObject;
+                if (jobj == null)
+                {
+                    return InvokeResult<List<DeviceMessageDefinitionField>>.FromError("Could not create parse JSON");
+                }
+                else
+                {
+                    return CreateFromJObject(jobj);
+                }
+            }
+            catch(JsonReaderException ex)
+            {
+                return InvokeResult<List<DeviceMessageDefinitionField>>.FromError(ex.Message);
+            }
+        }
+
+
+        public static InvokeResult<List<DeviceMessageDefinitionField>> CreateFromJObject(JObject jobj, string parentPath = "")
+        {
+
+            var fields = new List<DeviceMessageDefinitionField>();
+            foreach (var child in jobj.Children())
+            {
+                if (child is JProperty prop)
+
+                {
+                    var thisPath = String.IsNullOrEmpty(parentPath) ? prop.Name : $"{parentPath}.{prop.Name}";
+
+                    if (prop.Value is JObject childObject)
+                    {
+                        var resposne = CreateFromJObject(childObject, thisPath);
+                        if (resposne.Successful)
+                        {
+                            fields.AddRange(resposne.Result);
+                        }
+                        else
+                        {
+                            return resposne;
+                        }
+                    }
+                    else
+                    {
+                        var field = prop.ToDeviceMessageField(parentPath);
+                        fields.Add(field);
+                    }
+                }
+            }
+
+            return InvokeResult<List<DeviceMessageDefinitionField>>.Create(fields);
         }
         #endregion
 

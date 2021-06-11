@@ -222,5 +222,27 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
             return field.Validate();
         }
 
+        /// <summary>
+        /// Device Message Type - Create fields from JSON
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        [HttpPost("/api/devicemessagetype/fields/parse")]
+        public InvokeResult<List<DeviceMessageDefinitionField>> CreateFromJSON([FromBody] Object json)
+        {
+            if (json == null)
+            {
+                return InvokeResult<List<DeviceMessageDefinitionField>>.FromError("Empty payload provided.");
+            }
+
+            if (String.IsNullOrEmpty(json.ToString()))
+            {
+                return InvokeResult<List<DeviceMessageDefinitionField>>.FromError("Empty payload provided.");
+            }
+
+            Console.WriteLine(json.ToString());
+
+           return DeviceMessageDefinitionField.CreateFieldsFromJSON(json.ToString());
+        }
     }
 }
