@@ -462,7 +462,7 @@
     <value>Big Endian</value>
   </data>
   <data name="DeviceMessgaeField_Endian_LittleEndian" xml:space="preserve">
-    <value>Litten Endian</value>
+    <value>Litte Endian</value>
   </data>
   <data name="DeviceMessgaeField_Notes" xml:space="preserve">
     <value>Notes</value>
