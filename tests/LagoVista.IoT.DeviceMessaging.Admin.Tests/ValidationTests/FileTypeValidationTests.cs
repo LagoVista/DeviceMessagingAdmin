@@ -23,7 +23,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                 Id = "BC364E26A7D74094A600939AA5509048",
                 Name = "My File",
                 SearchLocation = Core.Models.EntityHeader<Models.SearchLocations>.Create(Models.SearchLocations.Body),
-                StorageType = Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Image)
+                StorageType = Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.MLInference)
             });
 
             var result = Validator.Validate(msg);
@@ -101,7 +101,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
             });
 
             var result = Validator.Validate(msg);
-            AssertInValid(result, "For messages with content type media, you can only have on field associated with the body of the message, and that field must be a media storage type such as Image.");
+            AssertInValid(result, "For messages with content type media, you can only have one field associated with the body of the message, and that field must be a ML Inference that can be passed to a workflow.");
         }
 
 
@@ -116,7 +116,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                 Id = "BC364E26A7D74094A600939AA5509048",
                 Name = "My File",
                 SearchLocation = Core.Models.EntityHeader<Models.SearchLocations>.Create(Models.SearchLocations.Body),
-                StorageType = Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Image)
+                StorageType = Core.Models.EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.MLInference)
             });
 
             msg.Fields.Add(new Models.DeviceMessageDefinitionField()
@@ -157,9 +157,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
             });
 
             var result = Validator.Validate(msg);
-            AssertInValid(result, "For messages with content type media, you can only have on field associated with the body of the message, and that field must be a media storage type such as Image.");
+            AssertInValid(result, "For messages with content type media, you can only have one field associated with the body of the message, and that field must be a ML Inference that can be passed to a workflow.");
         }
-
 
         [TestMethod]
         public void FileTypeMessage_Image_And_DifferentTypeOnField_InValid()
@@ -177,7 +176,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
             });
 
             var result = Validator.Validate(msg);
-            AssertInValid(result, "For messages with content type media, you can only have on field associated with the body of the message, and that field must be a media storage type such as Image.");
+            AssertInValid(result, "For messages with content type media, you can only have one field associated with the body of the message, and that field must be a ML Inference that can be passed to a workflow.");
         }
 
 
