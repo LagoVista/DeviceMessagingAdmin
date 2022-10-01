@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceMessaging.Models</id>
-    <version>3.0.1963.1049</version>
+    <version>3.0.1963.1145</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,15 +12,12 @@
     <copyright>Copyright Software Logistics - 2022</copyright>
     <tags>HomeAutomation IoT LagoVista</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 10/1/2022 2:49:44 PM UTC</releaseNotes>
+    <releaseNotes>Build Date: 10/1/2022 3:45:22 PM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
       <group targetFramework="netstandard1.2">
-        <dependency id="LagoVista.Core" version="3.0.1963.1049" />
-        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.1963.1049" />
-        <dependency id="LagoVista.IoT.Logging" version="3.0.1963.1049" />
-        <dependency id="LagoVista.UserAdmin.Models" version="3.0.1963.1049" />
-        <dependency id="Newtonsoft.Json" version="13.0.1" />
+        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.1963.1145" />
+        <dependency id="LagoVista.UserAdmin.Models" version="3.0.1963.1145" />
       </group>
     </dependencies>
   </metadata>

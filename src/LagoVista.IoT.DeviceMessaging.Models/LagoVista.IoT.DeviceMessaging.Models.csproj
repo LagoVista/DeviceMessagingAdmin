@@ -9,8 +9,8 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="3.0.1963.1049" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.1963.1049" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="3.0.1963.1145" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.1963.1145" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="T4ResourceGenerator.cs">
