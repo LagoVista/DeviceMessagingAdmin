@@ -9,11 +9,8 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="2.1.1434.0352" />
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="2.1.1434.0352" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1434.0352" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1434.0352" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="3.0.1963.1049" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.1963.1049" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="T4ResourceGenerator.cs">
