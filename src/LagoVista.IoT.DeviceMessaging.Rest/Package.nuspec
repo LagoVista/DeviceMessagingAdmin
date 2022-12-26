@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceMessaging.Rest</id>
-    <version>3.0.1963.1145</version>
+    <version>3.0.2049.0905</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,12 +12,12 @@
     <copyright>Copyright Software Logistics - 2022</copyright>
     <tags>HomeAutomation IoT</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 10/1/2022 3:45:22 PM UTC</releaseNotes>
+    <releaseNotes>Build Date: 12/26/2022 2:05:26 PM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="LagoVista.IoT.Web.Common" version="3.0.1963.1145" />
-        <dependency id="LagoVista.IoT.DeviceMessaging.Admin" version="3.0.1963.1145" />
+        <dependency id="LagoVista.IoT.Web.Common" version="3.0.2049.0905" />
+        <dependency id="LagoVista.IoT.DeviceMessaging.Admin" version="3.0.2049.0905" />
       </group>
     </dependencies>
   </metadata>
