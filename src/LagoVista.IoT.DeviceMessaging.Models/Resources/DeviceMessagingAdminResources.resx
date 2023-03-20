@@ -767,4 +767,7 @@
   <data name="DeviceMessageField_StringParser_WholeNumberArray" xml:space="preserve">
     <value>Whole Number Array</value>
   </data>
+  <data name="DeviceMessage_ContentType_GeoPointArray" xml:space="preserve">
+    <value>Geo-Point Array</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿/*3/19/2023 6:33:56 AM*/
+using System.Globalization;
 using System.Reflection;
 
 //Resources:DeviceMessagingAdminResources:Common_Description
@@ -137,6 +138,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_FormPost
 
 		public static string DeviceMessage_ContentType_FormPost { get { return GetResourceString("DeviceMessage_ContentType_FormPost"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_GeoPointArray
+
+		public static string DeviceMessage_ContentType_GeoPointArray { get { return GetResourceString("DeviceMessage_ContentType_GeoPointArray"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ContentType_Help
 
 		public static string DeviceMessage_ContentType_Help { get { return GetResourceString("DeviceMessage_ContentType_Help"); } }
@@ -740,6 +744,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_ContentType_Custom = "DeviceMessage_ContentType_Custom";
 			public const string DeviceMessage_ContentType_Delimited = "DeviceMessage_ContentType_Delimited";
 			public const string DeviceMessage_ContentType_FormPost = "DeviceMessage_ContentType_FormPost";
+			public const string DeviceMessage_ContentType_GeoPointArray = "DeviceMessage_ContentType_GeoPointArray";
 			public const string DeviceMessage_ContentType_Help = "DeviceMessage_ContentType_Help";
 			public const string DeviceMessage_ContentType_Json = "DeviceMessage_ContentType_Json";
 			public const string DeviceMessage_ContentType_Media = "DeviceMessage_ContentType_Media";
@@ -931,3 +936,4 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 		}
 	}
 }
+

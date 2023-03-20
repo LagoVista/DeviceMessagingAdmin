@@ -29,6 +29,172 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             _deviceAdminManager = deviceAdminManager;
         }
 
+        private void AddGeoPointArrayFields(DeviceMessageDefinition deviceMessageConfiguration)
+        {
+            deviceMessageConfiguration.Fields.Clear();
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+            {
+                Name = "Start Time Stamp",
+                Key = "starttimestamp",
+                Id = Guid.NewGuid().ToId(),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Start Time Stamp",
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                IsRequired = true,
+                FieldIndex = 0,
+                BinaryOffset = 0,
+                DateTimeZone = EntityHeader<DateTimeZoneOptions>.Create(DateTimeZoneOptions.UniversalTimeZone),
+                Notes = "Time in seconds from UTC epoch (1/1/1970).",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt32),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+            });
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+            {
+                Name = "Point Count",
+                Key = "pointcount",
+                Id = Guid.NewGuid().ToId(),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Point Count",
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                IsRequired = true,
+                FieldIndex = 2,
+                BinaryOffset = 6,
+                MinValue = 1,
+                MaxValue = 2500,
+                Notes = "Number of points that make up this point array.",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+            });
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+            {
+                Name = "Interval",
+                Key = "interval",
+                Id = Guid.NewGuid().ToId(),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Interval",
+                IsRequired = true,
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                FieldIndex = 3,
+                BinaryOffset = 8,
+                MinValue = 0,
+                MaxValue = 600,
+                Notes = "Interval (16 bit unsigned decimal scaled to one decimal point) between sample collection points.",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Decimal)
+            });
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField
+            {
+                Name = "Geo Point Array",
+                Key = "geopointarray",
+                Id = Guid.NewGuid().ToId(),
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Geo Point Array",
+                IsRequired = true,
+                FieldIndex = 4,
+                BinaryOffset = 10,
+                Notes = "Collection of points (16 bit unsigned scaled decimal to two decimal points) that make up the data collected from the device.",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.Int16),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.DecimalArray)
+            });
+        }
+
+        private void AddPointArrayFields(DeviceMessageDefinition deviceMessageConfiguration)
+        {
+            deviceMessageConfiguration.Fields.Clear();
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+            {
+                Name = "Start Time Stamp",
+                Key = "starttimestamp",
+                Id = Guid.NewGuid().ToId(),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Start Time Stamp",
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                IsRequired = true,
+                FieldIndex = 0,
+                BinaryOffset = 0,
+                DateTimeZone = EntityHeader<DateTimeZoneOptions>.Create(DateTimeZoneOptions.UniversalTimeZone),
+                Notes = "Time in seconds from UTC epoch (1/1/1970).",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt32),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+            });
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+            {
+                Name = "Sensor Index",
+                Key = "sensorindex",
+                Id = Guid.NewGuid().ToId(),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Sensor Index",
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                IsRequired = true,
+                FieldIndex = 1,
+                BinaryOffset = 4,
+                MinValue = 0,
+                MaxValue = 65535,
+                Notes = "Sensor index from the device for this point array.",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+            });
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+            {
+                Name = "Point Count",
+                Key = "pointcount",
+                Id = Guid.NewGuid().ToId(),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Point Count",
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                IsRequired = true,
+                FieldIndex = 2,
+                BinaryOffset = 6,
+                MinValue = 1,
+                MaxValue = 2500,
+                Notes = "Number of points that make up this point array.",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
+            });
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
+            {
+                Name = "Interval",
+                Key = "interval",
+                Id = Guid.NewGuid().ToId(),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Interval",
+                IsRequired = true,
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                FieldIndex = 3,
+                BinaryOffset = 8,
+                MinValue = 0,
+                MaxValue = 600,
+                Notes = "Interval (16 bit unsigned decimal scaled to one decimal point) between sample collection points.",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Decimal)
+            });
+
+            deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField
+            {
+                Name = "Point Array",
+                Key = "pointarray",
+                Id = Guid.NewGuid().ToId(),
+                SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
+                Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
+                HeaderName = "Point Array",
+                IsRequired = true,
+                FieldIndex = 4,
+                BinaryOffset = 10,
+                Notes = "Collection of points (16 bit unsigned scaled decimal to two decimal points) that make up the data collected from the device.",
+                ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.Int16),
+                StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.DecimalArray)
+            });
+        }
+
         public async Task<InvokeResult> AddDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageConfiguration, EntityHeader org, EntityHeader user)
         {
             await AuthorizeAsync(deviceMessageConfiguration, AuthorizeActions.Create, user, org);
@@ -36,94 +202,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
           
             if (deviceMessageConfiguration.ContentType.Value == MessageContentTypes.PointArray)
             {
-                deviceMessageConfiguration.Fields.Clear();
-
-                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
-                {
-                    Name = "Start Time Stamp",
-                    Key = "starttimestamp",
-                    Id = Guid.NewGuid().ToId(),
-                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
-                    HeaderName = "Start Time Stamp",
-                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
-                    IsRequired = true,
-                    FieldIndex = 0,
-                    BinaryOffset = 0,
-                    DateTimeZone = EntityHeader<DateTimeZoneOptions>.Create(DateTimeZoneOptions.UniversalTimeZone),
-                    Notes = "Time in seconds from UTC epoch (1/1/1970).",
-                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt32),
-                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
-                });
-
-                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
-                {
-                    Name = "Sensor Index",
-                    Key = "sensorindex",
-                    Id = Guid.NewGuid().ToId(),
-                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
-                    HeaderName = "Sensor Index",
-                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
-                    IsRequired = true,
-                    FieldIndex = 1,
-                    BinaryOffset = 4,
-                    MinValue = 0,
-                    MaxValue = 65535,
-                    Notes = "Sensor index from the device for this point array.",
-                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
-                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
-                });
-
-                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
-                {
-                    Name = "Point Count",
-                    Key = "pointcount",
-                    Id = Guid.NewGuid().ToId(),
-                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
-                    HeaderName = "Point Count",
-                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
-                    IsRequired = true,
-                    FieldIndex = 2,
-                    BinaryOffset = 6,
-                    MinValue = 1,
-                    MaxValue = 2500,
-                    Notes = "Number of points that make up this point array.",
-                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
-                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Integer)
-                });
-
-                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField()
-                {
-                    Name = "Interval",
-                    Key = "interval",
-                    Id = Guid.NewGuid().ToId(),
-                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
-                    HeaderName = "Interval",
-                    IsRequired = true,
-                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
-                    FieldIndex = 3,
-                    BinaryOffset = 8,
-                    MinValue = 0,
-                    MaxValue = 600,
-                    Notes = "Interval (16 bit unsigned decimal scaled to one decimal point) between sample collection points.",
-                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.UInt16),
-                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.Decimal)
-                });
-
-                deviceMessageConfiguration.Fields.Add(new DeviceMessageDefinitionField
-                {
-                    Name = "Point Array",
-                    Key = "pointarray",
-                    Id = Guid.NewGuid().ToId(),
-                    SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body),
-                    Endian = EntityHeader<EndianTypes>.Create(EndianTypes.BigEndian),
-                    HeaderName = "Point Array",
-                    IsRequired = true,
-                    FieldIndex = 4,
-                    BinaryOffset = 10,
-                    Notes = "Collection of points (16 bit unsigned scaled decimal to two decimal points) that make up the data collected from the device.",
-                    ParsedBinaryFieldType = EntityHeader<ParseBinaryValueType>.Create(ParseBinaryValueType.Int16),
-                    StorageType = EntityHeader<DeviceAdmin.Models.ParameterTypes>.Create(DeviceAdmin.Models.ParameterTypes.DecimalArray)
-                });
+                AddPointArrayFields(deviceMessageConfiguration);
+            }
+            else if (deviceMessageConfiguration.ContentType.Value == MessageContentTypes.GeoPointArray)
+            {
+                AddGeoPointArrayFields(deviceMessageConfiguration);
             }
 
             await _deviceMessageDefinitionRepo.AddDeviceMessageDefinitionAsync(deviceMessageConfiguration);
