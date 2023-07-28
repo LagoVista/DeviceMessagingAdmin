@@ -167,7 +167,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public String Key { get; set; }
 
         [CloneOptions(true)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Fields, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Fields, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<DeviceMessageDefinitionField> Fields { get; set; }
 
         [CloneOptions(true)]
