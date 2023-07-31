@@ -95,8 +95,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         IncomingAndOutgoing
     }
 
-    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminDomain))]
-    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity, ICloneable<DeviceMessageDefinition>
+    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title, 
+        DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
+    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity, ICloneable<DeviceMessageDefinition>, IFormDescriptor
     {
         public const string ContentType_NoContent = "nocontent";
         public const string ContentType_Binary = "binary";
@@ -247,7 +248,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public string PathAndQueryString { get; set; }
 
         [CloneOptions(true)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, HelpResource:DeviceMessagingAdminResources.Names.DeviceMessage_Topic_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Topic { get; set; }
 
         [CloneOptions(true)]
@@ -266,8 +267,34 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public bool IsSevenSegementImage { get; set; }
 
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Name),
+                nameof(Key),
+                nameof(IsPublic),
+                nameof(MessageId),
+                nameof(MessageDirection),
+                nameof(ContentType),
+                nameof(Delimiter),
+                nameof(Endian),
+                nameof(QuotedText),
+                nameof(RegEx),
+                nameof(OutputMessageScript),
+                nameof(RestMethod),
+                nameof(PathAndQueryString),
+                nameof(Topic),
+                nameof(StringParsingStrategy),
+                nameof(StringLengthByteCount),
+                nameof(BinaryParsingStrategy),
+                nameof(SampleMessages),
+                nameof(Fields)
+            };
+        }
+
         public Task<DeviceMessageDefinition> CloneAsync(EntityHeader user, EntityHeader org, string name, string key)
-        {            
+        {
             return Task.FromResult(CloneService.Clone(this, user, org, name, key));
         }
 
@@ -313,9 +340,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 result.Errors.Add(new ErrorMessage("If string parsing strategy is String Length, length of string is required."));
             }
 
-            if(ContentType.Value == MessageContentTypes.Media &&
+            if (ContentType.Value == MessageContentTypes.Media &&
                 (Fields.Where(fld => fld.StorageType.Value != DeviceAdmin.Models.ParameterTypes.MLInference && fld.SearchLocation.Value == SearchLocations.Body).Any() ||
-                Fields.Where(fld=>fld.SearchLocation.Value == SearchLocations.Body).Count() > 1)
+                Fields.Where(fld => fld.SearchLocation.Value == SearchLocations.Body).Count() > 1)
                 )
             {
                 result.Errors.Add(new ErrorMessage("For messages with content type media, you can only have one field associated with the body of the message, and that field must be a ML Inference that can be passed to a workflow."));

@@ -770,4 +770,16 @@
   <data name="DeviceMessage_ContentType_GeoPointArray" xml:space="preserve">
     <value>Geo-Point Array</value>
   </data>
+  <data name="SampleMessageHeader_HeaderName" xml:space="preserve">
+    <value>Header Name</value>
+  </data>
+  <data name="SampleMessageheader_HeaderValue" xml:space="preserve">
+    <value>Header Value</value>
+  </data>
+  <data name="SampleMessageHeader_Help" xml:space="preserve">
+    <value>Headers that will be added to your sample message, these are usually used for Http Headers.</value>
+  </data>
+  <data name="SampleMessageHeader_TItle" xml:space="preserve">
+    <value>Sample Message Header</value>
+  </data>
 </root>

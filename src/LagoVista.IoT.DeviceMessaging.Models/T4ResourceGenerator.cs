@@ -1,4 +1,4 @@
-﻿/*3/19/2023 6:33:56 AM*/
+﻿/*7/30/2023 7:16:35 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -713,6 +713,18 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:SampleMessage_Topic
 
 		public static string SampleMessage_Topic { get { return GetResourceString("SampleMessage_Topic"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessageHeader_HeaderName
+
+		public static string SampleMessageHeader_HeaderName { get { return GetResourceString("SampleMessageHeader_HeaderName"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessageheader_HeaderValue
+
+		public static string SampleMessageheader_HeaderValue { get { return GetResourceString("SampleMessageheader_HeaderValue"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessageHeader_Help
+
+		public static string SampleMessageHeader_Help { get { return GetResourceString("SampleMessageHeader_Help"); } }
+//Resources:DeviceMessagingAdminResources:SampleMessageHeader_TItle
+
+		public static string SampleMessageHeader_TItle { get { return GetResourceString("SampleMessageHeader_TItle"); } }
 
 		public static class Names
 		{
@@ -933,6 +945,10 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string SampleMessage_Payload = "SampleMessage_Payload";
 			public const string SampleMessage_Title = "SampleMessage_Title";
 			public const string SampleMessage_Topic = "SampleMessage_Topic";
+			public const string SampleMessageHeader_HeaderName = "SampleMessageHeader_HeaderName";
+			public const string SampleMessageheader_HeaderValue = "SampleMessageheader_HeaderValue";
+			public const string SampleMessageHeader_Help = "SampleMessageHeader_Help";
+			public const string SampleMessageHeader_TItle = "SampleMessageHeader_TItle";
 		}
 	}
 }

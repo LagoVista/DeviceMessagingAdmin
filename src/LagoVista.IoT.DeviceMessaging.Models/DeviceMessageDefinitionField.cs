@@ -110,8 +110,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     }
     #endregion
 
-    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageField_Title, DeviceMessagingAdminResources.Names.DeviceMessageField_Help, DeviceMessagingAdminResources.Names.DeviceMessageField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
-    public class DeviceMessageDefinitionField : IKeyedEntity, INamedEntity, IValidateable
+    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageField_Title, DeviceMessagingAdminResources.Names.DeviceMessageField_Help, 
+        DeviceMessagingAdminResources.Names.DeviceMessageField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
+    public class DeviceMessageDefinitionField : IKeyedEntity, INamedEntity, IValidateable, IFormDescriptor
     {
         #region Constructor
         public DeviceMessageDefinitionField()
@@ -694,6 +695,67 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         }
         #endregion
 
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Name),
+
+                nameof(Key),
+
+                nameof(SearchLocation),
+                nameof(ParsedBinaryFieldType),
+                nameof(ParsedStringFieldType),
+                nameof(StorageType),
+                nameof(DecimalScaler),
+                nameof(UnitSet),
+                nameof(StateSet),
+
+                nameof(IsRequired),
+
+                nameof(DateTimeZone),
+
+                nameof(FieldIndex),
+
+                nameof(PathLocator),
+
+                nameof(DelimitedIndex),
+                nameof(LatDelimitedIndex),
+                nameof(LonDelimitedIndex),
+
+                nameof(StartIndex),
+                nameof(LatStartIndex),
+                nameof(LonStartIndex),
+
+                nameof(QueryStringField),
+                nameof(LatQueryStringField),
+                nameof(LonQueryStringField),
+
+                nameof(TopicLocator),
+
+                nameof(JsonPath),
+
+                nameof(LatJsonPath),
+                nameof(LonJsonPath),
+
+                nameof(HeaderName),
+                nameof(XPath),
+                nameof(LatXPath),
+                nameof(LonXPath),
+                nameof(BinaryOffset),
+
+                nameof(RegExValueSelector),
+                nameof(RegExGroupName),
+
+                nameof(MinValue),
+                nameof(MaxValue),
+                nameof(RegExValidation),
+
+                nameof(Notes)
+
+            };
+        }
 
         public List<DisplayImageSegment> Segments { get; set; }
 
