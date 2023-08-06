@@ -95,7 +95,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         IncomingAndOutgoing
     }
 
-    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title, 
+    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title,
         DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
     public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity, ICloneable<DeviceMessageDefinition>, IFormDescriptor
     {
@@ -322,14 +322,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 return;
             }
 
+
             if (ContentType == null || ContentType.IsEmpty())
             {
-                if (ContentType == null || ContentType.IsEmpty())
-                {
-                    //TODO: should arlready call core validation, if content type is null we went through an invalid path and we aren't localizing...sorry.
-                    result.Errors.Add(new ErrorMessage("Content Type is Required."));
-                    return;
-                }
+                //TODO: should arlready call core validation, if content type is null we went through an invalid path and we aren't localizing...sorry.
+                result.Errors.Add(new ErrorMessage("Content Type is Required."));
+                return;
             }
 
             if (ContentType.Value == MessageContentTypes.Binary &&
