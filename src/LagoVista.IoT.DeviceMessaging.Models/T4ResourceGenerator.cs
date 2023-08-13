@@ -1,4 +1,4 @@
-﻿/*7/30/2023 7:16:35 AM*/
+﻿/*8/12/2023 9:56:47 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -204,6 +204,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_OutputMessageScript_Help
 
 		public static string DeviceMessage_OutputMessageScript_Help { get { return GetResourceString("DeviceMessage_OutputMessageScript_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_OutputScript_Watermark
+
+		public static string DeviceMessage_OutputScript_Watermark { get { return GetResourceString("DeviceMessage_OutputScript_Watermark"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_PathAndQueryString
 
 		public static string DeviceMessage_PathAndQueryString { get { return GetResourceString("DeviceMessage_PathAndQueryString"); } }
@@ -242,6 +245,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_RESTMethod_Select
 
 		public static string DeviceMessage_RESTMethod_Select { get { return GetResourceString("DeviceMessage_RESTMethod_Select"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_Script_Watermark
+
+		public static string DeviceMessage_Script_Watermark { get { return GetResourceString("DeviceMessage_Script_Watermark"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_StringParsingStrategy_Select
 
 		public static string DeviceMessage_StringParsingStrategy_Select { get { return GetResourceString("DeviceMessage_StringParsingStrategy_Select"); } }
@@ -778,6 +784,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_MessageDirection_Help = "DeviceMessage_MessageDirection_Help";
 			public const string DeviceMessage_OutputMessageScript = "DeviceMessage_OutputMessageScript";
 			public const string DeviceMessage_OutputMessageScript_Help = "DeviceMessage_OutputMessageScript_Help";
+			public const string DeviceMessage_OutputScript_Watermark = "DeviceMessage_OutputScript_Watermark";
 			public const string DeviceMessage_PathAndQueryString = "DeviceMessage_PathAndQueryString";
 			public const string DeviceMessage_PathAndQueryString_Help = "DeviceMessage_PathAndQueryString_Help";
 			public const string DeviceMessage_PropertyRequiredForContentType = "DeviceMessage_PropertyRequiredForContentType";
@@ -788,6 +795,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_RegEx_Help = "DeviceMessage_RegEx_Help";
 			public const string DeviceMessage_RESTMethod = "DeviceMessage_RESTMethod";
 			public const string DeviceMessage_RESTMethod_Select = "DeviceMessage_RESTMethod_Select";
+			public const string DeviceMessage_Script_Watermark = "DeviceMessage_Script_Watermark";
 			public const string DeviceMessage_StringParsingStrategy_Select = "DeviceMessage_StringParsingStrategy_Select";
 			public const string DeviceMessage_Topic = "DeviceMessage_Topic";
 			public const string DeviceMessage_Topic_Help = "DeviceMessage_Topic_Help";

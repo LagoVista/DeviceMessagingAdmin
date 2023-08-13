@@ -54,7 +54,7 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
         {
             var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId && qry.IsSevenSegementImage == true);
 
-            return from item in items
+            return from item in items.OrderBy(msg=>msg.Name)
                    select item.CreateSummary();
         }
 
@@ -62,7 +62,7 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
         {
             var items = await base.QueryAsync(qry => qry.IsPublic == true);
 
-            return from item in items
+            return from item in items.OrderBy(msg=>msg.Name)
                    select item.CreateSummary();
         }
 

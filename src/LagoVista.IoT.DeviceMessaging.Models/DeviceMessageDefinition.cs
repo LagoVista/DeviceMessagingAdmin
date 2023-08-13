@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using LagoVista.IoT.DeviceMessaging.Models.Resources;
 using System.Threading.Tasks;
 using LagoVista.Core.Cloning;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {
@@ -97,7 +98,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title,
         DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
-    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity, ICloneable<DeviceMessageDefinition>, IFormDescriptor
+    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormConditionalFields
+
     {
         public const string ContentType_NoContent = "nocontent";
         public const string ContentType_Binary = "binary";
@@ -232,11 +234,14 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         //[AllowableMessageContentType(MessageContentTypes.Custom)]
         [CloneOptions(true)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Script, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Script, FieldType: FieldTypes.NodeScript, WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_Script_Watermark,
+            ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Script { get; set; }
 
         [CloneOptions(true)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_OutputMessageScript_Help,
+             WaterMark: DeviceMessagingAdminResources.Names.DeviceMessage_OutputScript_Watermark,
+            FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string OutputMessageScript { get; set; }
 
         [CloneOptions(true)]
@@ -408,6 +413,46 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 var fieldValidationResult = field.Validate(this);
                 result.Concat(fieldValidationResult);
             }
+        }
+
+        public FormConditionals GetConditionalFields()
+        {
+            return new FormConditionals()
+            {
+                ConditionalFields = { nameof(Delimiter), nameof(Endian), nameof(QuotedText), nameof(RegEx), nameof(Script), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy), },
+                Conditionals = new List<FormConditional>()
+                {
+                     new FormConditional()
+                     {
+                         Field = nameof(ContentType),
+                         Value = ContentType_Binary,
+                         VisibleFields = { nameof(Endian), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy)}
+                     },
+                     new FormConditional()
+                     {
+                         Field = nameof(ContentType),
+                         Value = ContentType_Delimited,
+                         VisibleFields = {nameof(QuotedText), nameof(Delimiter)}
+                     },
+                     new FormConditional()
+                     {
+                         Field = nameof(ContentType),
+                         Value = ContentType_StringRegEx
+                     },
+                    new FormConditional()
+                    {
+                        Field = nameof(MessageDirection),
+                        Value = MessageDirection_Outgoing,
+                        VisibleFields = {nameof(RestMethod), nameof(Topic), nameof(PathAndQueryString), nameof(OutputMessageScript)}
+                    },
+                    new FormConditional()
+                    {
+                        Field = nameof(StringParsingStrategy),
+                        Value = nameof(StringParsingStrategy_StringLength),
+                        VisibleFields = {nameof(StringLengthByteCount)}
+                    }
+                }
+            };
         }
     }
 

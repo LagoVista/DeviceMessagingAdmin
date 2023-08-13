@@ -782,4 +782,10 @@
   <data name="SampleMessageHeader_TItle" xml:space="preserve">
     <value>Sample Message Header</value>
   </data>
+  <data name="DeviceMessage_OutputScript_Watermark" xml:space="preserve">
+    <value>Add Output Script</value>
+  </data>
+  <data name="DeviceMessage_Script_Watermark" xml:space="preserve">
+    <value>Add Script</value>
+  </data>
 </root>
