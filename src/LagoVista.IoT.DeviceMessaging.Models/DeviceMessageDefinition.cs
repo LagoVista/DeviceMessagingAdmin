@@ -290,6 +290,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(RestMethod),
                 nameof(PathAndQueryString),
                 nameof(Topic),
+                nameof(Script),
                 nameof(StringParsingStrategy),
                 nameof(StringLengthByteCount),
                 nameof(BinaryParsingStrategy),

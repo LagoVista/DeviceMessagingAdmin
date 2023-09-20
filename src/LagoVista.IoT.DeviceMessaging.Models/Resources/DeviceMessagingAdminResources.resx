@@ -570,7 +570,7 @@
     <value>Field Index</value>
   </data>
   <data name="DeviceMessageField_FieldIndex_Help" xml:space="preserve">
-    <value>For a delimited file type you can enter which column includes the field that contains the data</value>
+    <value>For a delimited file type you can enter which column includes the field that contains the data.  This is a 1 indexed array that is to say the first column is at 1, not 0.</value>
   </data>
   <data name="DeviceMessageField_LatBinaryOffset" xml:space="preserve">
     <value>Latitude Binary Offset</value>
@@ -787,5 +787,26 @@
   </data>
   <data name="DeviceMessage_Script_Watermark" xml:space="preserve">
     <value>Add Script</value>
+  </data>
+  <data name="DeviceMessageField_AltitudeBinaryOffset" xml:space="preserve">
+    <value>Altitude Binary Offset</value>
+  </data>
+  <data name="DeviceMessageField_AltitudeFieldIndex" xml:space="preserve">
+    <value>Altitude Delimited Index</value>
+  </data>
+  <data name="DeviceMessageField_AltitudeGroupName" xml:space="preserve">
+    <value>Altitude Group Name</value>
+  </data>
+  <data name="DeviceMessageField_AltitudeJSONPath" xml:space="preserve">
+    <value>Altitude JSON Path</value>
+  </data>
+  <data name="DeviceMessageField_AltitudeQueryStringField" xml:space="preserve">
+    <value>Altitude Query String Field</value>
+  </data>
+  <data name="DeviceMessageField_AltitudeStartIndex" xml:space="preserve">
+    <value>Altitude Start Index</value>
+  </data>
+  <data name="DeviceMssageField_AltitudeXPath" xml:space="preserve">
+    <value>Altitude XPath</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-﻿/*8/12/2023 9:56:47 PM*/
+﻿/*9/20/2023 4:11:17 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -299,6 +299,24 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_Title
 
 		public static string DeviceMessageDefinition_Title { get { return GetResourceString("DeviceMessageDefinition_Title"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_AltitudeBinaryOffset
+
+		public static string DeviceMessageField_AltitudeBinaryOffset { get { return GetResourceString("DeviceMessageField_AltitudeBinaryOffset"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_AltitudeFieldIndex
+
+		public static string DeviceMessageField_AltitudeFieldIndex { get { return GetResourceString("DeviceMessageField_AltitudeFieldIndex"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_AltitudeGroupName
+
+		public static string DeviceMessageField_AltitudeGroupName { get { return GetResourceString("DeviceMessageField_AltitudeGroupName"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_AltitudeJSONPath
+
+		public static string DeviceMessageField_AltitudeJSONPath { get { return GetResourceString("DeviceMessageField_AltitudeJSONPath"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_AltitudeQueryStringField
+
+		public static string DeviceMessageField_AltitudeQueryStringField { get { return GetResourceString("DeviceMessageField_AltitudeQueryStringField"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageField_AltitudeStartIndex
+
+		public static string DeviceMessageField_AltitudeStartIndex { get { return GetResourceString("DeviceMessageField_AltitudeStartIndex"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_BinaryOffset
 
 		public static string DeviceMessageField_BinaryOffset { get { return GetResourceString("DeviceMessageField_BinaryOffset"); } }
@@ -608,6 +626,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessgaeField_StringSize_CharacterCount_Help
 
 		public static string DeviceMessgaeField_StringSize_CharacterCount_Help { get { return GetResourceString("DeviceMessgaeField_StringSize_CharacterCount_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMssageField_AltitudeXPath
+
+		public static string DeviceMssageField_AltitudeXPath { get { return GetResourceString("DeviceMssageField_AltitudeXPath"); } }
 //Resources:DeviceMessagingAdminResources:DeviecMessage_ProtoBuf_Definition
 
 		public static string DeviecMessage_ProtoBuf_Definition { get { return GetResourceString("DeviecMessage_ProtoBuf_Definition"); } }
@@ -813,6 +834,12 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessageDefinition_SampleMessages_Help = "DeviceMessageDefinition_SampleMessages_Help";
 			public const string DeviceMessageDefinition_Script = "DeviceMessageDefinition_Script";
 			public const string DeviceMessageDefinition_Title = "DeviceMessageDefinition_Title";
+			public const string DeviceMessageField_AltitudeBinaryOffset = "DeviceMessageField_AltitudeBinaryOffset";
+			public const string DeviceMessageField_AltitudeFieldIndex = "DeviceMessageField_AltitudeFieldIndex";
+			public const string DeviceMessageField_AltitudeGroupName = "DeviceMessageField_AltitudeGroupName";
+			public const string DeviceMessageField_AltitudeJSONPath = "DeviceMessageField_AltitudeJSONPath";
+			public const string DeviceMessageField_AltitudeQueryStringField = "DeviceMessageField_AltitudeQueryStringField";
+			public const string DeviceMessageField_AltitudeStartIndex = "DeviceMessageField_AltitudeStartIndex";
 			public const string DeviceMessageField_BinaryOffset = "DeviceMessageField_BinaryOffset";
 			public const string DeviceMessageField_BinaryOffset_Help = "DeviceMessageField_BinaryOffset_Help";
 			public const string DeviceMessageField_BinaryParser_Boolean = "DeviceMessageField_BinaryParser_Boolean";
@@ -916,6 +943,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessgaeField_StringParsing_Strategy_NullTerminated = "DeviceMessgaeField_StringParsing_Strategy_NullTerminated";
 			public const string DeviceMessgaeField_StringSize_CharacterCount = "DeviceMessgaeField_StringSize_CharacterCount";
 			public const string DeviceMessgaeField_StringSize_CharacterCount_Help = "DeviceMessgaeField_StringSize_CharacterCount_Help";
+			public const string DeviceMssageField_AltitudeXPath = "DeviceMssageField_AltitudeXPath";
 			public const string DeviecMessage_ProtoBuf_Definition = "DeviecMessage_ProtoBuf_Definition";
 			public const string DeviecMessage_ProtoBuf_Definition_Help = "DeviecMessage_ProtoBuf_Definition_Help";
 			public const string Err_FieldDefinitionMissing_StateSet = "Err_FieldDefinitionMissing_StateSet";

@@ -293,6 +293,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonGroupName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_GroupName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string LonRegExGroupName { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.StringRegEx)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_AltitudeGroupName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_GroupName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string AltitudeRegExGroupName { get; set; }
+
 
         [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
         [AllowableMessageContentType(MessageContentTypes.JSON)]
@@ -308,6 +313,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [AllowableMessageContentType(MessageContentTypes.JSON)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonJSONPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JsonPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string LonJsonPath { get; set; }
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.JSON)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_AltitudeJSONPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_JsonPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string AltitudeJsonPath { get; set; }
 
 
 
@@ -325,6 +335,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonDelimitedIndex, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_FieldIndex_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? LonDelimitedIndex { get; set; }
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.Delimited)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_AltitudeFieldIndex, FieldType: FieldTypes.Integer, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_FieldIndex_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? AltitudeDelimitedIndex { get; set; }
 
 
 
@@ -344,6 +359,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonBinaryOffset, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? LonBinaryOffset { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.Binary)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_AltitudeBinaryOffset, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_BinaryOffset_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? AltitudeBinaryOffset { get; set; }
+
 
 
         [AllowableStorageContentType(ParameterTypes.GeoLocation, anyValueButThis: true)]
@@ -360,6 +380,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [AllowableMessageContentType(MessageContentTypes.StringPosition)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonStartIndex, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? LonStartIndex { get; set; }
+
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.StringPosition)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_AltitudeStartIndex, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? AltitudeStartIndex { get; set; }
+
 
         [AllowableMessageContentType(MessageContentTypes.StringPosition)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_Length, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_SubString_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
@@ -381,12 +407,22 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonXPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string LonXPath { get; set; }
 
+        [AllowableStorageContentType(ParameterTypes.GeoLocation)]
+        [AllowableMessageContentType(MessageContentTypes.XML)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMssageField_AltitudeXPath, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_XPath_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string AltitudeXPath { get; set; }
+
+
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LatQueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string LatQueryStringField { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_LonQueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string LonQueryStringField { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_AltitudeQueryStringField, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_QueryStringField_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string AltitudeQueryStringField { get; set; }
+
 
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_HeaderName_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
@@ -724,14 +760,17 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(DelimitedIndex),
                 nameof(LatDelimitedIndex),
                 nameof(LonDelimitedIndex),
+                nameof(AltitudeDelimitedIndex),
 
                 nameof(StartIndex),
                 nameof(LatStartIndex),
                 nameof(LonStartIndex),
+                nameof(AltitudeStartIndex),
 
                 nameof(QueryStringField),
                 nameof(LatQueryStringField),
                 nameof(LonQueryStringField),
+                nameof(AltitudeQueryStringField),
 
                 nameof(TopicLocator),
 
@@ -739,11 +778,14 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
                 nameof(LatJsonPath),
                 nameof(LonJsonPath),
+                nameof(AltitudeJsonPath),
 
                 nameof(HeaderName),
                 nameof(XPath),
                 nameof(LatXPath),
                 nameof(LonXPath),
+                nameof(AltitudeXPath),
+
                 nameof(BinaryOffset),
 
                 nameof(RegExValueSelector),
@@ -765,6 +807,13 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             var fld = new DeviceMessageDefinitionField()
             {
                 Id = newId ? Guid.NewGuid().ToId() : Id,
+                AltitudeJsonPath = AltitudeJsonPath,
+                AltitudeRegExGroupName = AltitudeRegExGroupName,
+                AltitudeBinaryOffset = AltitudeBinaryOffset,
+                AltitudeXPath = AltitudeXPath,
+                AltitudeQueryStringField = AltitudeQueryStringField,
+                AltitudeDelimitedIndex = AltitudeDelimitedIndex,
+                AltitudeStartIndex = AltitudeStartIndex,
                 BinaryOffset = BinaryOffset,
                 BinaryParsingStrategy = BinaryParsingStrategy.Clone(),
                 ContentType = ContentType.Clone(),
@@ -793,6 +842,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 LonQueryStringField = LonQueryStringField,
                 LonRegExGroupName = LonRegExGroupName,
                 LonStartIndex = LonStartIndex,
+                
                 LonXPath = LonXPath,
                 MaxValue = MaxValue,
                 MinValue = MinValue,
