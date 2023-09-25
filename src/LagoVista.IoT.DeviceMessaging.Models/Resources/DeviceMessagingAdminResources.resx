@@ -762,7 +762,7 @@
     <value>Real Number Array</value>
   </data>
   <data name="DeviceMessageField_StringParser_StringArray" xml:space="preserve">
-    <value>stringArray</value>
+    <value>String Array</value>
   </data>
   <data name="DeviceMessageField_StringParser_WholeNumberArray" xml:space="preserve">
     <value>Whole Number Array</value>
