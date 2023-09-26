@@ -9,7 +9,7 @@ using LagoVista.IoT.DeviceMessaging.Models.Resources;
 namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.SampleMessage_Title, DeviceMessagingAdminResources.Names.SampleMessage_Help, 
-        DeviceMessagingAdminResources.Names.SampleMessage_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
+        DeviceMessagingAdminResources.Names.SampleMessage_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources), FactoryUrl: "/api/devicemessagetype/samplemessage/factory")]
     public class SampleMessage: IFormDescriptor
     {
         public SampleMessage()

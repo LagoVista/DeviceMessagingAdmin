@@ -7,7 +7,8 @@ using System.Text;
 
 namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 {
-    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.MessageFramingByte_Byte, DeviceMessagingAdminResources.Names.MessageFramingByte_Byte_Help, DeviceMessagingAdminResources.Names.MessageFramingByte_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminDomain))]
+    [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.MessageFramingByte_Byte, DeviceMessagingAdminResources.Names.MessageFramingByte_Byte_Help, 
+        DeviceMessagingAdminResources.Names.MessageFramingByte_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminDomain), FactoryUrl: "/api/devicemessagetype/framingbyte/factory")]
     public class MessageFramingBytes
     {
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Byte, FieldType:FieldTypes.Byte, HelpResource: DeviceMessagingAdminResources.Names.MessageFramingByte_Byte_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
