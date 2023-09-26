@@ -295,8 +295,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(StringParsingStrategy),
                 nameof(StringLengthByteCount),
                 nameof(BinaryParsingStrategy),
+                nameof(Fields),
                 nameof(SampleMessages),
-                nameof(Fields)
             };
         }
 
