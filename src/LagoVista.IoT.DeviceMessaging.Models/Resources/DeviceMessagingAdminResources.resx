@@ -809,4 +809,10 @@
   <data name="DeviceMssageField_AltitudeXPath" xml:space="preserve">
     <value>Altitude XPath</value>
   </data>
+  <data name="DateTimeZone_EpochMS" xml:space="preserve">
+    <value>Epoch (1/1/1970) Milliseconds</value>
+  </data>
+  <data name="DateTimeZone_EpochSeconds" xml:space="preserve">
+    <value>Epoch (1/1/1970) Seconds</value>
+  </data>
 </root>

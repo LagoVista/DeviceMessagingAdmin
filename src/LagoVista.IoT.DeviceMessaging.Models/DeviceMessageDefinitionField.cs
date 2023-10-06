@@ -107,7 +107,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_Universal, DeviceMessagingAdminResources.Names.DateTimeZone_Universal, typeof(DeviceMessagingAdminResources))]
         UniversalTimeZone,
         [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_8601, DeviceMessagingAdminResources.Names.DateTimeZone_8601, typeof(DeviceMessagingAdminResources))]
-        ISO8601
+        ISO8601,
+        [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_EpochSeconds, DeviceMessagingAdminResources.Names.DateTimeZone_EpochSeconds, typeof(DeviceMessagingAdminResources))]
+        UnixEPOCH_Seconds,
+        [EnumLabel(DeviceMessageDefinitionField.DateTimeZone_EpochMS, DeviceMessagingAdminResources.Names.DateTimeZone_EpochMS, typeof(DeviceMessagingAdminResources))]
+        UnixEPOCH_MS,
     }
     #endregion
 
@@ -129,6 +133,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         public const string DateTimeZone_Server = "servertimezone";
         public const string DateTimeZone_Universal = "universaltimezone";
         public const string DateTimeZone_8601 = "iso8601";
+        public const string DateTimeZone_EpochSeconds = "epochseconds";
+        public const string DateTimeZone_EpochMS= "epochms";
 
         public const string ParserBinaryType_String = "string";
         public const string ParserBinaryType_Boolean = "boolean";

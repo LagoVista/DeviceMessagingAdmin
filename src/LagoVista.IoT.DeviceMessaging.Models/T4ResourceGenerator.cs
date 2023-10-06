@@ -1,4 +1,4 @@
-﻿/*9/20/2023 4:11:17 PM*/
+﻿/*10/2/2023 2:34:46 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -84,6 +84,12 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DateTimeZone_8601
 
 		public static string DateTimeZone_8601 { get { return GetResourceString("DateTimeZone_8601"); } }
+//Resources:DeviceMessagingAdminResources:DateTimeZone_EpochMS
+
+		public static string DateTimeZone_EpochMS { get { return GetResourceString("DateTimeZone_EpochMS"); } }
+//Resources:DeviceMessagingAdminResources:DateTimeZone_EpochSeconds
+
+		public static string DateTimeZone_EpochSeconds { get { return GetResourceString("DateTimeZone_EpochSeconds"); } }
 //Resources:DeviceMessagingAdminResources:DateTimeZone_NoTimeZone
 
 		public static string DateTimeZone_NoTimeZone { get { return GetResourceString("DateTimeZone_NoTimeZone"); } }
@@ -765,6 +771,8 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string Common_Name = "Common_Name";
 			public const string Common_Notes = "Common_Notes";
 			public const string DateTimeZone_8601 = "DateTimeZone_8601";
+			public const string DateTimeZone_EpochMS = "DateTimeZone_EpochMS";
+			public const string DateTimeZone_EpochSeconds = "DateTimeZone_EpochSeconds";
 			public const string DateTimeZone_NoTimeZone = "DateTimeZone_NoTimeZone";
 			public const string DateTimeZone_Select = "DateTimeZone_Select";
 			public const string DateTimeZone_Server = "DateTimeZone_Server";
