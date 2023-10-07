@@ -190,7 +190,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter, HelpResource:DeviceMessagingAdminResources.Names.DeviceMessage_Delimiter_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Delimiter { get; set; }
 
         [CloneOptions(true)]

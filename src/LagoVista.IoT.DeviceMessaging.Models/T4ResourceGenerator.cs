@@ -1,4 +1,4 @@
-﻿/*10/2/2023 2:34:46 PM*/
+﻿/*10/7/2023 5:28:02 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -186,6 +186,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_Delimiter
 
 		public static string DeviceMessage_Delimiter { get { return GetResourceString("DeviceMessage_Delimiter"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_Delimiter_Help
+
+		public static string DeviceMessage_Delimiter_Help { get { return GetResourceString("DeviceMessage_Delimiter_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_Endian
 
 		public static string DeviceMessage_Endian { get { return GetResourceString("DeviceMessage_Endian"); } }
@@ -805,6 +808,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_ContentType_StringRegEx = "DeviceMessage_ContentType_StringRegEx";
 			public const string DeviceMessage_ContentType_Xml = "DeviceMessage_ContentType_Xml";
 			public const string DeviceMessage_Delimiter = "DeviceMessage_Delimiter";
+			public const string DeviceMessage_Delimiter_Help = "DeviceMessage_Delimiter_Help";
 			public const string DeviceMessage_Endian = "DeviceMessage_Endian";
 			public const string DeviceMessage_Endian_Help = "DeviceMessage_Endian_Help";
 			public const string DeviceMessage_Endian_Select = "DeviceMessage_Endian_Select";
