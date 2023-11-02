@@ -125,6 +125,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             DecimalScaler = 1.0;
             Id = Guid.NewGuid().ToId();
             Segments = new List<DisplayImageSegment>();
+            SearchLocation = EntityHeader<SearchLocations>.Create(SearchLocations.Body);
         }
         #endregion
 

@@ -141,6 +141,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             Fields = new List<DeviceMessageDefinitionField>();
             FramingBytes = new List<MessageFramingBytes>();
             SampleMessages = new List<SampleMessage>();
+            MessageDirection = EntityHeader<MessageDirections>.Create(MessageDirections.Incoming);
         }
 
         public String DatabaseName { get; set; }
