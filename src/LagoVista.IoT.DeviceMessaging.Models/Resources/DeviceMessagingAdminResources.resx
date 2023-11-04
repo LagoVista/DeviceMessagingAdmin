@@ -818,4 +818,7 @@
   <data name="DeviceMessage_Delimiter_Help" xml:space="preserve">
     <value>The delimiter will be used to break apart the message into fields.  In many cases, this will be a , (comma) for CSV (comma separated values), but it can be any unique character.</value>
   </data>
+  <data name="DeviceMessage_ImportFields" xml:space="preserve">
+    <value>Import Fields</value>
+  </data>
 </root>

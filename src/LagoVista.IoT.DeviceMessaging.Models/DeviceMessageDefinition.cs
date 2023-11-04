@@ -254,6 +254,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_PathAndQueryString_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string PathAndQueryString { get; set; }
 
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ImportFields, FieldType: FieldTypes.Action, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public bool ImportFieldsActions { get; set; }
+
         [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
         public string Topic { get; set; }
@@ -296,6 +300,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(StringParsingStrategy),
                 nameof(StringLengthByteCount),
                 nameof(BinaryParsingStrategy),
+                nameof(ImportFieldsActions),
                 nameof(Fields),
                 nameof(SampleMessages),
             };
@@ -422,7 +427,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         {
             return new FormConditionals()
             {
-                ConditionalFields = { nameof(Delimiter), nameof(Endian), nameof(QuotedText), nameof(RegEx), nameof(Script), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy), },
+                ConditionalFields = { nameof(Delimiter), nameof(Endian), nameof(QuotedText), nameof(RegEx), nameof(Script), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy), nameof(ImportFieldsActions) },
                 Conditionals = new List<FormConditional>()
                 {
                      new FormConditional()
@@ -451,8 +456,14 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                     new FormConditional()
                     {
                         Field = nameof(StringParsingStrategy),
-                        Value = nameof(StringParsingStrategy_StringLength),
+                        Value = StringParsingStrategy_StringLength,
                         VisibleFields = {nameof(StringLengthByteCount)}
+                    },
+                    new FormConditional()
+                    {
+                        Field = nameof(ContentType),
+                        Value = ContentType_Json,
+                        VisibleFields = {nameof(ImportFieldsActions)}
                     }
                 }
             };

@@ -1,4 +1,4 @@
-﻿/*10/7/2023 5:28:02 PM*/
+﻿/*11/2/2023 10:21:07 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -204,6 +204,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_FramingBytes_Help
 
 		public static string DeviceMessage_FramingBytes_Help { get { return GetResourceString("DeviceMessage_FramingBytes_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_ImportFields
+
+		public static string DeviceMessage_ImportFields { get { return GetResourceString("DeviceMessage_ImportFields"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_MessageDirection_Help
 
 		public static string DeviceMessage_MessageDirection_Help { get { return GetResourceString("DeviceMessage_MessageDirection_Help"); } }
@@ -814,6 +817,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_Endian_Select = "DeviceMessage_Endian_Select";
 			public const string DeviceMessage_FramingBytes = "DeviceMessage_FramingBytes";
 			public const string DeviceMessage_FramingBytes_Help = "DeviceMessage_FramingBytes_Help";
+			public const string DeviceMessage_ImportFields = "DeviceMessage_ImportFields";
 			public const string DeviceMessage_MessageDirection_Help = "DeviceMessage_MessageDirection_Help";
 			public const string DeviceMessage_OutputMessageScript = "DeviceMessage_OutputMessageScript";
 			public const string DeviceMessage_OutputMessageScript_Help = "DeviceMessage_OutputMessageScript_Help";
