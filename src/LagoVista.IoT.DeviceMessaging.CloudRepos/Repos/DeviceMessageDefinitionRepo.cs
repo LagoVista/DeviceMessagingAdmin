@@ -8,6 +8,7 @@ using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceMessaging.Admin.Repos;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.Logging.Loggers;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
 {
@@ -42,28 +43,22 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
             return GetDocumentAsync(id);
         }
 
-        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgAsync(string orgId)
+        public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request)
         {
-            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId);
-
-            return from item in items
-                   select item.CreateSummary();
+            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId, qry => qry.Name, request);
+            return ListResponse<DeviceMessageDefinitionSummary>.Create(items.Model.Select(msg => msg.CreateSummary()), items);
         }
 
-        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetSevenSegmentDeviceMessageDefinitionsForOrgAsync(string orgId)
+        public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetSevenSegmentDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request)
         {
-            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId && qry.IsSevenSegementImage == true);
-
-            return from item in items.OrderBy(msg=>msg.Name)
-                   select item.CreateSummary();
+            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId && qry.IsSevenSegementImage == true, qry => qry.Name, request);
+            return ListResponse<DeviceMessageDefinitionSummary>.Create(items.Model.Select(msg => msg.CreateSummary()), items);
         }
 
-        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync()
+        public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync(ListRequest request)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true);
-
-            return from item in items.OrderBy(msg=>msg.Name)
-                   select item.CreateSummary();
+            var items = await base.QueryAsync(qry => qry.IsPublic && qry.IsSevenSegementImage == true, qry => qry.Name, request);
+            return ListResponse<DeviceMessageDefinitionSummary>.Create(items.Model.Select(msg => msg.CreateSummary()), items);
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)

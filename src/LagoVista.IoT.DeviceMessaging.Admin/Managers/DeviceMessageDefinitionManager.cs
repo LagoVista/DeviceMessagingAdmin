@@ -4,6 +4,7 @@ using LagoVista.Core.Exceptions;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Managers;
 using LagoVista.Core.Models;
+using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
@@ -271,21 +272,21 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Managers
             return result;
         }
 
-        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync()
+        public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync(ListRequest listRequest)
         {
-            return await _deviceMessageDefinitionRepo.GetPublicDeviceMessageDefinitionsAsync();
+            return await _deviceMessageDefinitionRepo.GetPublicDeviceMessageDefinitionsAsync(listRequest);
         }
 
-        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user)
+        public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user, ListRequest listRequest)
         {
             await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceMessageDefinition));
-            return await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionsForOrgAsync(orgId);
+            return await _deviceMessageDefinitionRepo.GetDeviceMessageDefinitionsForOrgAsync(orgId, listRequest);
         }
 
-        public async Task<IEnumerable<DeviceMessageDefinitionSummary>> GetSevenSegementDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user)
+        public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetSevenSegementDeviceMessageDefinitionsForOrgsAsync(string orgId, EntityHeader user, ListRequest listRequest)
         {
             await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceMessageDefinition));
-            return await _deviceMessageDefinitionRepo.GetSevenSegmentDeviceMessageDefinitionsForOrgAsync(orgId);
+            return await _deviceMessageDefinitionRepo.GetSevenSegmentDeviceMessageDefinitionsForOrgAsync(orgId, listRequest);
         }
 
         public async Task<InvokeResult> UpdateDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageConfiguration, EntityHeader org, EntityHeader user)
