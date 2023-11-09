@@ -16,6 +16,7 @@ using LagoVista.Core.Cloning;
 using LagoVista.IoT.DeviceMessaging.Admin.Services;
 using LagoVista.IoT.DeviceMessaging.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
 {
@@ -196,6 +197,26 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         {
             return DetailResponse<DeviceMessageDefinitionField>.Create();
         }
+
+        /// <summary>
+        ///  Device Message Type, Field - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/device/envelope/field/factory")]
+        public DetailResponse<DeviceField> CreateDeviceEnvelopeMessageField()
+        {
+            var result = DetailResponse<DeviceField>.Create();
+
+            var contentOptions = result.View[nameof(DeviceField.ContentType).CamelCase()].Options;
+            contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_Media));
+            contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_GeoPointArray));
+            contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_NoContent));
+            contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_SevenSegementImage));
+            contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_PointArray));
+            contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_ProtoBuf));
+            return result;
+        }
+
 
 
         /// <summary>

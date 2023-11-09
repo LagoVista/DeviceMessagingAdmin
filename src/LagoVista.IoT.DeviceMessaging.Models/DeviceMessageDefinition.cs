@@ -49,6 +49,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         //  Custom
     }
 
+
     public enum RESTMethod
     {
         [EnumLabel(DeviceMessageDefinition.RESTMethod_GET, DeviceMessagingAdminResources.Names.RESTMethod_GET, typeof(DeviceMessagingAdminResources))]
