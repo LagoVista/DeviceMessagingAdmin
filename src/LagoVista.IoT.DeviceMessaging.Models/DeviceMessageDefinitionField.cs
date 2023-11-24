@@ -847,15 +847,17 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue, FieldType: FieldTypes.Decimal, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public double? MaxValue { get; set; }
 
+        [FKeyProperty(nameof(UnitSet), "Fields[*].UnitSet.Id = {0}","")]
         [AllowableStorageContentType(ParameterTypes.ValueWithUnit)]
-        [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker,  WaterMark: DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
+        [FKeyProperty(nameof(UnitSet), "Fields[*].StateSet.Id = {0}", "")]
         [AllowableStorageContentType(ParameterTypes.State)]
         [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
 
-        protected  void AddWarningForUnsedProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue, bool fieldParser)
+        protected override void AddWarningForUnsedProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue, bool fieldParser)
         {
             var allowableTypeProperties = property.GetCustomAttributes<AllowableMessageContentTypeAttribute>();
             if (hasValue && allowableTypeProperties.Any() && !allowableTypeProperties.Where(allowable => allowable.ContentType == contentType.Value).Any())
@@ -866,7 +868,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         }
 
 
-        protected  void AddErrorsForMissingProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue, bool fieldParser)
+        protected  override void AddErrorsForMissingProperties(ValidationResult result, EntityHeader<MessageContentTypes> contentType, PropertyInfo property, String name, bool hasValue, bool fieldParser)
         {
             var allowableTypeProperties = property.GetCustomAttributes<AllowableMessageContentTypeAttribute>();
             var storageTypeValidators = property.GetCustomAttributes<AllowableStorageContentTypeAttribute>();
@@ -963,7 +965,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         /// This comes in when validating a device id and message id parser.
         /// </summary>
         /// <returns></returns>
-        public ValidationResult Validate()
+        public new ValidationResult Validate()
         {
             /* Will always use strings for device and message ids */
             StorageType = EntityHeader<ParameterTypes>.Create(ParameterTypes.String);
@@ -1181,7 +1183,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
 
 
-        public DeviceMessageDefinitionField Clone(bool newId = false, EntityHeader org = null, EntityHeader user = null)
+        public new DeviceMessageDefinitionField Clone(bool newId = false, EntityHeader org = null, EntityHeader user = null)
         {
             var fld = new DeviceMessageDefinitionField()
             {

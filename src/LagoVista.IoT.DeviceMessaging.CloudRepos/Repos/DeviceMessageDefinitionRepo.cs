@@ -9,13 +9,15 @@ using LagoVista.IoT.DeviceMessaging.Admin.Repos;
 using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.Core.Models.UIMetaData;
+using LagoVista.Core.Interfaces;
 
 namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
 {
     public class DeviceMessageDefinitionRepo : DocumentDBRepoBase<DeviceMessageDefinition>, IDeviceMessageDefinitionRepo
     {
         private bool _shouldConsolidateCollections;
-        public DeviceMessageDefinitionRepo(IDeviceMessagingSettings repoSettings, IAdminLogger logger) : base(repoSettings.DeviceMessagingDocDbStorage.Uri, repoSettings.DeviceMessagingDocDbStorage.AccessKey, repoSettings.DeviceMessagingDocDbStorage.ResourceName, logger)
+        public DeviceMessageDefinitionRepo(IDeviceMessagingSettings repoSettings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyManager) :
+            base(repoSettings.DeviceMessagingDocDbStorage.Uri, repoSettings.DeviceMessagingDocDbStorage.AccessKey, repoSettings.DeviceMessagingDocDbStorage.ResourceName, logger, cacheProvider, dependencyManager)
         {
             _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }

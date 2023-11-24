@@ -100,7 +100,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title,
         DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources),
         SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes", DeleteUrl: "/api/devicemessagetype/{id}")]
-    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, IKeyedEntity, IOwnedEntity, INoSQLEntity, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormConditionalFields
+    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormConditionalFields
 
     {
         public const string ContentType_NoContent = "nocontent";
@@ -145,10 +145,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             MessageDirection = EntityHeader<MessageDirections>.Create(MessageDirections.Incoming);
         }
 
-        public String DatabaseName { get; set; }
-
-        public String EntityType { get; set; }
-
         public string OriginalId { get; set; }
 
         public EntityHeader OriginalOwnerOrganization { get; set; }
@@ -158,19 +154,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
         public string OriginalCreationDate { get; set; }
 
-        [CloneOptions(false)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_IsPublic, HelpResource: DeviceMessagingAdminResources.Names.Common_IsPublic_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public bool IsPublic { get; set; }
-
-        [CloneOptions(false)]
-        public EntityHeader OwnerOrganization { get; set; }
-
-        [CloneOptions(false)]
-        public EntityHeader OwnerUser { get; set; }
-
-        [CloneOptions(false)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Key, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: DeviceMessagingAdminResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
-        public String Key { get; set; }
 
         [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Fields, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceMessagingAdminResources))]
