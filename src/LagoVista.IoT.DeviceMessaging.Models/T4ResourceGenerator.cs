@@ -1,4 +1,4 @@
-﻿/*11/2/2023 10:21:07 AM*/
+﻿/*12/5/2023 7:44:54 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -108,6 +108,18 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DateTimeZone_Universal
 
 		public static string DateTimeZone_Universal { get { return GetResourceString("DateTimeZone_Universal"); } }
+//Resources:DeviceMessagingAdminResources:DeviceField_Help
+
+		public static string DeviceField_Help { get { return GetResourceString("DeviceField_Help"); } }
+//Resources:DeviceMessagingAdminResources:DeviceField_Title
+
+		public static string DeviceField_Title { get { return GetResourceString("DeviceField_Title"); } }
+//Resources:DeviceMessagingAdminResources:DeviceField_Verifiers
+
+		public static string DeviceField_Verifiers { get { return GetResourceString("DeviceField_Verifiers"); } }
+//Resources:DeviceMessagingAdminResources:DeviceField_Verifiers_Help
+
+		public static string DeviceField_Verifiers_Help { get { return GetResourceString("DeviceField_Verifiers_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMesage_MessageDirection
 
 		public static string DeviceMesage_MessageDirection { get { return GetResourceString("DeviceMesage_MessageDirection"); } }
@@ -785,6 +797,10 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DateTimeZone_Time_Zone = "DateTimeZone_Time_Zone";
 			public const string DateTimeZone_Time_Zone_Help = "DateTimeZone_Time_Zone_Help";
 			public const string DateTimeZone_Universal = "DateTimeZone_Universal";
+			public const string DeviceField_Help = "DeviceField_Help";
+			public const string DeviceField_Title = "DeviceField_Title";
+			public const string DeviceField_Verifiers = "DeviceField_Verifiers";
+			public const string DeviceField_Verifiers_Help = "DeviceField_Verifiers_Help";
 			public const string DeviceMesage_MessageDirection = "DeviceMesage_MessageDirection";
 			public const string DeviceMessage_BinaryParsing_Strategy = "DeviceMessage_BinaryParsing_Strategy";
 			public const string DeviceMessage_BinaryParsing_Strategy_Absolute = "DeviceMessage_BinaryParsing_Strategy_Absolute";

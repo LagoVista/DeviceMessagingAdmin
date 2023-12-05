@@ -202,12 +202,12 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         ///  Device Message Type, Field - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/device/envelope/field/factory")]
-        public DetailResponse<DeviceField> CreateDeviceEnvelopeMessageField()
+        [HttpGet("/api/messageattributeparser/factory")]
+        public DetailResponse<MessageAttributeParser> CreateDeviceEnvelopeMessageField()
         {
-            var result = DetailResponse<DeviceField>.Create();
+            var result = DetailResponse<MessageAttributeParser>.Create();
 
-            var contentOptions = result.View[nameof(DeviceField.ContentType).CamelCase()].Options;
+            var contentOptions = result.View[nameof(MessageAttributeParser.ContentType).CamelCase()].Options;
             contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_Media));
             contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_GeoPointArray));
             contentOptions.Remove(contentOptions.Single(opt => opt.Id == DeviceMessageDefinition.ContentType_NoContent));

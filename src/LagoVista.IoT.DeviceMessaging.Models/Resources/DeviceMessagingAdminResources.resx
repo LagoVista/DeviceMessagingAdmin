@@ -821,4 +821,16 @@
   <data name="DeviceMessage_ImportFields" xml:space="preserve">
     <value>Import Fields</value>
   </data>
+  <data name="DeviceField_Help" xml:space="preserve">
+    <value>A Message Key Attribute is either the identifier from the device that sent the message or a unique identifer that will identify the message.  The combination of the Message Id and Device Id are used to determine how the message is processed.</value>
+  </data>
+  <data name="DeviceField_Title" xml:space="preserve">
+    <value>Message Key Attribute Parser</value>
+  </data>
+  <data name="DeviceField_Verifiers" xml:space="preserve">
+    <value>Verifiers</value>
+  </data>
+  <data name="DeviceField_Verifiers_Help" xml:space="preserve">
+    <value>Create and run verifiers to check out the behavior of your Deivce Id and Message Id Parsers</value>
+  </data>
 </root>
