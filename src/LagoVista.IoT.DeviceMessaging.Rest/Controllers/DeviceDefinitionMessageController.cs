@@ -202,6 +202,16 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         ///  Device Message Type, Field - Create New
         /// </summary>
         /// <returns></returns>
+        [HttpGet("/api/devicemessagetype/header/factory")]
+        public DetailResponse<Header> CreateHeader()
+        {
+            return DetailResponse<Header>.Create();
+        }
+
+        /// <summary>
+        ///  Device Message Type, Field - Create New
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("/api/messageattributeparser/factory")]
         public DetailResponse<MessageAttributeParser> CreateDeviceEnvelopeMessageField()
         {

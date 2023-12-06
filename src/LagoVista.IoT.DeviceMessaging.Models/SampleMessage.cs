@@ -40,7 +40,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: false)]
         public String Description { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.SampleMessage_Headers, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: false)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.SampleMessage_Headers, FieldType: FieldTypes.ChildListInline, FactoryUrl: "/api/devicemessagetype/header/factory", ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: false)]
         public ObservableCollection<Header> Headers { get; set; }
 
         public List<string> GetFormFields()
@@ -59,7 +59,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     }
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.SampleMessageHeader_TItle, DeviceMessagingAdminResources.Names.SampleMessageHeader_Help,
-        DeviceMessagingAdminResources.Names.SampleMessageHeader_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources))]
+        DeviceMessagingAdminResources.Names.SampleMessageHeader_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources), FactoryUrl: "/api/devicemessagetype/header/factory")]
     public class Header : IFormDescriptor
     {
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.SampleMessageHeader_HeaderName, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
