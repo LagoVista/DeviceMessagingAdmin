@@ -118,7 +118,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageField_Title, DeviceMessagingAdminResources.Names.DeviceMessageField_Help,
         DeviceMessagingAdminResources.Names.DeviceMessageField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources), FactoryUrl: "/api/devicemessagetype/field/factory")]
-    public class DeviceMessageDefinitionField : MessageAttributeParser, IKeyedEntity, INamedEntity, IValidateable, IFormDescriptor //, IFormConditionalFields
+    public class DeviceMessageDefinitionField : MessageAttributeParser, IKeyedEntity, INamedEntity, IValidateable, IFormDescriptor, IFormConditionalFields
     {
         public DeviceMessageDefinitionField()
         {
@@ -135,6 +135,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(Name),
 
                 nameof(Key),
+
+                nameof(ContentType),
 
                 nameof(SearchLocation),
                 nameof(ParsedBinaryFieldType),
@@ -200,7 +202,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         //      implementing in front end logic.
         public new FormConditionals GetConditionalFields()
         {
-            return new FormConditionals()
+            return new FormConditionals();
+            /*return new FormConditionals()
             {
                 ConditionalFields = new List<string>() { nameof(StateSet), nameof(UnitSet), nameof(HeaderName), nameof(TopicLocator), nameof(DecimalScaler),
                                                          nameof(XPath), nameof(LatXPath), nameof(LonXPath), nameof(AltitudeXPath),
@@ -263,7 +266,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                          VisibleFields = new List<string>() { nameof(ParsedBinaryFieldType)}
                     },
                 }
-            };
+            };*/
         }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_DefaultValue, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_DefaultValue_Help, ResourceType: typeof(DeviceMessagingAdminResources))]

@@ -142,13 +142,13 @@
     <value>Notes</value>
   </data>
   <data name="DeviceMessageDefinition_Description" xml:space="preserve">
-    <value>Content and Format of a Message your Device will Send or Receive</value>
+    <value>The Message Definition is at the heart of your IoT application, it defines a contract as to how data should be sent from a device so that it can be parsed into a set of fields that can be used in your application.</value>
   </data>
   <data name="DeviceMessageDefinition_Fields" xml:space="preserve">
     <value>Fields</value>
   </data>
   <data name="DeviceMessageDefinition_Help" xml:space="preserve">
-    <value>Content and Format of a Message your Device will Send or Receive</value>
+    <value>The Message Definition is at the heart of your IoT application, it defines a contract as to how data should be sent from a device so that it can be parsed into a set of fields that can be used in your application.</value>
   </data>
   <data name="DeviceMessageDefinition_Key_Help" xml:space="preserve">
     <value>The key is used to identify this item in scripts and must be unique with respect to it's parent. One a key has been assigned, it can not be changed.  The Key can different from the Message Id in that the message id can be anything that the device requires.  They can also be the same.</value>
@@ -220,7 +220,7 @@
     <value>Provide the column within the delimited text that include the value that should be extracted</value>
   </data>
   <data name="DeviceMessageField_Description" xml:space="preserve">
-    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is populated from the Input Translator and mapped to a Input on a Device Workflow</value>
+    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is used by the input translator to extract data from messages sent from your devices.</value>
   </data>
   <data name="DeviceMessageField_FieldType_Content" xml:space="preserve">
     <value>Content</value>
@@ -247,7 +247,7 @@
     <value>Enter the name of the Header to extract the field.</value>
   </data>
   <data name="DeviceMessageField_Help" xml:space="preserve">
-    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is populated from the Input Translator and mapped to a Input on a Device Workflow</value>
+    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is used by the input translator to extract data from messages sent from your devices.</value>
   </data>
   <data name="DeviceMessageField_IsRequired" xml:space="preserve">
     <value>Is Required</value>

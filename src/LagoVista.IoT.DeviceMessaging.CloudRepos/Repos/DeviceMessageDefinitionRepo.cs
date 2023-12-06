@@ -40,9 +40,13 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
             return base.DeleteDocumentAsync(id);
         }
 
-        public Task<DeviceMessageDefinition> GetDeviceMessageDefinitionAsync(string id)
+        public async Task<DeviceMessageDefinition> GetDeviceMessageDefinitionAsync(string id)
         {
-            return GetDocumentAsync(id);
+            var doc = await GetDocumentAsync(id);
+            foreach (var field in doc.Fields)
+                field.ContentType = doc.ContentType;
+
+            return doc;
         }
 
         public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request)
