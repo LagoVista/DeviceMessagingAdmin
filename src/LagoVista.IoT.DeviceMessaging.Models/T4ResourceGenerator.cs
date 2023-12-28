@@ -1,4 +1,4 @@
-﻿/*12/5/2023 7:44:54 AM*/
+﻿/*12/28/2023 7:48:28 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -323,6 +323,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessageDefinition_Title
 
 		public static string DeviceMessageDefinition_Title { get { return GetResourceString("DeviceMessageDefinition_Title"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessageDefinitions_Title
+
+		public static string DeviceMessageDefinitions_Title { get { return GetResourceString("DeviceMessageDefinitions_Title"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessageField_AltitudeBinaryOffset
 
 		public static string DeviceMessageField_AltitudeBinaryOffset { get { return GetResourceString("DeviceMessageField_AltitudeBinaryOffset"); } }
@@ -866,6 +869,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessageDefinition_SampleMessages_Help = "DeviceMessageDefinition_SampleMessages_Help";
 			public const string DeviceMessageDefinition_Script = "DeviceMessageDefinition_Script";
 			public const string DeviceMessageDefinition_Title = "DeviceMessageDefinition_Title";
+			public const string DeviceMessageDefinitions_Title = "DeviceMessageDefinitions_Title";
 			public const string DeviceMessageField_AltitudeBinaryOffset = "DeviceMessageField_AltitudeBinaryOffset";
 			public const string DeviceMessageField_AltitudeFieldIndex = "DeviceMessageField_AltitudeFieldIndex";
 			public const string DeviceMessageField_AltitudeGroupName = "DeviceMessageField_AltitudeGroupName";

@@ -833,4 +833,7 @@
   <data name="DeviceField_Verifiers_Help" xml:space="preserve">
     <value>Create and run verifiers to check out the behavior of your Deivce Id and Message Id Parsers</value>
   </data>
+  <data name="DeviceMessageDefinitions_Title" xml:space="preserve">
+    <value>Message Definitions</value>
+  </data>
 </root>
