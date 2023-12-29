@@ -117,7 +117,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 #endregion
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageField_Title, DeviceMessagingAdminResources.Names.DeviceMessageField_Help,
-        DeviceMessagingAdminResources.Names.DeviceMessageField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources), FactoryUrl: "/api/devicemessagetype/field/factory")]
+        DeviceMessagingAdminResources.Names.DeviceMessageField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources), 
+        FactoryUrl: "/api/devicemessagetype/field/factory")]
     public class DeviceMessageDefinitionField : MessageAttributeParser, IKeyedEntity, INamedEntity, IValidateable, IFormDescriptor, IFormConditionalFields
     {
         public DeviceMessageDefinitionField()
