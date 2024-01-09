@@ -85,7 +85,7 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         [HttpGet("/api/devicemessagetypes/incoming")]
         public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetIncomingDeviceMessageConfigurationsForOrgAsync()
         {
-            return await _deviceConfigManager.GetDeviceMessageDefinitionsForOrgsAsync(OrgEntityHeader.Id, UserEntityHeader, GetListRequestFromHeader());
+            return await _deviceConfigManager.GetIncomingDeviceMessageDefinitionsForOrgsAsync(OrgEntityHeader.Id, UserEntityHeader, GetListRequestFromHeader());
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         [HttpGet("/api/devicemessagetypes/outgoing")]
         public async Task<ListResponse<DeviceMessageDefinitionSummary>> GetOutgoingDeviceMessageConfigurationsForOrgAsync()
         {
-            return await _deviceConfigManager.GetDeviceMessageDefinitionsForOrgsAsync(OrgEntityHeader.Id, UserEntityHeader, GetListRequestFromHeader());
+            return await _deviceConfigManager.GetOutgoingDeviceMessageDefinitionsForOrgsAsync(OrgEntityHeader.Id, UserEntityHeader, GetListRequestFromHeader());
         }
 
         /// <summary>

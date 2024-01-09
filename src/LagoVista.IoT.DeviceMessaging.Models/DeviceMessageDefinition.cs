@@ -101,7 +101,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources),
         SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes",
         DeleteUrl: "/api/devicemessagetype/{id}", Icon: "icon-fo-message-info")]
-    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormConditionalFields, ISummaryFactory
+    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormDescriptorAdvanced, IFormConditionalFields, ISummaryFactory
     {
         public const string ContentType_NoContent = "nocontent";
         public const string ContentType_Binary = "binary";
@@ -240,7 +240,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ImportFields, FieldType: FieldTypes.Action, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public bool ImportFieldsActions { get; set; }
+        public bool ImportFieldsAction { get; set; }
+
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ImportFields, FieldType: FieldTypes.Action, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public bool ShowVerifiersAction { get; set; }
 
         [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_Topic_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources))]
@@ -268,7 +271,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             {
                 nameof(Name),
                 nameof(Key),
-                nameof(IsPublic),
                 nameof(MessageId),
                 nameof(MessageDirection),
                 nameof(ContentType),
@@ -284,7 +286,33 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(StringParsingStrategy),
                 nameof(StringLengthByteCount),
                 nameof(BinaryParsingStrategy),
-                nameof(ImportFieldsActions),
+                nameof(Fields),
+            };
+        }
+
+        public List<string> GetAdvancedFields()
+        {
+            return new List<string>()
+            {
+                nameof(Name),
+                nameof(Key),
+                nameof(MessageId),
+                nameof(MessageDirection),
+                nameof(ContentType),
+                nameof(Delimiter),
+                nameof(Endian),
+                nameof(QuotedText),
+                nameof(RegEx),
+                nameof(OutputMessageScript),
+                nameof(RestMethod),
+                nameof(PathAndQueryString),
+                nameof(Topic),
+                nameof(Script),
+                nameof(StringParsingStrategy),
+                nameof(StringLengthByteCount),
+                nameof(BinaryParsingStrategy),
+                nameof(ImportFieldsAction),
+                nameof(ShowVerifiersAction),
                 nameof(Fields),
                 nameof(SampleMessages),
             };
@@ -412,7 +440,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             return new FormConditionals()
             {
                 ConditionalFields = { nameof(Delimiter), nameof(Endian), nameof(QuotedText), nameof(RegEx), nameof(Script), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy), 
-                        nameof(RestMethod), nameof(ImportFieldsActions), nameof(Topic), nameof(PathAndQueryString), nameof(StringLengthByteCount) },
+                        nameof(RestMethod), nameof(ImportFieldsAction), nameof(Topic), nameof(PathAndQueryString), nameof(StringLengthByteCount) },
                 Conditionals = new List<FormConditional>()
                 {
                      new FormConditional()
@@ -448,7 +476,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                     {
                         Field = nameof(ContentType),
                         Value = ContentType_Json,
-                        VisibleFields = {nameof(ImportFieldsActions)}
+                        VisibleFields = {nameof(ImportFieldsAction)}
                     }
                 }
             };
