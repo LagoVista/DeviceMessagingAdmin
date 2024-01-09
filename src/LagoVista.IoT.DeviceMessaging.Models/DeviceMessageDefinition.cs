@@ -411,14 +411,15 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         {
             return new FormConditionals()
             {
-                ConditionalFields = { nameof(Delimiter), nameof(Endian), nameof(QuotedText), nameof(RegEx), nameof(Script), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy), nameof(ImportFieldsActions) },
+                ConditionalFields = { nameof(Delimiter), nameof(Endian), nameof(QuotedText), nameof(RegEx), nameof(Script), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy), 
+                        nameof(RestMethod), nameof(ImportFieldsActions), nameof(Topic), nameof(PathAndQueryString), nameof(StringLengthByteCount) },
                 Conditionals = new List<FormConditional>()
                 {
                      new FormConditional()
                      {
                          Field = nameof(ContentType),
                          Value = ContentType_Binary,
-                         VisibleFields = { nameof(Endian), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy)}
+                         VisibleFields = { nameof(Endian), nameof(StringParsingStrategy), nameof(BinaryParsingStrategy), nameof(StringLengthByteCount)}
                      },
                      new FormConditional()
                      {
@@ -435,7 +436,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                     {
                         Field = nameof(MessageDirection),
                         Value = MessageDirection_Outgoing,
-                        VisibleFields = {nameof(RestMethod), nameof(Topic), nameof(PathAndQueryString), nameof(OutputMessageScript)}
+                        VisibleFields = {nameof(RestMethod), nameof(Topic), nameof(PathAndQueryString), nameof(OutputMessageScript), nameof(OutputMessageScript)}
                     },
                     new FormConditional()
                     {
