@@ -11,6 +11,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Repos
         Task AddDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageDefinition);
         Task<DeviceMessageDefinition> GetDeviceMessageDefinitionAsync(string id);
         Task<ListResponse<DeviceMessageDefinitionSummary>> GetDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request);
+        Task<ListResponse<DeviceMessageDefinitionSummary>> GetIncomingDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request);
+        Task<ListResponse<DeviceMessageDefinitionSummary>> GetOutgoingDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request);
         Task<ListResponse<DeviceMessageDefinitionSummary>> GetSevenSegmentDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request);
         Task<ListResponse<DeviceMessageDefinitionSummary>> GetPublicDeviceMessageDefinitionsAsync(ListRequest request);
         Task UpdateDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageDefinition);

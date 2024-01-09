@@ -70,5 +70,17 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
         {
             return base.UpsertDocumentAsync(deviceMessageDefinition);
         }
+
+        public Task<ListResponse<DeviceMessageDefinitionSummary>> GetIncomingDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request)
+        {
+            return base.QuerySummaryAsync<DeviceMessageDefinitionSummary, DeviceMessageDefinition>(qry => qry.OwnerOrganization.Id == orgId
+            && (qry.MessageDirection.Value == MessageDirections.Incoming || qry.MessageDirection.Value == MessageDirections.IncomingAndOutgoing), qry => qry.Name, request);
+        }
+
+        public Task<ListResponse<DeviceMessageDefinitionSummary>> GetOutgoingDeviceMessageDefinitionsForOrgAsync(string orgId, ListRequest request)
+        {
+            return base.QuerySummaryAsync<DeviceMessageDefinitionSummary, DeviceMessageDefinition>(qry => qry.OwnerOrganization.Id == orgId 
+            && (qry.MessageDirection.Value == MessageDirections.Outgoing || qry.MessageDirection.Value == MessageDirections.IncomingAndOutgoing) , qry => qry.Name, request);
+        }
     }
 }
