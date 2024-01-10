@@ -836,4 +836,7 @@
   <data name="DeviceMessageDefinitions_Title" xml:space="preserve">
     <value>Message Definitions</value>
   </data>
+  <data name="DeviceMessage_ShowVerifiers" xml:space="preserve">
+    <value>Verifiers</value>
+  </data>
 </root>

@@ -242,7 +242,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ImportFields, FieldType: FieldTypes.Action, ResourceType: typeof(DeviceMessagingAdminResources))]
         public bool ImportFieldsAction { get; set; }
 
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ImportFields, FieldType: FieldTypes.Action, ResourceType: typeof(DeviceMessagingAdminResources))]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_ShowVerifiers, FieldType: FieldTypes.Action, ResourceType: typeof(DeviceMessagingAdminResources))]
         public bool ShowVerifiersAction { get; set; }
 
         [CloneOptions(true)]
