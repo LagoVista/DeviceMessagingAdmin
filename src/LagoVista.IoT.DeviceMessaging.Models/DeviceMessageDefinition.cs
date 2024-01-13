@@ -101,7 +101,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources),
         SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes",
         DeleteUrl: "/api/devicemessagetype/{id}", Icon: "icon-fo-message-info")]
-    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormDescriptorAdvanced, IFormConditionalFields, ISummaryFactory
+    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormDescriptorAdvanced, IFormConditionalFields, ISummaryFactory, IIconEntity
     {
         public const string ContentType_NoContent = "nocontent";
         public const string ContentType_Binary = "binary";
@@ -143,6 +143,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             FramingBytes = new List<MessageFramingBytes>();
             SampleMessages = new List<SampleMessage>();
             MessageDirection = EntityHeader<MessageDirections>.Create(MessageDirections.Incoming);
+            Icon = "icon-fo-message-info";
         }
 
         public string OriginalId { get; set; }
@@ -257,6 +258,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages_Help, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<SampleMessage> SampleMessages { get; set; }
 
+
+        [CloneOptions(true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Icon, FieldType: FieldTypes.Icon, IsRequired:true, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public string Icon { get; set; }
+
+
         public string BackgroundColor { get; set; }
 
         public string SegementColor { get; set; }
@@ -296,6 +303,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             {
                 nameof(Name),
                 nameof(Key),
+                nameof(Icon),
                 nameof(MessageId),
                 nameof(MessageDirection),
                 nameof(ContentType),
@@ -329,6 +337,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
             {
                 Id = Id,
                 Name = Name,
+                Icon = Icon,
                 Key = Key,
                 IsPublic = IsPublic,
                 Description = Description,

@@ -839,4 +839,7 @@
   <data name="DeviceMessage_ShowVerifiers" xml:space="preserve">
     <value>Verifiers</value>
   </data>
+  <data name="Common_Icon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
 </root>

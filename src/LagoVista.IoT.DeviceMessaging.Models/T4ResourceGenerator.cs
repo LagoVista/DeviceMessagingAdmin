@@ -1,4 +1,4 @@
-﻿/*1/10/2024 6:10:42 AM*/
+﻿/*1/13/2024 9:56:29 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -57,6 +57,9 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
         }*/
 		
 		public static string Common_Description { get { return GetResourceString("Common_Description"); } }
+//Resources:DeviceMessagingAdminResources:Common_Icon
+
+		public static string Common_Icon { get { return GetResourceString("Common_Icon"); } }
 //Resources:DeviceMessagingAdminResources:Common_Id
 
 		public static string Common_Id { get { return GetResourceString("Common_Id"); } }
@@ -786,6 +789,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 		public static class Names
 		{
 			public const string Common_Description = "Common_Description";
+			public const string Common_Icon = "Common_Icon";
 			public const string Common_Id = "Common_Id";
 			public const string Common_IsPublic = "Common_IsPublic";
 			public const string Common_IsPublic_Help = "Common_IsPublic_Help";
