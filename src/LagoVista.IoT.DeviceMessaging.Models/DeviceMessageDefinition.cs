@@ -98,10 +98,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     }
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title,
-        DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceMessagingAdminResources),
+        DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, typeof(DeviceMessagingAdminResources),
         SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes",
-        DeleteUrl: "/api/devicemessagetype/{id}", Icon: "icon-fo-message-info")]
-    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormDescriptorAdvanced, IFormConditionalFields, ISummaryFactory, IIconEntity
+        DeleteUrl: "/api/devicemessagetype/{id}", Icon: "icon-fo-message-info", ListUIUrl: "/iotstudio/device/messages",  EditUIUrl: "/iotstudio/device/message/{id}", CreateUIUrl: "/iotstudio/device/message/add")]
+    public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormDescriptorAdvanced, IFormConditionalFields,
+        ICategorized, ISummaryFactory, IIconEntity
     {
         public const string ContentType_NoContent = "nocontent";
         public const string ContentType_Binary = "binary";
@@ -163,6 +164,11 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId_Help, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public string MessageId { get; set; }
+
+
+        [CloneOptions(false)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceMessagingAdminResources.Names.Common_Category_Select, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true, IsUserEditable: true)]
+        public EntityHeader Category { get; set; }
 
         [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited, isRequired: false)]
@@ -341,7 +347,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 Key = Key,
                 IsPublic = IsPublic,
                 Description = Description,
-                Direction = MessageDirection.Text
+                Direction = MessageDirection.Text,
+                Category = Category
             };
         }
 
@@ -501,7 +508,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
      DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, 
         typeof(DeviceMessagingAdminResources), Icon: "icon-fo-message-info",
      SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes", DeleteUrl: "/api/devicemessagetype/{id}")]
-    public class DeviceMessageDefinitionSummary : LagoVista.Core.Models.SummaryData
+    public class DeviceMessageDefinitionSummary : LagoVista.Core.Models.CategorizedSummaryData
     {
         public string Direction { get; set; }
 

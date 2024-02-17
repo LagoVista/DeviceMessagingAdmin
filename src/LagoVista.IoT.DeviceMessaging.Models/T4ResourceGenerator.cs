@@ -1,8 +1,8 @@
-﻿/*1/13/2024 9:56:29 AM*/
+﻿/*2/17/2024 10:03:26 AM*/
 using System.Globalization;
 using System.Reflection;
 
-//Resources:DeviceMessagingAdminResources:Common_Description
+//Resources:DeviceMessagingAdminResources:Common_Category
 namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 {
 	public class DeviceMessagingAdminResources
@@ -56,6 +56,12 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			return new HtmlString(str);
         }*/
 		
+		public static string Common_Category { get { return GetResourceString("Common_Category"); } }
+//Resources:DeviceMessagingAdminResources:Common_Category_Select
+
+		public static string Common_Category_Select { get { return GetResourceString("Common_Category_Select"); } }
+//Resources:DeviceMessagingAdminResources:Common_Description
+
 		public static string Common_Description { get { return GetResourceString("Common_Description"); } }
 //Resources:DeviceMessagingAdminResources:Common_Icon
 
@@ -788,6 +794,8 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 
 		public static class Names
 		{
+			public const string Common_Category = "Common_Category";
+			public const string Common_Category_Select = "Common_Category_Select";
 			public const string Common_Description = "Common_Description";
 			public const string Common_Icon = "Common_Icon";
 			public const string Common_Id = "Common_Id";

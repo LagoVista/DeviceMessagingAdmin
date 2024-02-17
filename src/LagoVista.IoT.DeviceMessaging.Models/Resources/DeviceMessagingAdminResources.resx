@@ -148,7 +148,7 @@
     <value>Fields</value>
   </data>
   <data name="DeviceMessageDefinition_Help" xml:space="preserve">
-    <value>The Message Definition is at the heart of your IoT application, it defines a contract as to how data should be sent from a device so that it can be parsed into a set of fields that can be used in your application.</value>
+    <value>The Message Definition is central to your IoT application—it outlines the rules for how data should be sent from a device. This ensures that the data can be organized into specific fields, making it usable within your application.</value>
   </data>
   <data name="DeviceMessageDefinition_Key_Help" xml:space="preserve">
     <value>The key is used to identify this item in scripts and must be unique with respect to it's parent. One a key has been assigned, it can not be changed.  The Key can different from the Message Id in that the message id can be anything that the device requires.  They can also be the same.</value>
@@ -513,7 +513,7 @@
     <value>Framing Byte</value>
   </data>
   <data name="SampleMessage_Description" xml:space="preserve">
-    <value>A sample message contains the same content that will be sent along with the message, it can be used to create message parsers, build verifiers as well as provide a starting point to create simulators.</value>
+    <value>Sample messages include the actual content that your message will transmit. These samples prove useful in the construction of your message parsers and can be utilized as a foundation for initiating the development of simulators.</value>
   </data>
   <data name="SampleMessage_HeaderName" xml:space="preserve">
     <value>Header Name</value>
@@ -525,7 +525,7 @@
     <value>Header Value</value>
   </data>
   <data name="SampleMessage_Help" xml:space="preserve">
-    <value>A sample message contains the same content that will be sent along with the message, it can be used to create message parsers, build verifiers as well as provide a starting point to create simulators.</value>
+    <value>Sample messages include the actual content that your message will transmit. These samples prove useful in the construction of your message parsers and can be utilized as a foundation for initiating the development of simulators.</value>
   </data>
   <data name="SampleMessage_MessageId" xml:space="preserve">
     <value>Message Id</value>
@@ -841,5 +841,11 @@
   </data>
   <data name="Common_Icon" xml:space="preserve">
     <value>Icon</value>
+  </data>
+  <data name="Common_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Common_Category_Select" xml:space="preserve">
+    <value>-select category-</value>
   </data>
 </root>
