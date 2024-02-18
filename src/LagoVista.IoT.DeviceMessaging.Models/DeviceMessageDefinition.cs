@@ -167,7 +167,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
 
 
         [CloneOptions(false)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceMessagingAdminResources.Names.Common_Category_Select, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true, IsUserEditable: true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceMessagingAdminResources.Names.Common_Category_Select, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: false, IsUserEditable: true)]
         public EntityHeader Category { get; set; }
 
         [CloneOptions(true)]
