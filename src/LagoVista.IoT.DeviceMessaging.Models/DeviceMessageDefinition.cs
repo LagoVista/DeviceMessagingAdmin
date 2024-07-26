@@ -98,7 +98,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     }
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Title,
-        DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, typeof(DeviceMessagingAdminResources),
+        DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, typeof(DeviceMessagingAdminResources), Cloneable:true,
         SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes",
         DeleteUrl: "/api/devicemessagetype/{id}", Icon: "icon-fo-message-info", ListUIUrl: "/iotstudio/device/messages",  EditUIUrl: "/iotstudio/device/message/{id}", CreateUIUrl: "/iotstudio/device/message/add")]
     public class DeviceMessageDefinition : LagoVista.IoT.DeviceAdmin.Models.IoTModelBase, IValidateable, ICloneable<DeviceMessageDefinition>, IFormDescriptor, IFormDescriptorAdvanced, IFormConditionalFields,
@@ -285,6 +285,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(Name),
                 nameof(Key),
                 nameof(MessageId),
+                nameof(IsPublic),
                 nameof(MessageDirection),
                 nameof(ContentType),
                 nameof(Delimiter),
@@ -311,6 +312,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(Key),
                 nameof(Icon),
                 nameof(MessageId),
+                nameof(IsPublic),
                 nameof(MessageDirection),
                 nameof(ContentType),
                 nameof(Delimiter),
@@ -505,8 +507,8 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
     }
 
     [EntityDescription(DeviceMessagingAdminDomain.DeviceMessagingAdmin, DeviceMessagingAdminResources.Names.DeviceMessageDefinitions_Title,
-     DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, 
-        typeof(DeviceMessagingAdminResources), Icon: "icon-fo-message-info",
+     DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.Summary, 
+        typeof(DeviceMessagingAdminResources), Icon: "icon-fo-message-info", Cloneable: true,
      SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes", DeleteUrl: "/api/devicemessagetype/{id}")]
     public class DeviceMessageDefinitionSummary : LagoVista.Core.Models.CategorizedSummaryData
     {
