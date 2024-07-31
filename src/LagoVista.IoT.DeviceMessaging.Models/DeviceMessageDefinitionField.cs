@@ -305,12 +305,12 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue, FieldType: FieldTypes.Decimal, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageField_MaxValue_Help, ResourceType: typeof(DeviceMessagingAdminResources))]
         public double? MaxValue { get; set; }
 
-        [FKeyProperty(nameof(UnitSet), "Fields[*].UnitSet.Id = {0}","")]
+        [FKeyProperty(nameof(UnitSet),typeof(UnitSet), "Fields[*].UnitSet.Id = {0}","")]
         [AllowableStorageContentType(ParameterTypes.ValueWithUnit)]
         [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker,  WaterMark: DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
-        [FKeyProperty(nameof(UnitSet), "Fields[*].StateSet.Id = {0}", "")]
+        [FKeyProperty(nameof(StateSet), typeof(StateSet), "Fields[*].StateSet.Id = {0}", "")]
         [AllowableStorageContentType(ParameterTypes.State)]
         [FormField(LabelResource: DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
