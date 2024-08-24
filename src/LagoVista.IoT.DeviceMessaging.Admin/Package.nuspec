@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceMessaging.Admin</id>
-    <version>3.0.2656.0528</version>
+    <version>3.0.2656.0615</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,14 +12,14 @@
     <copyright>Copyright Software Logistics - 2024</copyright>
     <tags>HomeAutomation IoT LagoVista</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 8/24/2024 9:28:11 AM UTC</releaseNotes>
+    <releaseNotes>Build Date: 8/24/2024 10:15:47 AM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
       <group targetFramework="netstandard2.1">
-        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.2656.0528" />
-        <dependency id="SixLabors.ImageSharp" version="1.0.3" />
-        <dependency id="LagoVista.UserAdmin" version="3.0.2656.0528" />
-        <dependency id="LagoVista.IoT.DeviceMessaging.Models" version="3.0.2656.0528" />
+        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.2656.0615" />
+        <dependency id="SixLabors.ImageSharp" version="3.1.5" />
+        <dependency id="LagoVista.UserAdmin" version="3.0.2656.0615" />
+        <dependency id="LagoVista.IoT.DeviceMessaging.Models" version="3.0.2656.0615" />
       </group>
     </dependencies>
   </metadata>
