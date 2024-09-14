@@ -1,4 +1,4 @@
-﻿/*2/17/2024 10:03:26 AM*/
+﻿/*9/14/2024 8:23:42 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -284,6 +284,12 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 //Resources:DeviceMessagingAdminResources:DeviceMessage_ShowVerifiers
 
 		public static string DeviceMessage_ShowVerifiers { get { return GetResourceString("DeviceMessage_ShowVerifiers"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_StaleSeconds
+
+		public static string DeviceMessage_StaleSeconds { get { return GetResourceString("DeviceMessage_StaleSeconds"); } }
+//Resources:DeviceMessagingAdminResources:DeviceMessage_StaleSeconds_Help
+
+		public static string DeviceMessage_StaleSeconds_Help { get { return GetResourceString("DeviceMessage_StaleSeconds_Help"); } }
 //Resources:DeviceMessagingAdminResources:DeviceMessage_StringParsingStrategy_Select
 
 		public static string DeviceMessage_StringParsingStrategy_Select { get { return GetResourceString("DeviceMessage_StringParsingStrategy_Select"); } }
@@ -868,6 +874,8 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Resources
 			public const string DeviceMessage_RESTMethod_Select = "DeviceMessage_RESTMethod_Select";
 			public const string DeviceMessage_Script_Watermark = "DeviceMessage_Script_Watermark";
 			public const string DeviceMessage_ShowVerifiers = "DeviceMessage_ShowVerifiers";
+			public const string DeviceMessage_StaleSeconds = "DeviceMessage_StaleSeconds";
+			public const string DeviceMessage_StaleSeconds_Help = "DeviceMessage_StaleSeconds_Help";
 			public const string DeviceMessage_StringParsingStrategy_Select = "DeviceMessage_StringParsingStrategy_Select";
 			public const string DeviceMessage_Topic = "DeviceMessage_Topic";
 			public const string DeviceMessage_Topic_Help = "DeviceMessage_Topic_Help";

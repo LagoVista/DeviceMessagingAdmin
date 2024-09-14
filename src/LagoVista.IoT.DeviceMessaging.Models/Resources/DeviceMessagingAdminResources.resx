@@ -848,4 +848,10 @@
   <data name="Common_Category_Select" xml:space="preserve">
     <value>-select category-</value>
   </data>
+  <data name="DeviceMessage_StaleSeconds" xml:space="preserve">
+    <value>Stale (Seconds)</value>
+  </data>
+  <data name="DeviceMessage_StaleSeconds_Help" xml:space="preserve">
+    <value>Number of seconds where this data should be considered valid.</value>
+  </data>
 </root>

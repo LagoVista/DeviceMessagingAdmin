@@ -264,6 +264,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_SampleMessages_Help, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceMessagingAdminResources))]
         public List<SampleMessage> SampleMessages { get; set; }
 
+        [CloneOptions(true)]
+        [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_StaleSeconds, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_StaleSeconds_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
+        public int? StaleSeconds { get; set; }
+
 
         [CloneOptions(true)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Icon, FieldType: FieldTypes.Icon, IsRequired:true, ResourceType: typeof(DeviceMessagingAdminResources))]
@@ -323,6 +327,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(RestMethod),
                 nameof(PathAndQueryString),
                 nameof(Topic),
+                nameof(StaleSeconds),
                 nameof(Script),
                 nameof(StringParsingStrategy),
                 nameof(StringLengthByteCount),
