@@ -355,7 +355,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 IsPublic = IsPublic,
                 Description = Description,
                 Direction = MessageDirection.Text,
-                Category = Category
+                Category = Category?.Text,
+                CategoryId = Category?.Id,
+                CategoryKey = Category?.Key
             };
         }
 
@@ -515,7 +517,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
      DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Help, DeviceMessagingAdminResources.Names.DeviceMessageDefinition_Description, EntityDescriptionAttribute.EntityTypes.Summary, 
         typeof(DeviceMessagingAdminResources), Icon: "icon-fo-message-info", Cloneable: true,
      SaveUrl: "/api/devicemessagetype", FactoryUrl: "/api/devicemessagetype/factory", GetUrl: "/api/devicemessagetype/{id}", GetListUrl: "/api/devicemessagetypes", DeleteUrl: "/api/devicemessagetype/{id}")]
-    public class DeviceMessageDefinitionSummary : LagoVista.Core.Models.CategorizedSummaryData
+    public class DeviceMessageDefinitionSummary : SummaryData
     {
         public string Direction { get; set; }
 
