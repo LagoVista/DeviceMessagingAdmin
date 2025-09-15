@@ -2,28 +2,28 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceMessaging.Rest</id>
-    <version>3.0.2049.0905</version>
+    <version>3.0.3043.1833</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://www.nuviot.com</projectUrl>
     <iconUrl>http://bytemaster.blob.core.windows.net/icons/LagoVistaIcon.png</iconUrl>
     <description>Provides ASP.NET Core REST services to manage Device Message Definitions in the LagoVista IoT and Devices Framework</description>
-    <copyright>Copyright Software Logistics - 2022</copyright>
+    <copyright>Copyright Software Logistics - 2025</copyright>
     <tags>HomeAutomation IoT</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 12/26/2022 2:05:26 PM UTC</releaseNotes>
+    <releaseNotes>Build Date: 9/15/2025 10:33:59 PM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="LagoVista.IoT.Web.Common" version="3.0.2049.0905" />
-        <dependency id="LagoVista.IoT.DeviceMessaging.Admin" version="3.0.2049.0905" />
+      <group targetFramework="net9.0">
+        <dependency id="LagoVista.IoT.Web.Common" version="3.0.3043.1833" />
+        <dependency id="LagoVista.IoT.DeviceMessaging.Admin" version="3.0.3043.1833" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <file src="LagoVistaIcon.png" target="LagoVistaIcon.png" />
-    <file src="bin\release\net6.0\LagoVista.IoT.DeviceMessaging.Rest.dll" target="lib\net6.0\LagoVista.IoT.DeviceMessaging.Rest.dll" />
-    <file src="bin\release\net6.0\LagoVista.IoT.DeviceMessaging.Rest.pdb" target="lib\net6.0\LagoVista.IoT.DeviceMessaging.Rest.pdb" />
+    <file src="bin\release\net9.0\LagoVista.IoT.DeviceMessaging.Rest.dll" target="lib\net9.0\LagoVista.IoT.DeviceMessaging.Rest.dll" />
+    <file src="bin\release\net9.0\LagoVista.IoT.DeviceMessaging.Rest.pdb" target="lib\net9.0\LagoVista.IoT.DeviceMessaging.Rest.pdb" />
   </files>
 </package>

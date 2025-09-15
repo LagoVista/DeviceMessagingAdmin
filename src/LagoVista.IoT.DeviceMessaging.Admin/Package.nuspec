@@ -2,24 +2,24 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceMessaging.Admin</id>
-    <version>3.0.2656.0615</version>
+    <version>3.0.3043.1833</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://www.nuviot.com</projectUrl>
     <iconUrl>http://bytemaster.blob.core.windows.net/icons/LagoVistaIcon.png</iconUrl>
     <description>Provides Interfaces, Models and Managers for managing Device Message Definitions in the LagoVista IoT and Devices Framework</description>
-    <copyright>Copyright Software Logistics - 2024</copyright>
+    <copyright>Copyright Software Logistics - 2025</copyright>
     <tags>HomeAutomation IoT LagoVista</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 8/24/2024 10:15:47 AM UTC</releaseNotes>
+    <releaseNotes>Build Date: 9/15/2025 10:33:59 PM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
       <group targetFramework="netstandard2.1">
-        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.2656.0615" />
-        <dependency id="SixLabors.ImageSharp" version="3.1.5" />
-        <dependency id="LagoVista.UserAdmin" version="3.0.2656.0615" />
-        <dependency id="LagoVista.IoT.DeviceMessaging.Models" version="3.0.2656.0615" />
+        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.3043.1833" />
+        <dependency id="SixLabors.ImageSharp" version="2.1.11" />
+        <dependency id="LagoVista.UserAdmin" version="3.0.3043.1833" />
+        <dependency id="LagoVista.IoT.DeviceMessaging.Models" version="3.0.3043.1833" />
       </group>
     </dependencies>
   </metadata>

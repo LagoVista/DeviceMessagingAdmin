@@ -4,7 +4,7 @@
     <NetStandardImplicitPackageVersion>2.0.3</NetStandardImplicitPackageVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.CloudStorage" Version="3.0.2049.0905" />
+    <PackageReference Include="LagoVista.CloudStorage" Version="3.0.3043.1833" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceMessaging.Admin\LagoVista.IoT.DeviceMessaging.Admin.csproj" />
