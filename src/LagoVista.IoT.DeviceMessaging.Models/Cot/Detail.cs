@@ -1,4 +1,8 @@
-﻿using ProtoBuf;
+// --- BEGIN CODE INDEX META (do not edit) ---
+// ContentHash: c05d831db46af7f6eb5a4fff7f0600a31e534d4e03efaf89174aedd58024e1ce
+// IndexVersion: 2
+// --- END CODE INDEX META ---
+using ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

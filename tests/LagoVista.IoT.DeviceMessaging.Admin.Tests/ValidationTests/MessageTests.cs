@@ -1,4 +1,8 @@
-﻿using System;
+// --- BEGIN CODE INDEX META (do not edit) ---
+// ContentHash: 89654069cfe330503fa7d29b16f80553e8b92360a4a71929fd80c97297bce30d
+// IndexVersion: 2
+// --- END CODE INDEX META ---
+using System;
 using System.Linq;
 using LagoVista.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

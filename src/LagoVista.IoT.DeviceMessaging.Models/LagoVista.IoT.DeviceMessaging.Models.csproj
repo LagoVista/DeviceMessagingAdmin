@@ -9,8 +9,8 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="3.0.3043.1833" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.3043.1833" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="3.0.3097.0925" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.3097.0925" />
     <PackageReference Include="protobuf-net" Version="3.0.101" />
   </ItemGroup>
   <ItemGroup>
