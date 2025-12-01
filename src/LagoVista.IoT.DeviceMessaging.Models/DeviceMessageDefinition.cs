@@ -169,11 +169,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId, FieldType: FieldTypes.Text, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessageDefinition_MessageId_Help, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public string MessageId { get; set; }
 
-
-        [CloneOptions(false)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceMessagingAdminResources.Names.Common_Category_Select, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: false, IsUserEditable: true)]
-        public EntityHeader Category { get; set; }
-
         [CloneOptions(true)]
         [AllowableMessageContentType(MessageContentTypes.Delimited, isRequired: false)]
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_QuotedText_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceMessagingAdminResources))]
