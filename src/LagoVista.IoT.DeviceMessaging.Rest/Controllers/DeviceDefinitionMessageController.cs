@@ -227,9 +227,9 @@ namespace LagoVista.IoT.DeviceMessaging.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/api/devicemessagetype/header/factory")]
-        public DetailResponse<Header> CreateHeader()
+        public DetailResponse<SampleMessageHeader> CreateHeader()
         {
-            return DetailResponse<Header>.Create();
+            return DetailResponse<SampleMessageHeader>.Create();
         }
 
         /// <summary>
