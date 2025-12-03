@@ -142,13 +142,13 @@
     <value>Notes</value>
   </data>
   <data name="DeviceMessageDefinition_Description" xml:space="preserve">
-    <value>The Message Definition is at the heart of your IoT application, it defines a contract as to how data should be sent from a device so that it can be parsed into a set of fields that can be used in your application.</value>
+    <value>A Message Definition specifies the rules and format for how a device sends data. It ensures incoming data is parsed into specific fields and used correctly in your IoT application.</value>
   </data>
   <data name="DeviceMessageDefinition_Fields" xml:space="preserve">
     <value>Fields</value>
   </data>
   <data name="DeviceMessageDefinition_Help" xml:space="preserve">
-    <value>The Message Definition is central to your IoT application—it outlines the rules for how data should be sent from a device. This ensures that the data can be organized into specific fields, making it usable within your application.</value>
+    <value>Define how device data is structured and sent so it can be parsed into usable fields in your IoT application.</value>
   </data>
   <data name="DeviceMessageDefinition_Key_Help" xml:space="preserve">
     <value>The key is used to identify this item in scripts and must be unique with respect to it's parent. One a key has been assigned, it can not be changed.  The Key can different from the Message Id in that the message id can be anything that the device requires.  They can also be the same.</value>
@@ -220,7 +220,7 @@
     <value>Provide the column within the delimited text that include the value that should be extracted</value>
   </data>
   <data name="DeviceMessageField_Description" xml:space="preserve">
-    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is used by the input translator to extract data from messages sent from your devices.</value>
+    <value>A message field represents one data element in a device message definition. The input translator uses these fields to locate, extract, and interpret values from messages sent by your devices.</value>
   </data>
   <data name="DeviceMessageField_FieldType_Content" xml:space="preserve">
     <value>Content</value>
@@ -247,7 +247,7 @@
     <value>Enter the name of the Header to extract the field.</value>
   </data>
   <data name="DeviceMessageField_Help" xml:space="preserve">
-    <value>A Message Field is part of a definition of a message that contains exactly one element.  It is used by the input translator to extract data from messages sent from your devices.</value>
+    <value>Defines a single data element in a device message, used by the input translator to locate and extract values from incoming messages.</value>
   </data>
   <data name="DeviceMessageField_IsRequired" xml:space="preserve">
     <value>Is Required</value>
@@ -492,13 +492,13 @@
     <value>Offset the byte you are looking for to be searched immediately following the payload of your message.  For example if your payload is terminated with an ETX (0x03) at the end of the payload, and Index After Paylod is checked, it will look for the ETX character immediately following the last character of your payload.</value>
   </data>
   <data name="MessageFramingByte_Byte" xml:space="preserve">
-    <value>Byte</value>
+    <value>Framing Byte</value>
   </data>
   <data name="MessageFramingByte_Byte_Help" xml:space="preserve">
-    <value>Specify the hex presentation of the character you expect to be at a specific location in your message.  The text should always be four characters similar to the format as shown with 0x43 </value>
+    <value>Enter the hexadecimal value of the character expected at a specific position in the message, using exactly four characters (for example, 0x43).</value>
   </data>
   <data name="MessageFramingByte_Description" xml:space="preserve">
-    <value>A Framing Byte is used to ensure the message that is being parsed is in the correct format, for example if you know your message header will always be 8 characters you might look for STX or 0x02 at position 9</value>
+    <value>Use a framing byte to verify that a message is in the expected format. For example, if the message header is always 8 characters long, you might expect STX or 0x02 at position 9.</value>
   </data>
   <data name="MessageFramingByte_Help" xml:space="preserve">
     <value>A Framing Byte is used to ensure the message that is being parsed is in the correct format, for example if you know your message header will always be 8 characters you might look for STX or 0x02 at position 9</value>
@@ -513,7 +513,7 @@
     <value>Framing Byte</value>
   </data>
   <data name="SampleMessage_Description" xml:space="preserve">
-    <value>Sample messages include the actual content that your message will transmit. These samples prove useful in the construction of your message parsers and can be utilized as a foundation for initiating the development of simulators.</value>
+    <value>Create sample messages with example payloads that mirror the messages your system will send. Use them to design and test message parsers and to provide a starting point when building simulators.</value>
   </data>
   <data name="SampleMessage_HeaderName" xml:space="preserve">
     <value>Header Name</value>
@@ -525,7 +525,7 @@
     <value>Header Value</value>
   </data>
   <data name="SampleMessage_Help" xml:space="preserve">
-    <value>Sample messages include the actual content that your message will transmit. These samples prove useful in the construction of your message parsers and can be utilized as a foundation for initiating the development of simulators.</value>
+    <value>Stores example message payloads that represent what your system will send. Use sample messages to design and test message parsers and to support building simulators.</value>
   </data>
   <data name="SampleMessage_MessageId" xml:space="preserve">
     <value>Message Id</value>
@@ -777,10 +777,10 @@
     <value>Header Value</value>
   </data>
   <data name="SampleMessageHeader_Help" xml:space="preserve">
-    <value>Headers that will be added to your sample message, these are usually used for Http Headers.</value>
+    <value>Specify the headers to include in the sample message, for example HTTP request or response headers.</value>
   </data>
   <data name="SampleMessageHeader_TItle" xml:space="preserve">
-    <value>Sample Message Header</value>
+    <value>Sample Message Headers</value>
   </data>
   <data name="DeviceMessage_OutputScript_Watermark" xml:space="preserve">
     <value>Add Output Script</value>
@@ -822,7 +822,7 @@
     <value>Import Fields</value>
   </data>
   <data name="DeviceField_Help" xml:space="preserve">
-    <value>A Message Key Attribute is either the identifier from the device that sent the message or a unique identifer that will identify the message.  The combination of the Message Id and Device Id are used to determine how the message is processed.</value>
+    <value>Use this parser to extract the message key attribute that uniquely identifies each message. The key can be the device identifier, a unique message identifier, or a combination of Message Id and Device Id. This key is then used to determine how the message is processed.</value>
   </data>
   <data name="DeviceField_Title" xml:space="preserve">
     <value>Message Key Attribute Parser</value>

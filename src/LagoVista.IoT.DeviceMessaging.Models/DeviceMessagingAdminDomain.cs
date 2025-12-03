@@ -14,7 +14,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin
     public class DeviceMessagingAdminDomain
     {
         public const string DeviceMessagingAdmin = "Device Messaging Admin";
-
         [DomainDescription(DeviceMessagingAdmin)]
         public static DomainDescription DeploymentAdminDescription
         {
@@ -22,9 +21,9 @@ namespace LagoVista.IoT.DeviceMessaging.Admin
             {
                 return new DomainDescription()
                 {
-                    Description = "A set of classes that are used for defining message types and their properties.",
+                    Description = "Tools for defining device message types, their structure, and related properties used in your IoT application.",
                     DomainType = DomainDescription.DomainTypes.BusinessObject,
-                    Name = DeviceMessagingAdmin,
+                    Name = "Device Messaging Administration",
                     CurrentVersion = new Core.Models.VersionInfo()
                     {
                         Major = 0,
