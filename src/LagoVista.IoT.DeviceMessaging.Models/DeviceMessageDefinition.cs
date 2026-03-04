@@ -267,12 +267,6 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.DeviceMessage_StaleSeconds, HelpResource: DeviceMessagingAdminResources.Names.DeviceMessage_StaleSeconds_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceMessagingAdminResources))]
         public int? StaleSeconds { get; set; }
 
-
-        [CloneOptions(true)]
-        [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Icon, FieldType: FieldTypes.Icon, IsRequired:true, ResourceType: typeof(DeviceMessagingAdminResources))]
-        public string Icon { get; set; }
-
-
         public string BackgroundColor { get; set; }
 
         public string SegementColor { get; set; }

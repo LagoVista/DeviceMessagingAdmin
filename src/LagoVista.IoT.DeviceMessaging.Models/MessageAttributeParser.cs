@@ -77,10 +77,10 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
         #endregion
 
         #region Id/Key/Name Properties
-        public String Id { get; set; }
+        public NormalizedId32 Id { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Key, HelpResource: DeviceMessagingAdminResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: DeviceMessagingAdminResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
-        public String Key { get; set; }
+        public LagoVistaKey Key { get; set; }
 
         [FormField(LabelResource: DeviceMessagingAdminResources.Names.Common_Name, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceMessagingAdminResources), IsRequired: true)]
         public String Name { get; set; }

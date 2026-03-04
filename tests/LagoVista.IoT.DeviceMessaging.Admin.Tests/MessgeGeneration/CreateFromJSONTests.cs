@@ -62,7 +62,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.MessgeGeneration
             var response = DeviceMessageDefinitionField.CreateFieldsFromJSON(json);
             Assert.IsTrue(response.Successful);
             var field = response.Result[0];
-            Assert.AreEqual("field1", field.Key);
+            Assert.AreEqual("field1", field.Key.Value);
         }
 
         [TestMethod]
@@ -95,7 +95,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.MessgeGeneration
             var response = DeviceMessageDefinitionField.CreateFieldsFromJSON(json);
             Assert.IsTrue(response.Successful);
             var field = response.Result[0];
-            Assert.AreEqual("parentfield1", field.Key);
+            Assert.AreEqual("parentfield1", field.Key.Value);
         }
 
         [TestMethod]
@@ -128,7 +128,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.MessgeGeneration
             var response = DeviceMessageDefinitionField.CreateFieldsFromJSON(json);
             Assert.IsTrue(response.Successful);
             var field = response.Result[0];
-            Assert.AreEqual("parentchild1field1", field.Key);
+            Assert.AreEqual("parentchild1field1", field.Key.Value);
         }
 
         [TestMethod]
