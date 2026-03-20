@@ -25,7 +25,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Tests.ValidationTests
                 Key = "msg1234",
                 MessageDirection = EntityHeader<MessageDirections>.Create(MessageDirections.Incoming),
                 Id = Guid.NewGuid().ToId(),
-                CreationDate = DateTime.Now.ToJSONString(),
+                CreationDate = UtcTimestamp.Now,
                 CreatedBy = new Core.Models.EntityHeader() { Id = Guid.NewGuid().ToId(), Text = "user name" }
             };
 

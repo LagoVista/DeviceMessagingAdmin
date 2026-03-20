@@ -2,22 +2,22 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceMessaging.Models</id>
-    <version>3.0.3097.0925</version>
+    <version>3.0.3228.2054</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://www.nuviot.com</projectUrl>
     <iconUrl>http://bytemaster.blob.core.windows.net/icons/LagoVistaIcon.png</iconUrl>
     <description>Provides Models for managing Device Message Definitions in the LagoVista IoT and Devices Framework</description>
-    <copyright>Copyright Software Logistics - 2025</copyright>
+    <copyright>Copyright Software Logistics - 2026</copyright>
     <tags>HomeAutomation IoT LagoVista</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 11/8/2025 2:25:52 PM UTC</releaseNotes>
+    <releaseNotes>Build Date: 3/20/2026 12:54:51 AM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
       <group targetFramework="netstandard2.1">
-        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.3097.0925" />
-        <dependency id="LagoVista.UserAdmin.Models" version="3.0.3097.0925" />
+        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.3228.2054" />
+        <dependency id="LagoVista.UserAdmin.Models" version="3.0.3228.2054" />
         <dependency id="protobuf-net" version="3.0.101" />
       </group>
     </dependencies>

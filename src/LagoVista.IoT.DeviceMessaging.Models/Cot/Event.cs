@@ -99,7 +99,7 @@ namespace LagoVista.IoT.DeviceMessaging.Models.Cot
 			Stale = DateTime.Now.AddMinutes(5);
 		}
 
-		public static Event Pong(Event? ping)
+		public static Event Pong(Event ping)
 		{
             var e = ping ?? new Event();
 			e.Uid ??= Guid.NewGuid().ToString();

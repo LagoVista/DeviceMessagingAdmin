@@ -174,7 +174,7 @@ namespace LagoVista.IoT.DeviceMessaging.Admin.Models
                 nameof(AltitudeQueryStringField),
 
                 nameof(TopicLocator),
-
+               
                 nameof(JsonPath),
 
                 nameof(LatJsonPath),
