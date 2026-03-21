@@ -11,10 +11,7 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos
 {
     public interface IDeviceMessagingSettings
     {
-
-        IConnectionSettings DeviceMessagingDocDbStorage { get; set; }
-        IConnectionSettings DeviceMessagingTableStorage { get; set; }
-
-        bool ShouldConsolidateCollections { get; }
+        IConnectionSettings DeviceMessagingDocDbStorage { get; }
+        IConnectionSettings DeviceMessagingTableStorage { get; }
     }
 }
