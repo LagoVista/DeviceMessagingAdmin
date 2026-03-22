@@ -15,19 +15,9 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
 {
     public class DeviceMessageDefinitionRepo : DocumentDBRepoBase<DeviceMessageDefinition>, IDeviceMessageDefinitionRepo
     {
-        private bool _shouldConsolidateCollections;
         public DeviceMessageDefinitionRepo(IDeviceMessagingSettings repoSettings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyManager) :
             base(repoSettings.DeviceMessagingDocDbStorage.Uri, repoSettings.DeviceMessagingDocDbStorage.AccessKey, repoSettings.DeviceMessagingDocDbStorage.ResourceName, logger, cacheProvider, dependencyManager)
         {
-            _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
-        }
-
-        protected override bool ShouldConsolidateCollections
-        {
-            get
-            {
-                return _shouldConsolidateCollections;
-            }
         }
 
         public Task AddDeviceMessageDefinitionAsync(DeviceMessageDefinition deviceMessageDefinition)
