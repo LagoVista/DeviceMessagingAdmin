@@ -10,6 +10,7 @@ using LagoVista.IoT.DeviceMessaging.Admin.Models;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Interfaces;
+using LagoVista.CloudStorage.Interfaces;
 
 namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
 {
