@@ -15,8 +15,7 @@ namespace LagoVista.IoT.DeviceMessaging.CloudRepos.Repos
 {
     public class DeviceMessageDefinitionRepo : DocumentDBRepoBase<DeviceMessageDefinition>, IDeviceMessageDefinitionRepo
     {
-        public DeviceMessageDefinitionRepo(IDeviceMessagingSettings repoSettings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyManager) :
-            base(repoSettings.DeviceMessagingDocDbStorage.Uri, repoSettings.DeviceMessagingDocDbStorage.AccessKey, repoSettings.DeviceMessagingDocDbStorage.ResourceName, logger, cacheProvider, dependencyManager)
+        public DeviceMessageDefinitionRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 
