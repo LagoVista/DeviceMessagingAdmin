@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <NetStandardImplicitPackageVersion>2.0.3</NetStandardImplicitPackageVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.CloudStorage" Version="3.0.3230.1347" />
-    <PackageReference Include="LagoVista.Core.Configuration" Version="3.0.3230.1347" />
+    <PackageReference Include="LagoVista.CloudStorage" />
+    <PackageReference Include="LagoVista.Core.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceMessaging.Admin\LagoVista.IoT.DeviceMessaging.Admin.csproj" />

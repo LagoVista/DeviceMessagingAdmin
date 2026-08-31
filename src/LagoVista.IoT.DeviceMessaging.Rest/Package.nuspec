@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceMessaging.Rest</id>
-    <version>3.0.3230.1347</version>
+    <version>6.0.0</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -16,14 +16,14 @@
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
       <group targetFramework="net9.0">
-        <dependency id="LagoVista.IoT.Web.Common" version="3.0.3230.1347" />
-        <dependency id="LagoVista.IoT.DeviceMessaging.Admin" version="3.0.3230.1347" />
+        <dependency id="LagoVista.IoT.DeviceMessaging.Admin" version="6.0.0" />
+        <dependency id="LagoVista.IoT.Web.Common" version="6.0.1" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <file src="LagoVistaIcon.png" target="LagoVistaIcon.png" />
-    <file src="bin\release\net9.0\LagoVista.IoT.DeviceMessaging.Rest.dll" target="lib\net9.0\LagoVista.IoT.DeviceMessaging.Rest.dll" />
-    <file src="bin\release\net9.0\LagoVista.IoT.DeviceMessaging.Rest.pdb" target="lib\net9.0\LagoVista.IoT.DeviceMessaging.Rest.pdb" />
+    <file src="bin/Release/net9.0/LagoVista.IoT.DeviceMessaging.Rest.dll" target="lib/net9.0/LagoVista.IoT.DeviceMessaging.Rest.dll" />
+    <file src="bin/Release/net9.0/LagoVista.IoT.DeviceMessaging.Rest.pdb" target="lib/net9.0/LagoVista.IoT.DeviceMessaging.Rest.pdb" />
   </files>
 </package>

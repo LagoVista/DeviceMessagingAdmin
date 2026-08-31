@@ -1,12 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyVersion>1.0.5.0</AssemblyVersion>
     <FileVersion>1.0.5.0</FileVersion>
     <Version>1.0.5</Version>
   </PropertyGroup>
-
   <ItemGroup>
     <None Update="CotDescriptions.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -17,11 +15,9 @@
       <LastGenOutput>CotPredicates.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="CotDescriptions.cs">
       <DesignTime>True</DesignTime>
@@ -34,13 +30,10 @@
       <DependentUpon>CotPredicates.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="protobuf\" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="protobuf-net" Version="3.0.101" />
+    <PackageReference Include="protobuf-net" />
   </ItemGroup>
-
 </Project>

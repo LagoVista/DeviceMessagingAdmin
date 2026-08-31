@@ -9,9 +9,9 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" Version="3.0.3230.1347" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.3230.1347" />
-    <PackageReference Include="protobuf-net" Version="3.0.101" />
+    <PackageReference Include="LagoVista.IoT.DeviceAdmin.Models" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" />
+    <PackageReference Include="protobuf-net" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="T4ResourceGenerator.cs">
@@ -22,8 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\DeviceMessagingAdminResources.resx">
-      <Generator>
-      </Generator>
+      <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
